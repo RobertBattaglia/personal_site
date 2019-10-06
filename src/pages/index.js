@@ -2,18 +2,17 @@ import React from "react"
 import { graphql } from "gatsby"
 import Img from "gatsby-image"
 
-import Footer from "../components/footer"
+import Layout from "../components/layout"
 
 function Index({ data }) {
   return (
-    <>
+    <Layout>
       <div>Hello world!</div>
       <Img
         fixed={data.file.childImageSharp.fixed}
         alt="Me Wearing Sweater Outside"
       />
-      <Footer />
-    </>
+    </Layout>
   )
 }
 
