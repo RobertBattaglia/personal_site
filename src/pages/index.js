@@ -1,3 +1,10 @@
 import React from "react"
 
-export default () => <div>Hello world!</div>
+import Footer from "../components/footer"
+
+export default () => (
+  <>
+    <div>Hello world!</div>
+    <Footer />
+  </>
+)
