@@ -3,6 +3,8 @@ import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 import styled from "@emotion/styled"
 
+import Emoji from "./emoji"
+
 const DivWrapper = styled("div")`
   text-align: center;
   /* background: #033752; */
@@ -18,6 +20,14 @@ const SubTitle = styled("h3")`
 
 const ImgWrapper = styled(Img)`
   border-radius: 50%;
+`
+
+const EmojiDiv = styled("div")`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  max-width: 50%;
+  margin: 0 auto;
 `
 
 function Intro() {
@@ -41,6 +51,11 @@ function Intro() {
         fixed={data.file.childImageSharp.fixed}
         alt="Me Wearing Sweater Outside"
       />
+      <EmojiDiv>
+        <Emoji label="guitar" symbol="🎸" />
+        <Emoji label="coding" symbol="💻" />
+        <Emoji label="lifting" symbol="🏋" />
+      </EmojiDiv>
     </DivWrapper>
   )
 }
