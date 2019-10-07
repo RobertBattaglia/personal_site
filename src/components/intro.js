@@ -3,15 +3,21 @@ import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 import styled from "@emotion/styled"
 
-const ImgWrapper = styled(Img)`
-  border-radius: 50%;
-  left: 50%;
-  transform: translateX(-50%);
+const DivWrapper = styled("div")`
+  text-align: center;
+  /* background: #033752; */
 `
 
-const DivWrapper = styled("div")`
-  position: relative;
-  background: #033752;
+const Title = styled("h1")`
+  margin-bottom: 1rem;
+`
+
+const SubTitle = styled("h3")`
+  margin-bottom: 1rem;
+`
+
+const ImgWrapper = styled(Img)`
+  border-radius: 50%;
 `
 
 function Intro() {
@@ -29,8 +35,8 @@ function Intro() {
 
   return (
     <DivWrapper>
-      <h1>Hi, I'm Rob</h1>
-      <h4>I am a full stack engineer based in New York</h4>
+      <Title>Hi, I'm Rob</Title>
+      <SubTitle>I am a full stack engineer based in New York</SubTitle>
       <ImgWrapper
         fixed={data.file.childImageSharp.fixed}
         alt="Me Wearing Sweater Outside"

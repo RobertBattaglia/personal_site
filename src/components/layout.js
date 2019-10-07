@@ -12,6 +12,9 @@ const Container = styled("div")`
 
 const Main = styled("article")`
   flex-grow: 1;
+  max-width: 750px;
+  margin: 1.5rem auto;
+  padding: 0.5rem 1rem;
 `
 
 const globalStyles = css`
@@ -21,6 +24,7 @@ const globalStyles = css`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-size: 10px;
   }
 `
 
