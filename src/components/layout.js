@@ -2,6 +2,7 @@ import React from "react"
 import { Global, css } from "@emotion/core"
 import styled from "@emotion/styled"
 
+import Header from "../components/header"
 import Footer from "../components/footer"
 
 const Container = styled("div")`
@@ -31,6 +32,7 @@ const globalStyles = css`
 const Layout = ({ children }) => (
   <Container>
     <Global styles={globalStyles} />
+    <Header />
     <Main>{children}</Main>
     <Footer />
   </Container>
