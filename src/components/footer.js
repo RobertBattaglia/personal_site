@@ -5,7 +5,7 @@ import { css } from "@emotion/core"
 
 const footerStyle = css`
   min-height: 10vh;
-  background-color: #39cccc;
+  background-color: #0074d9;
   font-size: 1.5rem;
   color: #033752;
   text-align: center;
