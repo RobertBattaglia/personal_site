@@ -2,6 +2,7 @@ import React from "react"
 import styled from "@emotion/styled"
 
 import App from "./app"
+import AppData from "../data/applications.json"
 
 const Wrapper = styled("section")`
   text-align: center;
@@ -20,16 +21,11 @@ const AppsWrapper = styled("div")`
 `
 
 const Apps = () => {
-  const apps = [
-    { src: "minesweeper.gif", title: "Minesweeper" },
-    { src: "uru-shop.gif", title: "Uru-Shop" },
-    { src: "triva.gif", title: "Triva" },
-  ]
   return (
     <Wrapper>
       <H1>Applications</H1>
       <AppsWrapper>
-        {apps.map(app => (
+        {AppData.map(app => (
           <App app={app} />
         ))}
       </AppsWrapper>
