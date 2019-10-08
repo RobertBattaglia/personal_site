@@ -2,6 +2,9 @@ import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 import styled from "@emotion/styled"
+import { keyframes } from "@emotion/core"
+
+import { theme } from "../constants"
 
 const HeaderStyled = styled("header")`
   padding-top: 2rem;
@@ -11,9 +14,21 @@ const HeaderStyled = styled("header")`
   background: #fff;
 `
 
+const grow = keyframes`
+  50% {
+    transform: scale(1.33);
+  }
+  100% {
+    transform: scale(1);
+  }
+`
+
 const ImgWrapper = styled(Img)`
   margin-left: 3rem;
   cursor: pointer;
+  :hover {
+    animation: ${grow} 600ms;
+  }
 `
 
 const Button = styled("button")`
@@ -21,13 +36,13 @@ const Button = styled("button")`
   padding: 0.5rem 1rem;
   border: 2px solid #4ccdd6;
   border-radius: 1rem;
-  color: #4ccdd6;
+  color: ${theme.primaryColor};
   background-color: #fff;
   font-size: 1rem;
   -webkit-transition: all 0.2s ease-in-out;
   cursor: pointer;
   :hover {
-    background-color: #4ccdd6;
+    background-color: ${theme.primaryColor};
     color: #fff;
   }
 `

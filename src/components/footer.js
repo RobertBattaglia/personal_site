@@ -2,10 +2,11 @@ import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 
 import { css } from "@emotion/core"
+import { theme } from "../constants"
 
 const footerStyle = css`
   padding: 2rem 0;
-  background-color: #4ccdd6;
+  background-color: ${theme.primaryColor};
   font-size: 1.5rem;
   color: #033752;
   text-align: center;
