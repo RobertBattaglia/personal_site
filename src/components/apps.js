@@ -7,6 +7,7 @@ import AppData from "../data/applications.json"
 const Wrapper = styled("section")`
   text-align: center;
   background-color: #4078c0;
+  padding-bottom: 4rem;
 `
 
 const H1 = styled("h1")`

@@ -1,5 +1,26 @@
 [
-  { "src": "minesweeper.gif", "title": "Minesweeper" },
-  { "src": "uru-shop.gif", "title": "Uru-Shop" },
-  { "src": "triva.gif", "title": "Triva" }
+  {
+    "src": "minesweeper.gif",
+    "title": "Minesweeper",
+    "link": "https://github.com/RobertBattaglia/minesweeper",
+    "desc": "this is a very long description to see what it looks like on the screen you know, world whatup kid yankees in 3, gonna win the world series ya heard!"
+  },
+  {
+    "src": "uru-shop.gif",
+    "title": "Uru-Shop",
+    "link": "https://github.com/RobertBattaglia/uru-shop",
+    "desc": "this is a very long description to see what it looks like on the screen you know, world whatup kid yankees in 3, gonna win the world series ya heard!"
+  },
+  {
+    "src": "triva.gif",
+    "title": "Triva",
+    "link": "https://triva.herokuapp.com",
+    "desc": "this is a very long description to see what it this is a very long description to see what it this is a very long description to see what it this is a very long description to see what it this is a very long description to see what it looks like on the screen you know, world whatup kid yankees in 3, gonna win the world series ya heard!"
+  },
+  {
+    "src": "twiddler.gif",
+    "title": "Twiddler",
+    "link": "https://tw1ddler.herokuapp.com",
+    "desc": "this is a very long description to see what it looks like on the screen you know, world whatup kid yankees in 3, gonna win the world series ya heard!"
+  }
 ]

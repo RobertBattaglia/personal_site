@@ -11,7 +11,7 @@ const Container = styled("div")`
   min-height: 100vh;
 `
 
-const Main = styled("article")`
+const Main = styled("div")`
   flex-grow: 1;
 `
 
