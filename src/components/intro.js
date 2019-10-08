@@ -10,11 +10,12 @@ const Wrapper = styled("section")`
 `
 
 const Title = styled("h1")`
-  margin-bottom: 1rem;
+  margin-bottom: 0.25rem;
 `
 
 const SubTitle = styled("h3")`
-  margin-bottom: 1rem;
+  margin: 0 0 2rem 0;
+  font-weight: 300;
 `
 
 const ImgWrapper = styled(Img)`
@@ -44,8 +45,10 @@ function Intro() {
 
   return (
     <Wrapper>
-      <Title>Hi, I'm Rob</Title>
-      <SubTitle>I am a full stack engineer based in New York</SubTitle>
+      <Title>Full Stack Software Engineer</Title>
+      <SubTitle>
+        I write code to solve real problems, and I love what I do.
+      </SubTitle>
       <ImgWrapper
         fixed={data.file.childImageSharp.fixed}
         alt="Me Wearing Sweater Outside"

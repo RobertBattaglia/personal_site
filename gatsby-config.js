@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: "Robert Battaglia",
+    title: "Robert Battaglia | Engineer",
     author: "Robert Battaglia",
   },
   plugins: [

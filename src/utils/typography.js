@@ -6,13 +6,16 @@ githubTheme.overrideThemeStyles = () => ({
     border: "none",
   },
   h1: {
-    fontSize: "4rem",
+    fontSize: "calc(12px + 3vw)",
+  },
+  h3: {
+    fontSize: "calc(12px + 1vw)",
   },
   p: {
-    fontSize: "1rem",
+    fontSize: "calc(8px + 1vw)",
   },
   a: {
-    fontSize: "1rem",
+    fontSize: "calc(8px + 1vw)",
   },
 })
 

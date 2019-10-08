@@ -13,7 +13,7 @@ const Container = styled("div")`
 
 const Main = styled("article")`
   flex-grow: 1;
-  max-width: 750px;
+  max-width: 900px;
   margin: 1.5rem auto;
   padding: 0.5rem 1rem;
 `
