@@ -11,6 +11,7 @@ const Wrapper = styled("section")`
 `
 
 const H3 = styled("h3")`
+  font-size: calc(20px + 1.5vw);
   padding: 2rem 0 1rem 0;
   color: ${theme.primaryFontColor};
 `
@@ -19,7 +20,7 @@ const P = styled("p")`
   margin: 0 auto;
   max-width: 700px;
   color: ${theme.primaryFontColor};
-  line-height: 1.2;
+  line-height: 1.5;
   text-align: justify;
   text-justify: auto;
   @media (max-width: 768px) {
@@ -31,7 +32,6 @@ const Hobbies = styled(P)`
   margin-top: 1rem;
   text-align: center;
   font-style: italic;
-  text-decoration: underline;
 `
 
 const EmojiDiv = styled("div")`
@@ -49,7 +49,7 @@ const About = () => {
       <P>
         I am a fullstack software engineer based in New York. I fell in love
         with programming instantly after printing "Hello World!" to the command
-        prompt with Python. My curiosity rapidly expanded, as each new concept
+        prompt using Python. My curiosity rapidly expanded, as each new concept
         introduced brand new rabbit holes to explore.
       </P>
       <Hobbies>Hobbies of Mine</Hobbies>

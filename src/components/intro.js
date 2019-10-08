@@ -5,6 +5,7 @@ import styled from "@emotion/styled"
 
 const Wrapper = styled("section")`
   text-align: center;
+  padding: 0 2rem;
 `
 
 const Title = styled("h1")`
