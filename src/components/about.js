@@ -3,11 +3,12 @@ import styled from "@emotion/styled"
 
 import Emoji from "./emoji"
 
-import { theme } from "../constants"
+import { theme, mediaQueries } from "../constants"
 
 const Wrapper = styled("section")`
   background-color: ${theme.primaryColor};
   text-align: center;
+  padding-bottom: 14rem;
 `
 
 const H3 = styled("h3")`
@@ -23,7 +24,7 @@ const P = styled("p")`
   line-height: 1.5;
   text-align: justify;
   text-justify: auto;
-  @media (max-width: 768px) {
+  ${mediaQueries.small} {
     max-width: 300px;
   }
 `
@@ -47,7 +48,7 @@ const About = () => {
     <Wrapper>
       <H3>Hi, I'm Rob...</H3>
       <P>
-        I am a fullstack software engineer based in New York. I fell in love
+        and I'm a fullstack software engineer based in New York. I fell in love
         with programming instantly after printing "Hello World!" to the command
         prompt using Python. My curiosity rapidly expanded, as each new concept
         introduced brand new rabbit holes to explore.
