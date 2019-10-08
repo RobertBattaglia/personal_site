@@ -8,7 +8,7 @@ const footerStyle = css`
   padding: 2rem 0;
   background-color: ${theme.primaryColor};
   font-size: 1.5rem;
-  color: #033752;
+  color: ${theme.primaryFontColor};
   text-align: center;
 `
 
@@ -24,11 +24,11 @@ const Footer = () => {
   `)
   return (
     <footer css={footerStyle}>
-      <p>{`Created by ${
-        data.site.siteMetadata.author
-      } © ${new Date().getFullYear()}`}</p>
       <p>
-        Created With{" "}
+        {`Created by ${
+          data.site.siteMetadata.author
+        } © ${new Date().getFullYear()}`}{" "}
+        w/{" "}
         <a
           href="https://www.gatsbyjs.org/"
           target="_blank"
