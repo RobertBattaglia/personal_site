@@ -4,23 +4,32 @@ import Img from "gatsby-image"
 import styled from "@emotion/styled"
 
 const HeaderStyled = styled("header")`
+  padding-top: 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #dddddd;
+  background: #fff;
 `
 
 const ImgWrapper = styled(Img)`
-  margin: 0.5rem;
+  margin-left: 3rem;
   cursor: pointer;
 `
 
 const Button = styled("button")`
-  margin: 0.5rem;
-  padding: 1rem;
-  border: 2px solid black;
+  margin-right: 3rem;
+  padding: 0.5rem 1rem;
+  border: 2px solid #4ccdd6;
   border-radius: 1rem;
-  box-shadow: 1rem black;
+  color: #4ccdd6;
+  background-color: #fff;
+  font-size: 1rem;
+  -webkit-transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  :hover {
+    background-color: #4ccdd6;
+    color: #fff;
+  }
 `
 
 function Header() {
@@ -28,7 +37,7 @@ function Header() {
     query {
       file(relativePath: { eq: "logo.png" }) {
         childImageSharp {
-          fixed(width: 100) {
+          fixed(width: 70) {
             ...GatsbyImageSharpFixed
           }
         }

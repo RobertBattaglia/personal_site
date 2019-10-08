@@ -5,9 +5,8 @@ import styled from "@emotion/styled"
 
 import Emoji from "./emoji"
 
-const DivWrapper = styled("div")`
+const Wrapper = styled("section")`
   text-align: center;
-  /* background: #033752; */
 `
 
 const Title = styled("h1")`
@@ -44,7 +43,7 @@ function Intro() {
   `)
 
   return (
-    <DivWrapper>
+    <Wrapper>
       <Title>Hi, I'm Rob</Title>
       <SubTitle>I am a full stack engineer based in New York</SubTitle>
       <ImgWrapper
@@ -56,7 +55,7 @@ function Intro() {
         <Emoji label="coding" symbol="💻" />
         <Emoji label="lifting" symbol="🏋" />
       </EmojiDiv>
-    </DivWrapper>
+    </Wrapper>
   )
 }
 
