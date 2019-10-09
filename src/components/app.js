@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "@emotion/styled"
+import LazyLoad from "react-lazy-load"
 
 const A = styled("a")`
   text-decoration: none !important;
@@ -13,7 +14,7 @@ const AppCard = styled("article")`
   background-color: #e6ecf8;
   border: solid #e6ecf8 1px;
 `
-const ImgWrapper = styled("figure")`
+const ImgWrapper = styled(LazyLoad)`
   height: 210px;
   padding: 1rem;
   background-color: #fff;
@@ -44,8 +45,8 @@ const App = props => {
   return (
     <A href={link} target="_blank" rel="noopener noreferrer">
       <AppCard>
-        <ImgWrapper>
-          <Img src={require(`../images/applications/${src}`)} />
+        <ImgWrapper height={210} offsetVertical={500}>
+          <Img src={require(`../images/applications/${src}`)} alt={title} />
         </ImgWrapper>
         <Title>{title}</Title>
         <Description>{desc}</Description>

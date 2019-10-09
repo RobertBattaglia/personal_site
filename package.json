@@ -24,6 +24,7 @@
     "gatsby-transformer-sharp": "^2.2.20",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
+    "react-lazy-load": "^3.0.13",
     "react-typography": "^0.16.19",
     "typography": "^0.16.19",
     "typography-theme-github": "^0.16.19"
