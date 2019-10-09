@@ -25,13 +25,12 @@ const grow = keyframes`
 
 const ImgWrapper = styled(Img)`
   margin-left: 1.5rem;
-  cursor: pointer;
   :hover {
     animation: ${grow} 600ms;
   }
 `
 
-const Button = styled("button")`
+export const Button = styled("button")`
   margin-right: 1.5rem;
   padding: 0.5rem 1rem;
   border: 2px solid #4ccdd6;

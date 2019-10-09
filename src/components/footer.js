@@ -5,7 +5,7 @@ import { css } from "@emotion/core"
 import { theme } from "../constants"
 
 const footerStyle = css`
-  padding: 2rem 0;
+  padding: 10rem 0 3rem 0;
   background-color: ${theme.primaryColor};
   font-size: 1.5rem;
   color: ${theme.primaryFontColor};

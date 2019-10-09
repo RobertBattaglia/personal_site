@@ -6,7 +6,7 @@ const AppCard = styled("a")`
   text-decoration: none !important;
   cursor: default;
   min-height: 420px;
-  width: 360px;
+  width: 320px;
   margin: 1rem;
   background-color: #e6ecf8;
   border: solid #e6ecf8 1px;
