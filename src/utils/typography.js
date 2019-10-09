@@ -1,7 +1,7 @@
 import Typography from "typography"
-import githubTheme from "typography-theme-github"
+import grandviewTheme from "typography-theme-grand-view"
 
-githubTheme.overrideThemeStyles = () => ({
+grandviewTheme.overrideThemeStyles = () => ({
   "h1,h2,h3": {
     border: "none",
   },
@@ -19,7 +19,7 @@ githubTheme.overrideThemeStyles = () => ({
   },
 })
 
-const typography = new Typography(githubTheme)
+const typography = new Typography(grandviewTheme)
 
 export const { scale, rhythm, options } = typography
 export default typography

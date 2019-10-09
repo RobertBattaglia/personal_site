@@ -27,7 +27,7 @@
     "react-lazy-load": "^3.0.13",
     "react-typography": "^0.16.19",
     "typography": "^0.16.19",
-    "typography-theme-github": "^0.16.19"
+    "typography-theme-grand-view": "^0.16.19"
   },
   "devDependencies": {
     "env-cmd": "^10.0.1",
