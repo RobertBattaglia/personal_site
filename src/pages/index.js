@@ -6,6 +6,7 @@ import Intro from "../components/intro"
 import About from "../components/about"
 import Skills from "../components/skills"
 import Apps from "../components/apps"
+import Contact from "../components/contact"
 
 function Index() {
   return (
@@ -14,6 +15,7 @@ function Index() {
       <About />
       <Skills />
       <Apps />
+      <Contact />
     </Layout>
   )
 }

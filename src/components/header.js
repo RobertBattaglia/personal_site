@@ -62,7 +62,9 @@ function Header() {
   return (
     <HeaderStyled>
       <ImgWrapper fixed={data.file.childImageSharp.fixed} alt="Logo" />
-      <Button>Contact</Button>
+      <a href="#contact">
+        <Button>Contact</Button>
+      </a>
     </HeaderStyled>
   )
 }
