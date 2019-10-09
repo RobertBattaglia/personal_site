@@ -2,14 +2,11 @@ import React from "react"
 import styled from "@emotion/styled"
 import LazyLoad from "react-lazy-load"
 
-const A = styled("a")`
+const AppCard = styled("a")`
   text-decoration: none !important;
   cursor: default;
-`
-
-const AppCard = styled("article")`
   min-height: 420px;
-  width: 320px;
+  width: 360px;
   margin: 1rem;
   background-color: #e6ecf8;
   border: solid #e6ecf8 1px;
@@ -43,15 +40,13 @@ const App = props => {
   const { src, title, link, desc } = props.app
 
   return (
-    <A href={link} target="_blank" rel="noopener noreferrer">
-      <AppCard>
-        <ImgWrapper height={210} offsetVertical={500}>
-          <Img src={require(`../images/applications/${src}`)} alt={title} />
-        </ImgWrapper>
-        <Title>{title}</Title>
-        <Description>{desc}</Description>
-      </AppCard>
-    </A>
+    <AppCard href={link} target="_blank" rel="noopener noreferrer">
+      <ImgWrapper height={210} offsetVertical={500}>
+        <Img src={require(`../images/applications/${src}`)} alt={title} />
+      </ImgWrapper>
+      <Title>{title}</Title>
+      <Description>{desc}</Description>
+    </AppCard>
   )
 }
 

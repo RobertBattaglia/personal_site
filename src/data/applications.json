@@ -1,15 +1,21 @@
 [
   {
+    "src": "uru-shop.gif",
+    "title": "Uru-Shop",
+    "link": "https://github.com/RobertBattaglia/uru-shop",
+    "desc": "this is a very long description to see what it looks like on the screen you know, world whatup kid yankees in 3, gonna win the world series ya heard!"
+  },
+  {
     "src": "minesweeper.gif",
     "title": "Minesweeper",
     "link": "https://github.com/RobertBattaglia/minesweeper",
     "desc": "this is a very long description to see what it looks like on the screen you know, world whatup kid yankees in 3, gonna win the world series ya heard!"
   },
   {
-    "src": "uru-shop.gif",
-    "title": "Uru-Shop",
-    "link": "https://github.com/RobertBattaglia/uru-shop",
-    "desc": "this is a very long description to see what it looks like on the screen you know, world whatup kid yankees in 3, gonna win the world series ya heard!"
+    "src": "build-a-bogo.gif",
+    "title": "Build-a-Bogo",
+    "link": "https://buildabogo.com",
+    "desc": "e-commerce store written in React and Redux, with serverless backend. I added Google Analytics to the application as well as a lambda function to calculate sales tax for the Stripe order."
   },
   {
     "src": "triva.gif",
@@ -18,9 +24,27 @@
     "desc": "this is a very long description to see what it this is a very long description to see what it this is a very long description to see what it this is a very long description to see what it this is a very long description to see what it looks like on the screen you know, world whatup kid yankees in 3, gonna win the world series ya heard!"
   },
   {
+    "src": "spear-qa.png",
+    "title": "Spear-QA",
+    "link": "https://github.com.RobertBattaglia/spear-qa",
+    "desc": "this is a very long description to see what it this is a very long description to see what it this is a very long description to see what it this is a very long description to see what it this is a very long description to see what it looks like on the screen you know, world whatup kid yankees in 3, gonna win the world series ya heard!"
+  },
+  {
     "src": "twiddler.gif",
     "title": "Twiddler",
     "link": "https://tw1ddler.herokuapp.com",
+    "desc": "this is a very long description to see what it looks like on the screen you know, world whatup kid yankees in 3, gonna win the world series ya heard!"
+  },
+  {
+    "src": "crypto-chart.png",
+    "title": "Crypto Chart",
+    "link": "http://crypt0-chart.herokuapp.com/",
+    "desc": "this is a very long description to see what it looks like on the screen you know, world whatup kid yankees in 3, gonna win the world series ya heard!"
+  },
+  {
+    "src": "github-fetcher.gif",
+    "title": "Github Repo Fetcher",
+    "link": "https://github-repository-fetcher.herokuapp.com/",
     "desc": "this is a very long description to see what it looks like on the screen you know, world whatup kid yankees in 3, gonna win the world series ya heard!"
   }
 ]
