@@ -2,7 +2,35 @@ import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 import styled from "@emotion/styled"
+import { keyframes } from "@emotion/core"
 import { mediaQueries } from "../constants"
+
+const moveInLeft = keyframes`
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  80% {
+    transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+`
+const moveInRight = keyframes`
+  0% {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  80% {
+    transform: translateX(-16px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+`
 
 const Wrapper = styled("section")`
   text-align: center;
@@ -12,6 +40,8 @@ const Wrapper = styled("section")`
 const Title = styled("h1")`
   margin-bottom: 0.75rem;
   letter-spacing: 8px;
+  animation-name: ${moveInLeft};
+  animation-duration: 1200ms;
   ${mediaQueries.small} {
     letter-spacing: 0px;
   }
@@ -19,6 +49,8 @@ const Title = styled("h1")`
 
 const SubTitle = styled("h3")`
   margin: 0 0 2rem 0;
+  animation-name: ${moveInRight};
+  animation-duration: 1200ms;
 `
 
 const ImgWrapper = styled(Img)`
