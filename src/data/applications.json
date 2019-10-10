@@ -9,7 +9,7 @@
     "src": "build-a-bogo.gif",
     "title": "Build-a-Bogo",
     "link": "https://buildabogo.com",
-    "desc": "e-commerce store written in React and Redux, with serverless backend. I added Google Analytics to the application and an AWS Lambda function to calculate sales tax for the Stripe order. Upvote us on <a href=\"https://producthunt.com/posts/build-a-bogo\" target=\"_blank\">Product Hunt!</a>"
+    "desc": "e-commerce store written in React and Redux, with serverless backend. I added Google Analytics to the application and an AWS Lambda function to calculate sales tax for the Stripe order. Upvote us on <a href=\"https://producthunt.com/posts/build-a-bogo\" target=\"_blank\" rel=\"noopener noreferrer\">Product Hunt!</a>"
   },
   {
     "src": "minesweeper.gif",
@@ -21,7 +21,7 @@
     "src": "triva.gif",
     "title": "Triva",
     "link": "https://triva.herokuapp.com",
-    "desc": "Trivia game using React and a <a href=\"https://opentdb.com/\" target=\"_blank\">third party API</a>. Employing browsers' localstorage API to store recent scores on the client."
+    "desc": "Trivia game using React and a <a href=\"https://opentdb.com/\" target=\"_blank\" rel=\"noopener noreferrer\">third party API</a>. Employing browsers' localstorage API to store recent scores on the client."
   },
   {
     "src": "spear-qa.png",
@@ -39,7 +39,7 @@
     "src": "crypto-chart.png",
     "title": "Crypto Chart",
     "link": "http://crypt0-chart.herokuapp.com/",
-    "desc": "Chart displaying Bitcoin's average daily price over the last 30 days. Powered by <a href=\"https://coindesk.com\" target=\"_blank\">Coindesk.</a>"
+    "desc": "Chart displaying Bitcoin's average daily price over the last 30 days. Powered by <a href=\"https://coindesk.com\" target=\"_blank\" rel=\"noopener noreferrer\">Coindesk.</a>"
   },
   {
     "src": "github-fetcher.gif",
