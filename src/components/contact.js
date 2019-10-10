@@ -6,6 +6,7 @@ import { Button } from "./header"
 const Wrapper = styled("section")`
   min-height: 30vh;
   background: linear-gradient(${theme.secondaryColor}, ${theme.primaryColor});
+  padding-top: 2rem;
 `
 
 const Form = styled("form")`
