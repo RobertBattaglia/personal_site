@@ -48,19 +48,39 @@ const Footer = () => {
   return (
     <Wrapper>
       <Icons>
-        <A href="https://github.com/RobertBattaglia">
+        <A
+          href="https://github.com/RobertBattaglia"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <FaGithub size={30} />
         </A>
-        <A href="https://twitter.com/r0bertoB">
+        <A
+          href="https://twitter.com/r0bertoB"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <FaTwitter size={30} />
         </A>
-        <A href="https://angel.co/robert-battaglia-1">
+        <A
+          href="https://angel.co/robert-battaglia-1"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <FaAngellist size={30} />
         </A>
-        <A href="https://www.instagram.com/r0bertob/">
+        <A
+          href="https://www.instagram.com/r0bertob/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <FaInstagram size={30} />
         </A>
-        <A href="https://www.linkedin.com/in/robertbattaglia1/">
+        <A
+          href="https://www.linkedin.com/in/robertbattaglia1/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <FaLinkedin size={30} />
         </A>
       </Icons>
