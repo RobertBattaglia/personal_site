@@ -32,4 +32,3 @@ module.exports = {
     },
   ],
 }
-console.log(process.env.GA_TRACKING_ID)
