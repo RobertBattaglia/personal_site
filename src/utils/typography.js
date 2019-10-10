@@ -9,9 +9,6 @@ grandviewTheme.overrideThemeStyles = () => ({
   h1: {
     fontSize: "calc(12px + 2vw)",
   },
-  h3: {
-    fontSize: "calc(9px + 1vw)",
-  },
   p: {
     fontSize: "calc(8px + 1vw)",
   },

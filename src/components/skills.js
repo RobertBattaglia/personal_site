@@ -2,6 +2,7 @@ import React from "react"
 import styled from "@emotion/styled"
 
 import Skill from "./skill"
+import SkillData from "../data/skills.json"
 
 const Wrapper = styled("section")`
   display: flex;
@@ -13,9 +14,9 @@ const Wrapper = styled("section")`
 const Skills = () => {
   return (
     <Wrapper>
-      <Skill title="Front End" desc="These are my front end skills" />
-      <Skill title="Back End" desc="These are my back end skills" />
-      <Skill title="Tooling" desc="These are my tooling skills" />
+      {SkillData.map(({ title, skills }) => (
+        <Skill title={title} skills={skills} />
+      ))}
     </Wrapper>
   )
 }

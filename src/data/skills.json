@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Proficient",
+    "skills": [
+      "Javascript",
+      "React",
+      "Redux",
+      "Express",
+      "HTML",
+      "CSS",
+      "RESTful APIs"
+    ]
+  },
+  {
+    "title": "Experienced",
+    "skills": ["Python", "SQL", "Flask", "Django", "AWS", "Docker"]
+  },
+  {
+    "title": "on Radar",
+    "skills": ["Typescript", "GraphQL", "Gatsby", "Serverless"]
+  }
+]

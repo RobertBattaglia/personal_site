@@ -6,16 +6,16 @@
     "desc": "this is a very long description to see what it looks like on the screen you know, world whatup kid yankees in 3, gonna win the world series ya heard!"
   },
   {
-    "src": "minesweeper.gif",
-    "title": "Minesweeper",
-    "link": "https://github.com/RobertBattaglia/minesweeper",
-    "desc": "this is a very long description to see what it looks like on the screen you know, world whatup kid yankees in 3, gonna win the world series ya heard!"
-  },
-  {
     "src": "build-a-bogo.gif",
     "title": "Build-a-Bogo",
     "link": "https://buildabogo.com",
     "desc": "e-commerce store written in React and Redux, with serverless backend. I added Google Analytics to the application as well as a lambda function to calculate sales tax for the Stripe order."
+  },
+  {
+    "src": "minesweeper.gif",
+    "title": "Minesweeper",
+    "link": "https://github.com/RobertBattaglia/minesweeper",
+    "desc": "this is a very long description to see what it looks like on the screen you know, world whatup kid yankees in 3, gonna win the world series ya heard!"
   },
   {
     "src": "triva.gif",

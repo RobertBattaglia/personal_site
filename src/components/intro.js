@@ -51,6 +51,7 @@ const SubTitle = styled("h3")`
   margin: 0 0 2rem 0;
   animation-name: ${moveInRight};
   animation-duration: 1200ms;
+  font-size: calc(9px + 1vw);
 `
 
 const ImgWrapper = styled(Img)`

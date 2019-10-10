@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "@emotion/styled"
+import { FaCheckCircle } from "react-icons/fa"
 
 import { mediaQueries } from "../constants"
 
@@ -17,12 +18,28 @@ const Wrapper = styled("div")`
   }
 `
 
-const Skill = props => {
-  const { title, desc } = props
+const Ul = styled("ul")`
+  margin: 0;
+`
+
+const Li = styled("li")`
+  list-style: none;
+  font-size: 1.25rem;
+  vertical-align: baseline;
+`
+
+const Skill = ({ title, skills }) => {
   return (
     <Wrapper>
       <h3>{title}</h3>
-      <p>{desc}</p>
+      <Ul>
+        {skills.map(skill => (
+          <Li>
+            <FaCheckCircle size={16} style={{ verticalAlign: "center" }} />{" "}
+            {skill}
+          </Li>
+        ))}
+      </Ul>
     </Wrapper>
   )
 }
