@@ -38,7 +38,9 @@ const Label = styled("label")`
 
 const Input = styled("input")`
   display: block;
-  width: 100%;
+  width: 95%;
+  margin: 0 auto;
+  padding: 0 1rem;
   border: solid #e6ecf8 1px;
   border-radius: 1rem;
   font-size: 1.25rem;
@@ -46,7 +48,9 @@ const Input = styled("input")`
 
 const Textarea = styled("textarea")`
   display: block;
-  width: 100%;
+  width: 95%;
+  margin: 0 auto;
+  padding: 0 1rem;
   border: solid #e6ecf8 1px;
   border-radius: 1rem;
   font-size: 1.25rem;

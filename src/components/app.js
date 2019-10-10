@@ -46,7 +46,7 @@ const App = props => {
         </ImgWrapper>
       </a>
       <Title>{title}</Title>
-      <Description>{desc}</Description>
+      <Description dangerouslySetInnerHTML={{ __html: desc }} />
     </AppCard>
   )
 }

@@ -13,7 +13,7 @@ grandviewTheme.overrideThemeStyles = () => ({
     fontSize: "calc(8px + 1vw)",
   },
   a: {
-    fontSize: "calc(8px + 1vw)",
+    fontSize: "calc(12px + 0.5vw)",
     color: `${theme.primaryColorFont}`,
   },
 })
