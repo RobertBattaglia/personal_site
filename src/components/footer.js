@@ -1,15 +1,38 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
+import styled from "@emotion/styled"
+import {
+  FaGithub,
+  FaTwitter,
+  FaAngellist,
+  FaInstagram,
+  FaLinkedin,
+} from "react-icons/fa"
 
-import { css } from "@emotion/core"
 import { theme } from "../constants"
 
-const footerStyle = css`
+const Wrapper = styled("footer")`
   padding: 10rem 0 3rem 0;
   background-color: ${theme.primaryColor};
   font-size: 1.5rem;
   color: ${theme.primaryFontColor};
   text-align: center;
+`
+
+const Icons = styled("div")`
+  display: flex;
+  justify-content: space-evenly;
+  width: 320px;
+  height: 30px;
+  margin: 1rem auto;
+`
+
+const A = styled("a")`
+  margin: 0;
+  color: ${theme.primaryFontColor};
+  :hover {
+    color: ${theme.secondaryColor};
+  }
 `
 
 const Footer = () => {
@@ -23,7 +46,24 @@ const Footer = () => {
     }
   `)
   return (
-    <footer css={footerStyle}>
+    <Wrapper>
+      <Icons>
+        <A href="https://github.com/RobertBattaglia">
+          <FaGithub size={30} />
+        </A>
+        <A href="https://twitter.com/r0bertoB">
+          <FaTwitter size={30} />
+        </A>
+        <A href="https://angel.co/robert-battaglia-1">
+          <FaAngellist size={30} />
+        </A>
+        <A href="https://www.instagram.com/r0bertob/">
+          <FaInstagram size={30} />
+        </A>
+        <A href="https://www.linkedin.com/in/robertbattaglia1/">
+          <FaLinkedin size={30} />
+        </A>
+      </Icons>
       <p>
         {`Created by ${
           data.site.siteMetadata.author
@@ -37,7 +77,7 @@ const Footer = () => {
           Gatsby
         </a>
       </p>
-    </footer>
+    </Wrapper>
   )
 }
 
