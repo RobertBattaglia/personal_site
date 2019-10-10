@@ -31,9 +31,8 @@ const Title = styled("h4")`
 const Description = styled("p")`
   margin: 0;
   padding: 1.5rem;
-  line-height: 1;
-  text-align: justify;
-  text-justify: auto;
+  line-height: 1.1;
+  font-size: calc(12px + 0.5vw);
 `
 
 const App = props => {

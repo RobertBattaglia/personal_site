@@ -1,21 +1,23 @@
 import Typography from "typography"
 import grandviewTheme from "typography-theme-grand-view"
+import { theme } from "../constants"
 
 grandviewTheme.overrideThemeStyles = () => ({
   "h1,h2,h3": {
     border: "none",
   },
   h1: {
-    fontSize: "calc(12px + 3vw)",
+    fontSize: "calc(12px + 2vw)",
   },
   h3: {
-    fontSize: "calc(12px + 1vw)",
+    fontSize: "calc(9px + 1vw)",
   },
   p: {
     fontSize: "calc(8px + 1vw)",
   },
   a: {
     fontSize: "calc(8px + 1vw)",
+    color: `${theme.primaryColorFont}`,
   },
 })
 
