@@ -12,10 +12,10 @@
     "desc": "e-commerce store written in React and Redux, with serverless backend. I added Google Analytics to the application and an AWS Lambda function to calculate sales tax for the Stripe order. Upvote us on <a href=\"https://producthunt.com/posts/build-a-bogo\" target=\"_blank\" rel=\"noopener noreferrer\">Product Hunt!</a>"
   },
   {
-    "src": "minesweeper.gif",
-    "title": "Minesweeper",
-    "link": "https://github.com/RobertBattaglia/minesweeper",
-    "desc": "Responsive 10x10 minesweeper board with React and Redux. Redux Sagas are used to trigger square checks adjacent to clicked square."
+    "src": "todos.gif",
+    "title": "Todos",
+    "link": "todos.robertbattaglia.com",
+    "desc": "Todo Application using Facebook Login API to persist data on Mongo Atlas DB. Also using localstorage to persist across browser sessions."
   },
   {
     "src": "triva.gif",
@@ -26,7 +26,7 @@
   {
     "src": "spear-qa.png",
     "title": "Spear-QA",
-    "link": "https://github.com.RobertBattaglia/spear-qa",
+    "link": "https://github.com/RobertBattaglia/spear-qa",
     "desc": "Microservice for the questions and answers part of the Uru-Shop backend. Deployed across AWS EC2s with Docker Swarm. Used Express for application layer, PostgreSQL for data layer and Redis for caching."
   },
   {
@@ -40,6 +40,12 @@
     "title": "Crypto Chart",
     "link": "http://crypt0-chart.herokuapp.com/",
     "desc": "Chart displaying Bitcoin's average daily price over the last 30 days. Powered by <a href=\"https://coindesk.com\" target=\"_blank\" rel=\"noopener noreferrer\">Coindesk.</a>"
+  },
+  {
+    "src": "minesweeper.gif",
+    "title": "Minesweeper",
+    "link": "https://github.com/RobertBattaglia/minesweeper",
+    "desc": "Responsive 10x10 minesweeper board with React and Redux. Redux Sagas are used to trigger square checks adjacent to clicked square."
   },
   {
     "src": "github-fetcher.gif",
