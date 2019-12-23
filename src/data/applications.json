@@ -14,7 +14,7 @@
   {
     "src": "todos.gif",
     "title": "Todos",
-    "link": "todos.robertbattaglia.com",
+    "link": "https://todos.robertbattaglia.com",
     "desc": "Todo Application using Facebook Login API to persist data on Mongo Atlas DB. Also using localstorage to persist across browser sessions."
   },
   {
