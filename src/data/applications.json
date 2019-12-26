@@ -20,7 +20,7 @@
   {
     "src": "triva.gif",
     "title": "Triva",
-    "link": "https://triva.robertbattaglia.com",
+    "link": "http://triva.robertbattaglia.com",
     "desc": "Trivia game using React and a <a href=\"https://opentdb.com/\" target=\"_blank\" rel=\"noopener noreferrer\">third party API</a>. Employing browsers' localstorage API to store recent scores on the client."
   },
   {
