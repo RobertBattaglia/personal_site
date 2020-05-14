@@ -13,10 +13,10 @@
   },
   {
     "title": "Experienced",
-    "skills": ["Python", "SQL", "Flask", "Django", "AWS", "Docker"]
+    "skills": ["Python", "SQL", "Flask", "Django", "AWS", "Docker", "GraphQL"]
   },
   {
-    "title": "on Radar",
-    "skills": ["Typescript", "GraphQL", "Gatsby", "Serverless"]
+    "title": "Learning",
+    "skills": ["Typescript", "Go", "Serverless Architecture"]
   }
 ]
