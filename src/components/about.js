@@ -43,6 +43,7 @@ const EmojiDiv = styled("div")`
   justify-content: space-evenly;
   max-width: 300px;
   margin: 0 auto;
+  font-style: normal;
 `
 
 const Logo = styled("div")`
