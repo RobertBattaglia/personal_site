@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import styled from "@emotion/styled"
 import { theme, mediaQueries } from "../constants"
 import { Button } from "./header"
@@ -61,6 +61,10 @@ const SubmitButton = styled(Button)`
 `
 
 const Contact = () => {
+  useEffect(() => {
+    const textArea = document.querySelector("#contact-message")
+    textArea.rows = window.innerWidth <= 768 ? 8 : 4
+  }, [])
   return (
     <Wrapper id="contact">
       <FormWrapper>
@@ -78,12 +82,8 @@ const Contact = () => {
             <Input type="email" name="email" />
           </Label>
           <Label>
-            Name
-            <Input type="text" name="name" />
-          </Label>
-          <Label>
             Message
-            <Textarea name="message" rows={4} />
+            <Textarea id="contact-message" name="message" rows={4} />
           </Label>
           <SubmitButton type="submit">Send Message</SubmitButton>
         </Form>

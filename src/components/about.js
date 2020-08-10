@@ -1,10 +1,8 @@
 import React from "react"
 import styled from "@emotion/styled"
 
-import Emoji from "./emoji"
-
 import { theme, mediaQueries } from "../constants"
-import CNBC_LOGO from '../images/svgs/cnbc-logo.svg'
+import CNBC_LOGO from "../images/svgs/cnbc-logo.svg"
 
 const Wrapper = styled("section")`
   background-color: ${theme.primaryColor};
@@ -24,26 +22,11 @@ const P = styled("p")`
   max-width: 700px;
   color: ${theme.primaryFontColor};
   line-height: 1.5;
-  text-align: justify;
+  text-align: center;
   text-justify: auto;
   ${mediaQueries.small} {
     max-width: 300px;
   }
-`
-
-const Hobbies = styled(P)`
-  margin: 1rem auto 0 auto;
-  text-align: center;
-  font-style: italic;
-`
-
-const EmojiDiv = styled("div")`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  max-width: 300px;
-  margin: 0 auto;
-  font-style: normal;
 `
 
 const Logo = styled("div")`
@@ -56,25 +39,14 @@ const About = () => {
     <Wrapper>
       <H3>Hi, I'm Rob...</H3>
       <P>
-        I fell in love
-        with programming instantly after printing "Hello World!" to the command
-        prompt for the first time. My curiosity rapidly expanded, as each new concept
-        introduced brand new rabbit holes to explore.
+        I fell in love with programming instantly after printing "Hello World!"
+        to the command prompt for the first time. My curiosity rapidly expanded,
+        as each new concept introduced brand new rabbit holes to explore.
       </P>
       <Logo>
-        <CNBC_LOGO/>
+        <CNBC_LOGO />
       </Logo>
-      <P>
-        My current role is on the Web Engagement team at CNBC.
-      </P>
-      <Hobbies>
-        Hobbies of Mine
-        <EmojiDiv>
-          <Emoji label="guitar" symbol="🎸" />
-          <Emoji label="coding" symbol="💻" />
-          <Emoji label="lifting" symbol="🏋" />
-        </EmojiDiv>
-      </Hobbies>
+      <P>My current role is on the Web Engagement team at CNBC.</P>
     </Wrapper>
   )
 }
