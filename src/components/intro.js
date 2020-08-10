@@ -79,7 +79,7 @@ function Intro() {
       </SubTitle>
       <ImgWrapper
         fixed={data.file.childImageSharp.fixed}
-        alt="Me Wearing Sweater Outside"
+        alt="Rob Wearing a Sweater in a backyard, with a fence in the background"
       />
     </Wrapper>
   )

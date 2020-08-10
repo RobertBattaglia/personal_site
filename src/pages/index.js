@@ -13,6 +13,7 @@ function Index() {
   return (
     <Layout>
       <Helmet>
+        <html lang="en" />
         <meta charSet="utf-8" />
         <meta name="title" content={siteMetadata.title} />
         <meta name="description" content={siteMetadata.description} />

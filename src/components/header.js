@@ -50,17 +50,19 @@ function Header() {
   const enterText = node => {
     const messages = [
       "Hello Rob, my name is... ~ and I wanted to contact you because...",
-      "What's up man, ~ I gotta tell you something crazy...",
+      "What's up Rob, ~ I gotta tell you something crazy...",
     ]
     const text = messages[Math.floor(Math.random() * messages.length)]
     const enterChar = idx => {
       const char = text.charAt(idx)
       const timeout = char === "~" ? 500 : Math.random() * 150
-      if (char !== "~") node.textContent += char
+      if (char !== "~") node.value += char
       if (idx < text.length) {
         setTimeout(() => {
           enterChar(idx + 1)
         }, timeout)
+      } else {
+        node.focus()
       }
     }
     enterChar(0)
@@ -69,7 +71,7 @@ function Header() {
   const handleClick = () => {
     const contact = document.querySelector("#contact")
     const messageField = document.querySelector("#contact-message")
-    messageField.textContent = ""
+    messageField.value = ""
     contact.scrollIntoView()
     enterText(messageField)
   }

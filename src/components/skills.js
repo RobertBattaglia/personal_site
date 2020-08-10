@@ -15,7 +15,7 @@ const Skills = () => {
   return (
     <Wrapper>
       {SkillData.map(({ title, skills }) => (
-        <Skill title={title} skills={skills} />
+        <Skill title={title} skills={skills} key={title}/>
       ))}
     </Wrapper>
   )

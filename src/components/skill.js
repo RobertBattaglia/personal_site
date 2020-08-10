@@ -57,7 +57,7 @@ const Skill = ({ title, skills }) => {
       <h3>{title}</h3>
       <Ul>
         {skills.map(skill => (
-          <Li>
+          <Li key={skill}>
             <FaCheckCircle size={16} style={{ verticalAlign: "center" }} />{" "}
             {skill}
           </Li>

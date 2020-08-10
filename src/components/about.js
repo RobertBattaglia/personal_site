@@ -48,12 +48,16 @@ const About = () => {
         <a href="https://com-robertbattaglia.s3.amazonaws.com/Transcript.pdf">
           magna cum laude
         </a>{" "}
-        from Quinnipiac University with a B.S. in Computer Information Systems.
+        from{" "}
+        <a href="http://qu.edu">Quinnipiac University</a>{" "}
+        with a B.S. in Computer Information Systems.
       </P>
       <Logo>
         <CNBC_LOGO />
       </Logo>
-      <P>My current role is on the Web Engagement team at CNBC.</P>
+      <P>My current role is on the Web Engagement team at{" "}
+        <a href="https://cnbc.com">CNBC</a>.
+      </P>
     </Wrapper>
   )
 }

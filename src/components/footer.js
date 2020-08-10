@@ -52,34 +52,39 @@ const Footer = () => {
           href="https://twitter.com/r0bertoB"
           target="_blank"
           rel="noopener noreferrer"
-        >
+          aria-label="Rob's Twitter"
+          >
           <FaTwitter size={30} />
         </A>
         <A
           href="https://angel.co/robert-battaglia-1"
           target="_blank"
           rel="noopener noreferrer"
-        >
+          aria-label="Rob's Angelist"
+          >
           <FaAngellist size={30} />
         </A>
         <A
           href="https://github.com/RobertBattaglia"
           target="_blank"
           rel="noopener noreferrer"
-        >
+          aria-label="Rob's Github"
+          >
           <FaGithub size={30} />
         </A>
         <A
           href="https://www.instagram.com/r0bertob/"
           target="_blank"
           rel="noopener noreferrer"
-        >
+          aria-label="Rob's Instagram"
+          >
           <FaInstagram size={30} />
         </A>
         <A
           href="https://www.linkedin.com/in/robertbattaglia1/"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Rob's Linkedin"
         >
           <FaLinkedin size={30} />
         </A>
@@ -88,7 +93,7 @@ const Footer = () => {
         {`Created by ${
           data.site.siteMetadata.author
         } © ${new Date().getFullYear()}`}{" "}
-        w/{" "}
+        w/ ❤️ &{" "}
         <a
           href="https://www.gatsbyjs.org/"
           target="_blank"

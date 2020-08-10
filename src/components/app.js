@@ -40,7 +40,12 @@ const App = props => {
 
   return (
     <AppCard>
-      <a href={link} target="_blank" rel="noopener noreferrer">
+      <a 
+        href={link}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`${title}, ${desc}`}
+      >
         <ImgWrapper height={210} offsetVertical={500}>
           <Img src={require(`../images/applications/${src}`)} alt={title} />
         </ImgWrapper>

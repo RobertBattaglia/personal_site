@@ -27,7 +27,7 @@ const Apps = () => {
       <H1>Applications</H1>
       <AppsWrapper>
         {AppData.map(app => (
-          <App app={app} />
+          <App app={app} key={app.title} />
         ))}
       </AppsWrapper>
     </Wrapper>
