@@ -43,6 +43,13 @@ const About = () => {
         to the command prompt for the first time. My curiosity rapidly expanded,
         as each new concept introduced brand new rabbit holes to explore.
       </P>
+      <P>
+        I graduated{" "}
+        <a href="https://com-robertbattaglia.s3.amazonaws.com/Transcript.pdf">
+          magna cum laude
+        </a>{" "}
+        from Quinnipiac University with a B.S. in Computer Information Systems.
+      </P>
       <Logo>
         <CNBC_LOGO />
       </Logo>

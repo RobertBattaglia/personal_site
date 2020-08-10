@@ -49,13 +49,6 @@ const Footer = () => {
     <Wrapper>
       <Icons>
         <A
-          href="https://github.com/RobertBattaglia"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FaGithub size={30} />
-        </A>
-        <A
           href="https://twitter.com/r0bertoB"
           target="_blank"
           rel="noopener noreferrer"
@@ -68,6 +61,13 @@ const Footer = () => {
           rel="noopener noreferrer"
         >
           <FaAngellist size={30} />
+        </A>
+        <A
+          href="https://github.com/RobertBattaglia"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FaGithub size={30} />
         </A>
         <A
           href="https://www.instagram.com/r0bertob/"
