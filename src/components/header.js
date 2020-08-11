@@ -7,7 +7,7 @@ import { keyframes } from "@emotion/core"
 import { theme } from "../constants"
 
 const HeaderStyled = styled("header")`
-  padding-top: 2rem;
+  padding-top: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;

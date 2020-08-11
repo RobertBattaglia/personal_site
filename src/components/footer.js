@@ -35,6 +35,10 @@ const A = styled("a")`
   }
 `
 
+const P = styled("p")`
+  margin: 0;
+`
+
 const Footer = () => {
   const data = useStaticQuery(graphql`
     query {
@@ -89,7 +93,7 @@ const Footer = () => {
           <FaLinkedin size={30} />
         </A>
       </Icons>
-      <p>
+      <P>
         {`Created by ${
           data.site.siteMetadata.author
         } © ${new Date().getFullYear()}`}{" "}
@@ -101,7 +105,7 @@ const Footer = () => {
         >
           Gatsby
         </a>
-      </p>
+      </P>
     </Wrapper>
   )
 }

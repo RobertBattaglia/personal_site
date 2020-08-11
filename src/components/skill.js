@@ -7,7 +7,6 @@ import Emoji from "./emoji"
 import { mediaQueries } from "../constants"
 
 const Wrapper = styled("div")`
-  height: 500px;
   width: 30%;
   margin: 1rem 0 0;
   padding: 1rem;
@@ -19,8 +18,6 @@ const Wrapper = styled("div")`
 
   ${mediaQueries.small} {
     width: 90%;
-    height: initial;
-    max-height: 500px;
   }
 `
 
@@ -41,7 +38,7 @@ const emojis = {
   styles: {
     fontSize: "3rem",
     position: "absolute",
-    top: "-6.5%",
+    top: "0%",
     transform: "translateX(-50%)",
   },
 }

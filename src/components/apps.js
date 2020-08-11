@@ -10,7 +10,8 @@ const Wrapper = styled("section")`
   padding-bottom: 4rem;
 `
 
-const H1 = styled("h1")`
+const H2 = styled("h2")`
+  font-size: 2rem;
   color: #fff;
   padding-top: 3rem;
 `
@@ -24,7 +25,7 @@ const AppsWrapper = styled("div")`
 const Apps = () => {
   return (
     <Wrapper>
-      <H1>Applications</H1>
+      <H2>Applications</H2>
       <AppsWrapper>
         {AppData.map(app => (
           <App app={app} key={app.title} />

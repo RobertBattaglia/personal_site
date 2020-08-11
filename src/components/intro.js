@@ -75,7 +75,7 @@ function Intro() {
     <Wrapper>
       <Title>Full Stack Software Engineer</Title>
       <SubTitle>
-        I write code to solve real problems, and I love what I do.
+        I solve problems with code and I wouldn't change a thing.
       </SubTitle>
       <ImgWrapper
         fixed={data.file.childImageSharp.fixed}

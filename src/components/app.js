@@ -9,12 +9,13 @@ const AppCard = styled("figure")`
   width: 320px;
   margin: 1rem;
   background-color: #e6ecf8;
-  border: solid #e6ecf8 1px;
-`
-const ImgWrapper = styled(LazyLoad)`
+  border: solid black 5px;
+  `
+  const ImgWrapper = styled(LazyLoad)`
   height: 210px;
   padding: 1rem;
   background-color: #fff;
+  border: solid #e6ecf8 10px;
 `
 
 const Img = styled("img")`
@@ -25,14 +26,14 @@ const Img = styled("img")`
 
 const Title = styled("h4")`
   margin: 1rem 0 0 0;
-  font-size: calc(12px + 1vw);
+  font-size: min(calc(20px + 1vw), 32px);
 `
 
 const Description = styled("p")`
   margin: 0;
   padding: 1.5rem;
   line-height: 1.1;
-  font-size: calc(12px + 0.5vw);
+  font-size: min(calc(14px + 0.5vw), 18px);
 `
 
 const App = props => {
