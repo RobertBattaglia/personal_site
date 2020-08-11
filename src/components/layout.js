@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { Global, css } from "@emotion/core"
 import styled from "@emotion/styled"
 
@@ -26,13 +26,25 @@ const globalStyles = css`
   }
 `
 
-const Layout = ({ children }) => (
-  <Container>
-    <Global styles={globalStyles} />
-    <Header />
-    <Main>{children}</Main>
-    <Footer />
-  </Container>
-)
+const Layout = ({ children }) => {
+  const [showingGlasses, setShowingGlasses] = useState(false)
+  const childrenWithProps = React.Children.map(children, child => {
+    if(React.isValidElement(child)){
+        return React.cloneElement(child, { showingGlasses });
+    }
+    return child;
+});
+  return (
+    <Container>
+      <Global styles={globalStyles} />
+      <Header 
+        showingGlasses={showingGlasses}
+        setShowingGlasses={setShowingGlasses} 
+      />
+      <Main showingGlasses={showingGlasses}>{childrenWithProps}</Main>
+      <Footer />
+    </Container>
+  )
+}
 
 export default Layout

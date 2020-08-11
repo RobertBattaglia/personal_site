@@ -23,7 +23,7 @@ const grow = keyframes`
   }
 `
 
-const ImgWrapper = styled(Img)`
+const ImgWrapper = styled("span")`
   margin-left: 1.5rem;
   :hover {
     animation: ${grow} 600ms;
@@ -46,7 +46,7 @@ export const Button = styled("button")`
   }
 `
 
-function Header() {
+function Header({ showingGlasses, setShowingGlasses }) {
   const enterText = node => {
     const messages = [
       "Hello Rob, my name is... ~ and I wanted to contact you because...",
@@ -89,7 +89,12 @@ function Header() {
   `)
   return (
     <HeaderStyled>
-      <ImgWrapper fixed={data.file.childImageSharp.fixed} alt="Logo" />
+      <ImgWrapper onClick={() => {setShowingGlasses(!showingGlasses)}}>
+        <Img
+          fixed={data.file.childImageSharp.fixed}
+          alt="Logo" 
+        />
+      </ImgWrapper>
       <Button onClick={handleClick}>Contact</Button>
     </HeaderStyled>
   )

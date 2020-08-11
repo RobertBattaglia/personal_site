@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 import styled from "@emotion/styled"
@@ -33,6 +33,7 @@ const moveInRight = keyframes`
 `
 
 const Wrapper = styled("section")`
+  position: relative;
   text-align: center;
   padding: 0 2rem;
 `
@@ -58,12 +59,19 @@ const ImgWrapper = styled(Img)`
   border-radius: 50%;
 `
 
-function Intro() {
+function Intro({ showingGlasses }) {
   const data = useStaticQuery(graphql`
     query {
-      file(relativePath: { eq: "me.jpeg" }) {
+      me: file(relativePath: { eq: "me.jpeg" }) {
         childImageSharp {
           fixed(width: 250) {
+            ...GatsbyImageSharpFixed
+          }
+        }
+      },
+      glasses: file(relativePath: { eq: "thug-life-glasses.png" }) {
+        childImageSharp {
+          fixed(width: 50) {
             ...GatsbyImageSharpFixed
           }
         }
@@ -71,16 +79,52 @@ function Intro() {
     }
   `)
 
+  const [ imageBounding, setImageBounding ] = useState({})
+  
+  const glassesAnimation = () => keyframes`
+  0% {
+    top: 0px;
+    right: 0px;
+    transform: rotate(0deg);
+  }
+  100% {
+    top: ${imageBounding.top - 63}px;
+    right: ${imageBounding.right - 140}px;
+    transform: rotate(-725deg);
+  }
+`
+const Glasses = styled(Img)`
+  position: absolute !important;
+  top: ${imageBounding.top - 63}px;
+  right: ${imageBounding.right - 140}px;
+  transform: rotate(-5deg);
+  animation-name: ${glassesAnimation};
+  animation-duration: 2000ms;
+`
+
+  useEffect(() => {
+    setImageBounding(
+      document.querySelector('.intro-me').getBoundingClientRect()
+    )
+  }, [showingGlasses])
+
   return (
-    <Wrapper>
+    <Wrapper id="intro">
       <Title>Full Stack Software Engineer</Title>
       <SubTitle>
         I solve problems with code and I wouldn't change a thing.
       </SubTitle>
       <ImgWrapper
-        fixed={data.file.childImageSharp.fixed}
+        className="intro-me"
+        fixed={data.me.childImageSharp.fixed}
         alt="Rob Wearing a Sweater in a backyard, with a fence in the background"
       />
+      {showingGlasses ? 
+        <Glasses
+          fixed={data.glasses.childImageSharp.fixed}
+          alt="thug life sunglasses"
+        /> : null
+      }
     </Wrapper>
   )
 }
