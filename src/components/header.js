@@ -1,9 +1,8 @@
 import React from "react"
-import { graphql, useStaticQuery } from "gatsby"
-import Img from "gatsby-image"
 import styled from "@emotion/styled"
 import { keyframes } from "@emotion/core"
 
+import Logo from "../images/svgs/logo.svg"
 import { theme } from "../constants"
 
 const HeaderStyled = styled("header")`
@@ -23,7 +22,7 @@ const grow = keyframes`
   }
 `
 
-const ImgWrapper = styled("span")`
+const LogoWrapper = styled("span")`
   margin-left: 1.5rem;
   :hover {
     animation: ${grow} 600ms;
@@ -76,25 +75,15 @@ function Header({ showingGlasses, setShowingGlasses }) {
     enterText(messageField)
   }
 
-  const data = useStaticQuery(graphql`
-    query {
-      file(relativePath: { eq: "logo.png" }) {
-        childImageSharp {
-          fixed(width: 70) {
-            ...GatsbyImageSharpFixed
-          }
-        }
-      }
-    }
-  `)
   return (
     <HeaderStyled>
-      <ImgWrapper onClick={() => {setShowingGlasses(!showingGlasses)}}>
-        <Img
-          fixed={data.file.childImageSharp.fixed}
-          alt="Logo" 
+      <LogoWrapper>
+        <Logo
+          onClick={() => {
+            setShowingGlasses(!showingGlasses)
+          }}
         />
-      </ImgWrapper>
+      </LogoWrapper>
       <Button onClick={handleClick}>Contact</Button>
     </HeaderStyled>
   )
