@@ -44,6 +44,8 @@ const Title = styled("h1")`
   animation-name: ${moveInLeft};
   animation-duration: 1200ms;
   ${mediaQueries.small} {
+    margin-top: 0;
+    margin-bottom: 0.25rem;
     letter-spacing: 0px;
   }
 `
@@ -68,7 +70,7 @@ function Intro({ showingGlasses }) {
             ...GatsbyImageSharpFixed
           }
         }
-      },
+      }
       glasses: file(relativePath: { eq: "thug-life-glasses.png" }) {
         childImageSharp {
           fixed(width: 50) {
@@ -79,8 +81,8 @@ function Intro({ showingGlasses }) {
     }
   `)
 
-  const [ imageBounding, setImageBounding ] = useState({})
-  
+  const [imageBounding, setImageBounding] = useState({})
+
   const glassesAnimation = () => keyframes`
   0% {
     top: 0px;
@@ -88,23 +90,23 @@ function Intro({ showingGlasses }) {
     transform: rotate(0deg);
   }
   100% {
-    top: ${imageBounding.top - 63}px;
+    top: ${imageBounding.top - 95}px;
     right: ${imageBounding.right - 140}px;
     transform: rotate(-725deg);
   }
 `
-const Glasses = styled(Img)`
-  position: absolute !important;
-  top: ${imageBounding.top - 63}px;
-  right: ${imageBounding.right - 140}px;
-  transform: rotate(-5deg);
-  animation-name: ${glassesAnimation};
-  animation-duration: 2000ms;
-`
+  const Glasses = styled(Img)`
+    position: absolute !important;
+    top: ${imageBounding.top - 95}px;
+    right: ${imageBounding.right - 140}px;
+    transform: rotate(-5deg);
+    animation-name: ${glassesAnimation};
+    animation-duration: 2000ms;
+  `
 
   useEffect(() => {
     setImageBounding(
-      document.querySelector('.intro-me').getBoundingClientRect()
+      document.querySelector(".intro-me").getBoundingClientRect()
     )
   }, [showingGlasses])
 
@@ -112,19 +114,19 @@ const Glasses = styled(Img)`
     <Wrapper id="intro">
       <Title>Full Stack Software Engineer</Title>
       <SubTitle>
-        I solve problems with code and I wouldn't change a thing.
+        I solve problems with code and I wouldn't change a thing
       </SubTitle>
       <ImgWrapper
         className="intro-me"
         fixed={data.me.childImageSharp.fixed}
         alt="Rob Wearing a Sweater in a backyard, with a fence in the background"
       />
-      {showingGlasses ? 
+      {showingGlasses ? (
         <Glasses
           fixed={data.glasses.childImageSharp.fixed}
           alt="thug life sunglasses"
-        /> : null
-      }
+        />
+      ) : null}
     </Wrapper>
   )
 }
