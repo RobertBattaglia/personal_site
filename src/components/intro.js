@@ -93,6 +93,10 @@ function Intro({ showingGlasses }) {
     top: ${imageBounding.top - 95}px;
     right: ${imageBounding.right - 140}px;
     transform: rotate(-725deg);
+  
+    ${mediaQueries.small} {
+        top: ${imageBounding.top - 38}px !important;
+    }
   }
 `
   const Glasses = styled(Img)`
@@ -102,6 +106,10 @@ function Intro({ showingGlasses }) {
     transform: rotate(-5deg);
     animation-name: ${glassesAnimation};
     animation-duration: 2000ms;
+
+    ${mediaQueries.small} {
+      top: ${imageBounding.top - 38}px !important;
+    }
   `
 
   useEffect(() => {

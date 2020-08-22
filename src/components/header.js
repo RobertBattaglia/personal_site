@@ -12,16 +12,19 @@ const HeaderStyled = styled("header")`
   background: #fff;
 `
 
-const grow = keyframes`
+const growAndRotate = keyframes`
   0% {
     transform-origin: 50% 50%;
   }
-  80% {
-    transform: scale(1.45);
+  50% {
     transform-origin: 50% 50%;
+    transform: rotate(360deg);
+  }
+  80% {
+    transform-origin: 50% 50%;
+    transform: scale(1.45);
   }
   100% {
-    transform: scale(1);
     transform-origin: 50% 50%;
   }
 `
@@ -38,21 +41,8 @@ const LogoWrapper = styled(Logo)`
     .cls-6,
     .cls-7,
     .cls-8 {
-      animation: ${grow} 800ms;
+      animation: ${growAndRotate} 800ms;
     }
-    .cls-2:hover,
-    .cls-3:hover,
-    .cls-4:hover,
-    .cls-5:hover,
-    .cls-6:hover,
-    .cls-7:hover,
-    .cls-8:hover {
-      transform-origin: 50% 50%;
-      transform-box: fill-box;
-      -webkit-transition: all 0.4s ease-in-out;
-      transform: scale(2);
-    }
-  }
 `
 
 export const Button = styled("button")`
