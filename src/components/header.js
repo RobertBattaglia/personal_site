@@ -22,7 +22,7 @@ const growAndRotate = keyframes`
   }
   80% {
     transform-origin: 50% 50%;
-    transform: scale(1.45);
+    transform: scale(1.30);
   }
   100% {
     transform-origin: 50% 50%;
@@ -34,15 +34,21 @@ const LogoWrapper = styled(Logo)`
   :hover {
     -webkit-transition: all 0.2s ease-in-out;
     transform: scale(1.33);
-    .cls-2,
-    .cls-3,
-    .cls-4,
-    .cls-5,
-    .cls-6,
-    .cls-7,
-    .cls-8 {
+    #N1,
+    #N2,
+    #N3,
+    #N4,
+    #N5,
+    #N6,
+    #N7,
+    #N8,
+    #N9,
+    #N10,
+    #N11,
+    #N12 {
       animation: ${growAndRotate} 800ms;
     }
+  }
 `
 
 export const Button = styled("button")`
@@ -62,6 +68,7 @@ export const Button = styled("button")`
 `
 
 function Header({ showingGlasses, setShowingGlasses }) {
+
   const enterText = node => {
     const messages = [
       "Hello Rob, my name is... ~ and I wanted to contact you because...",

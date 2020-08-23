@@ -44,7 +44,6 @@ const Title = styled("h1")`
   animation-name: ${moveInLeft};
   animation-duration: 1200ms;
   ${mediaQueries.small} {
-    margin-top: 0;
     margin-bottom: 0.25rem;
     letter-spacing: 0px;
   }
@@ -83,7 +82,7 @@ function Intro({ showingGlasses }) {
 
   const [imageBounding, setImageBounding] = useState({})
 
-  const glassesAnimation = () => keyframes`
+  const glassesAnimation = keyframes`
   0% {
     top: 0px;
     right: 0px;
@@ -93,10 +92,6 @@ function Intro({ showingGlasses }) {
     top: ${imageBounding.top - 95}px;
     right: ${imageBounding.right - 140}px;
     transform: rotate(-725deg);
-  
-    ${mediaQueries.small} {
-        top: ${imageBounding.top - 38}px !important;
-    }
   }
 `
   const Glasses = styled(Img)`
@@ -106,10 +101,6 @@ function Intro({ showingGlasses }) {
     transform: rotate(-5deg);
     animation-name: ${glassesAnimation};
     animation-duration: 2000ms;
-
-    ${mediaQueries.small} {
-      top: ${imageBounding.top - 38}px !important;
-    }
   `
 
   useEffect(() => {
