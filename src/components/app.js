@@ -47,7 +47,7 @@ const App = props => {
         rel="noopener noreferrer"
         aria-label={`${title}, ${desc}`}
       >
-        <ImgWrapper height={210} offsetVertical={500}>
+        <ImgWrapper height={210} offsetVertical={1000}>
           <Img src={require(`../images/applications/${src}`)} alt={title} />
         </ImgWrapper>
       </a>

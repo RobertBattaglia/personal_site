@@ -19,7 +19,9 @@ function Index() {
         <meta name="description" content={siteMetadata.description} />
         <meta name="author" content={siteMetadata.author} />
         <meta name="keywords" content={siteMetadata.keywords} />
-        <meta prefix="og: http://ogp.me/ns#" name="og:image" content={siteMetadata.image} />
+        <meta name="image" property="og:image" content={siteMetadata.image} />
+
+        {/* Twitter Stuff */}
         <meta name="twitter:creator" content={siteMetadata.twitterUsername} />
         <meta name="twitter:title" content={siteMetadata.title} />
         <meta name="twitter:card" content={siteMetadata.image} />
