@@ -5,7 +5,7 @@ module.exports = {
       "Robert Battaglia's Personal Website, including skills, applications portfolio, contact form and social links",
     author: "Robert Battaglia",
     keywords: "Robert,Battaglia,Full,Stack,Engineer,Javascript,Python,Contact",
-    image: "https://robertbattaglia.com/static/8824911be2e7e0df61b20a75a1601d72/32ee9/me.jpg",
+    image: "https://com-robertbattaglia.s3.amazonaws.com/ogimage.jpeg",
     twitterUsername: "@r0bertoB",
     domain: "robertbattaglia.com"
   },
