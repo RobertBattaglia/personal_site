@@ -22,12 +22,11 @@ function Index() {
         <meta name="image" property="og:image" content={siteMetadata.image} />
 
         {/* Twitter Stuff */}
-        <meta name="twitter:creator" content={siteMetadata.twitterUsername} />
-        <meta name="twitter:title" content={siteMetadata.title} />
-        <meta name="twitter:card" content={siteMetadata.image} />
+        <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content={siteMetadata.twitterUsername} />
-        <meta name="twitter:domain" content={siteMetadata.domain} />
+        <meta name="twitter:title" content={siteMetadata.title} />
         <meta name="twitter:description" content={siteMetadata.description} />
+        <meta name="twitter:image" content={siteMetadata.image} />
         <title>{siteMetadata.title}</title>
       </Helmet>
       <Intro />

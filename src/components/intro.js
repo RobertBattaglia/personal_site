@@ -113,19 +113,19 @@ function Intro({ showingGlasses }) {
     <Wrapper id="intro">
       <Title>Full Stack Software Engineer</Title>
       <SubTitle>
-        I solve problems with code and I wouldn't change a thing
+        I solve problems with code
       </SubTitle>
       <ImgWrapper
         className="intro-me"
         fixed={data.me.childImageSharp.fixed}
         alt="Rob Wearing a Sweater in a backyard, with a fence in the background"
       />
-      {showingGlasses ? (
+      {showingGlasses && (
         <Glasses
           fixed={data.glasses.childImageSharp.fixed}
           alt="thug life sunglasses"
         />
-      ) : null}
+      )}
     </Wrapper>
   )
 }
