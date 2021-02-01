@@ -93,6 +93,10 @@ function Header({ showingGlasses, setShowingGlasses }) {
   const handleClick = () => {
     const contact = document.querySelector("#contact")
     const messageField = document.querySelector("#contact-message")
+    if (!messageField) {
+      return
+    }
+    
     messageField.value = ""
     contact.scrollIntoView()
     enterText(messageField)
