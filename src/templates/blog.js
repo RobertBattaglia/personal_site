@@ -13,7 +13,6 @@ function Blog({ pageContext }) {
     posts
   } = pageContext
 
-  console.log(pageContext)
   const blogBodyElements = convertBlogBodyToElements(blogBody, assets, posts)
   
   return (

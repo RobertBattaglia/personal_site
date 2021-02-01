@@ -157,10 +157,7 @@ const convertBlogBodyToElements = (raw, assets, posts) => {
     return element
   }
   
-  const result = parseNode(JSON.parse(raw))
-  console.log(JSON.parse(raw))
-  console.log(result)
-  return result
+  return parseNode(JSON.parse(raw))
 }
 
 export default convertBlogBodyToElements
