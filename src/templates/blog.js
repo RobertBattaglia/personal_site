@@ -1,4 +1,6 @@
 import React from "react"
+import { PrismAsyncLight as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { base16AteliersulphurpoolLight } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { Helmet } from "react-helmet"
 import { siteMetadata } from "../../gatsby-config"
 
@@ -88,9 +90,18 @@ const convertRawBlogBodyToRootElements = ({ blogBody: { raw } }) => {
       element = value
       marks.forEach(({ type }) => {
         if (type === 'code') {
-          element = <pre><code>{element}</code></pre>
-        }
+          element = (
+            <SyntaxHighlighter 
+              language="javascript"
+              style={base16AteliersulphurpoolLight}
+              showLineNumbers
+              wrapLongLines
 
+            >
+              {element}
+            </SyntaxHighlighter>
+          )
+        }
         if (type === 'bold') {
           element = <strong>{element}</strong>
         }
