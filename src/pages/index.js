@@ -6,7 +6,7 @@ import Layout from "../components/layout"
 import Intro from "../components/intro"
 import About from "../components/about"
 import Skills from "../components/skills"
-import BlogList from "../components/blogList"
+import PostList from "../components/postList"
 import Apps from "../components/apps"
 import Contact from "../components/contact"
 
@@ -33,7 +33,7 @@ function Index() {
       <Intro />
       <About />
       <Skills />
-      <BlogList />
+      <PostList />
       <Apps />
       <Contact />
     </Layout>

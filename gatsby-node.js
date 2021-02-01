@@ -2,7 +2,7 @@ const path = require("path")
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
-  const result = await graphql(
+  const posts = await graphql(
     `{
       allContentfulBlogPost {
         nodes {
@@ -18,23 +18,43 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           }
           slug
           title
-          updatedAt
+          createdAt(formatString: "YYYY-MM-DD HH:mm:SS")
+          updatedAt(formatString: "YYYY-MM-DD HH:mm:SS")
+          contentful_id
         }
       }
     }`
   )
 
-  if (result.errors) {
+  const assets = await graphql(
+    `{
+      allContentfulAsset {
+        edges {
+          node {
+            contentful_id
+            file {
+              url
+            }
+            description
+          }
+        }
+      }
+    }`
+  )
+
+  if (posts.errors || assets.errors) {
     reporter.panicOnBuild("Error while running GraphQL query.")
     return
   }
 
-  result.data.allContentfulBlogPost.nodes.forEach(node => {
+  posts.data.allContentfulBlogPost.nodes.forEach(node => {
     createPage({
       path: node.slug,
       component: path.resolve(`src/templates/blog.js`),
       context: {
-        ...node
+        ...node,
+        posts: posts.data.allContentfulBlogPost.nodes,
+        assets: assets.data
       },
     })
   })
