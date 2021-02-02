@@ -1,86 +1,45 @@
 import React from 'react'
 import { PrismAsyncLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { base16AteliersulphurpoolLight } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import styled from "@emotion/styled"
 
-import Post from '../components/post'
+import Post from 'components/shared/post'
+
+const CodeLine = styled('span')`
+  background-color: rgb(245, 247, 255);
+  color: rgb(34, 162, 201);
+  padding: 0 2px;
+`
+
+const basicNodeTypeToElementMap = new Map([
+  ['document', React.Fragment],
+  ['paragraph', 'p'],
+  ['heading-1', 'h1'],
+  ['heading-2', 'h2'],
+  ['heading-3', 'h3'],
+  ['heading-4', 'h4'],
+  ['heading-5', 'h5'],
+  ['heading-6', 'h6'],
+  ['unordered-list', 'ul'],
+  ['ordered-list', 'ol'],
+  ['list-item', 'li'],
+  ['blockquote', 'blockquote'],
+])
 
 const convertBlogBodyToElements = (raw, assets, posts) => {
-  const recognizedNodeTypes = new Set([
-    'document',
-    'paragraph',
-    'heading-1',
-    'heading-2',
-    'heading-3',
-    'heading-4',
-    'heading-5',
-    'heading-6',
-    'unordered-list',
-    'ordered-list',
-    'list-item',
-    'blockquote',
-    'hr',
-    'hyperlink',
-    'embedded-asset-block',
-    'entry-hyperlink',
-    'text',
-  ])
   
   const parseNode = (node) => {
     const { nodeType, content, data, value, marks } = node
 
-    if (!recognizedNodeTypes.has(nodeType)) {
-      return null
-    }
-
+    let element = null
     const mappedContent = () => content && content.map(parseNode) 
-    let element
     
-    if (nodeType === 'document') {
-      element = <React.Fragment>{mappedContent()}</React.Fragment>
-    }
-
-    else if (nodeType === 'paragraph') {
-      element = <p>{mappedContent()}</p>
-    }
-
-    else if (nodeType === 'heading-1') {
-      element = <h1>{mappedContent()}</h1>
-    }
-
-    else if (nodeType === 'heading-2') {
-      element = <h2>{mappedContent()}</h2>
-    }
-
-    else if (nodeType === 'heading-3') {
-      element = <h3>{mappedContent()}</h3>
-    }
-
-    else if (nodeType === 'heading-4') {
-      element = <h4>{mappedContent()}</h4>
-    }
-    
-    else if (nodeType === 'heading-5') {
-      element = <h5>{mappedContent()}</h5>
-    }
-
-    else if (nodeType === 'heading-6') {
-      element = <h6>{mappedContent()}</h6>
-    }
-
-    else if (nodeType === 'unordered-list') {
-      element = <ul>{mappedContent()}</ul>
-    }
-
-    else if (nodeType === 'ordered-list') {
-      element = <ol>{mappedContent()}</ol>
-    }
-
-    else if (nodeType === 'list-item') {
-      element = <li>{mappedContent()}</li>
-    }
-    
-    else if (nodeType === 'blockquote') {
-      element = <blockquote>{mappedContent()}</blockquote>
+    if(basicNodeTypeToElementMap.has(nodeType)) {
+      element = React.createElement(
+        basicNodeTypeToElementMap.get(nodeType),
+        {},
+        mappedContent()
+      )
     }
 
     else if (nodeType === 'hr') {
@@ -98,6 +57,7 @@ const convertBlogBodyToElements = (raw, assets, posts) => {
         if (id === asset.node.contentful_id) {
           src = asset.node.file.url
           description = asset.node.description
+          break
         }
       }
       
@@ -116,6 +76,7 @@ const convertBlogBodyToElements = (raw, assets, posts) => {
       for (let post of posts) {
         if (id === post.contentful_id) {
           postData = {...post}
+          break
         }
       }
 
@@ -125,7 +86,21 @@ const convertBlogBodyToElements = (raw, assets, posts) => {
     }
 
     else if (nodeType === 'text') {
-      element = value
+      const parts = value.split('`')
+      if (parts.length < 3) {
+        element = value
+      } else {
+        const children = []
+        for (let i = 0; i < parts.length; i++) {
+          if (i % 2 === 0) {
+            children.push(parts[i])
+          } else {
+            children.push(<CodeLine>{parts[i]}</CodeLine>)
+          }
+        }
+        element = <React.Fragment>{children}</React.Fragment>
+      }
+
       marks.forEach(({ type }) => {
         if (type === 'code') {
           element = (
@@ -134,21 +109,21 @@ const convertBlogBodyToElements = (raw, assets, posts) => {
               style={base16AteliersulphurpoolLight}
               showLineNumbers
               wrapLongLines
-
             >
               {element}
             </SyntaxHighlighter>
           )
         }
-        if (type === 'bold') {
+
+        else if (type === 'bold') {
           element = <strong>{element}</strong>
         }
         
-        if (type === 'italic') {
+        else if (type === 'italic') {
           element = <em>{element}</em>
         }
           
-        if (type === 'underline') {
+        else if (type === 'underline') {
           element = <u>{element}</u>
         }
       })
@@ -156,8 +131,11 @@ const convertBlogBodyToElements = (raw, assets, posts) => {
 
     return element
   }
-  
-  return parseNode(JSON.parse(raw))
+
+  console.log(JSON.parse(raw))
+  const result = parseNode(JSON.parse(raw))
+  console.log(result)
+  return result
 }
 
 export default convertBlogBodyToElements

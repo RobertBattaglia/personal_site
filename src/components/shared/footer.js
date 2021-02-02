@@ -9,7 +9,7 @@ import {
   FaLinkedin,
 } from "react-icons/fa"
 
-import { theme } from "../constants"
+import { theme } from "../../constants"
 
 const Wrapper = styled("footer")`
   padding: 10rem 0 3rem 0;

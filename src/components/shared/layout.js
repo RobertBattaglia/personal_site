@@ -2,8 +2,8 @@ import React, { useState } from "react"
 import { Global, css } from "@emotion/core"
 import styled from "@emotion/styled"
 
-import Header from "../components/header"
-import Footer from "../components/footer"
+import Header from "./header"
+import Footer from "./footer"
 
 const Container = styled("div")`
   display: flex;

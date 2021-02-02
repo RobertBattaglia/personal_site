@@ -1,8 +1,8 @@
 import React from "react"
 import styled from "@emotion/styled"
 
-import { theme, mediaQueries } from "../constants"
-import CNBC_LOGO from "../images/svgs/cnbc-logo.svg"
+import { theme, mediaQueries } from "../../constants"
+import CNBC_LOGO from "images/svgs/cnbc-logo.svg"
 
 const Wrapper = styled("section")`
   background-color: ${theme.primaryColor};

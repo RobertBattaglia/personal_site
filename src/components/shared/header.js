@@ -2,8 +2,8 @@ import React from "react"
 import styled from "@emotion/styled"
 import { keyframes } from "@emotion/core"
 
-import Logo from "../images/svgs/logo.svg"
-import { theme } from "../constants"
+import Logo from "images/svgs/logo.svg"
+import { theme } from "../../constants"
 
 const HeaderStyled = styled("header")`
   display: flex;

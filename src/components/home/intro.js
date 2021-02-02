@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 import styled from "@emotion/styled"
 import { keyframes } from "@emotion/core"
-import { mediaQueries } from "../constants"
+import { mediaQueries } from "../../constants"
 
 const moveInLeft = keyframes`
   0% {

@@ -2,9 +2,9 @@ import React from "react"
 import styled from "@emotion/styled"
 import { FaCheckCircle } from "react-icons/fa"
 
-import Emoji from "./emoji"
+import { mediaQueries } from "../../constants"
 
-import { mediaQueries } from "../constants"
+import Emoji from "./emoji"
 
 const Wrapper = styled("div")`
   width: 30%;

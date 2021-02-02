@@ -2,13 +2,13 @@ import React from "react"
 import { Helmet } from "react-helmet"
 
 import { siteMetadata } from "../../gatsby-config"
-import Layout from "../components/layout"
-import Intro from "../components/intro"
-import About from "../components/about"
-import Skills from "../components/skills"
-import PostList from "../components/postList"
-import Apps from "../components/apps"
-import Contact from "../components/contact"
+import Layout from "components/shared/layout"
+import Intro from "components/home/intro"
+import About from "components/home/about"
+import Skills from "components/home/skills"
+import PostList from "components/home/postList"
+import Apps from "components/home/apps"
+import Contact from "components/shared/contact"
 
 function Index() {
   return (

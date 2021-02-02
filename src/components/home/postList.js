@@ -2,10 +2,11 @@ import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import styled from "@emotion/styled"
 
-import Post from "./post"
+import Post from "components/shared/post"
 
-const H2 = styled("H2")`
+const H2 = styled("h2")`
   text-align: center;
+  font-size: 32px;
 `;
 
 const PostList = () => {

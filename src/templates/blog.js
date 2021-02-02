@@ -3,8 +3,11 @@ import { Helmet } from "react-helmet"
 
 import { siteMetadata } from "../../gatsby-config"
 
-import Layout from "../components/layout"
-import convertBlogBodyToElements from "../utils/convertBlogBodyToElements"
+import Layout from "components/shared/layout"
+import Contact from "components/shared/contact"
+import convertBlogBodyToElements from "utils/convertBlogBodyToElements"
+
+import Thumb from 'images/svgs/thumb.svg'
 
 function Blog({ pageContext }) {
   const { 
@@ -24,14 +27,14 @@ function Blog({ pageContext }) {
         <meta name="description" content={siteMetadata.description} />
         <meta name="author" content={siteMetadata.author} />
         <meta name="keywords" content={siteMetadata.keywords} />
-        <meta name="image" property="og:image" content={siteMetadata.image} />
+        <meta name="image" property="og:image" content={pageContext.featuredImage.file.url} />
 
         {/* Twitter Stuff */}
         <meta name="twitter:card" content="summary" />
         <meta name="twitter:site" content={siteMetadata.twitterUsername} />
         <meta name="twitter:title" content={pageContext.title} />
         <meta name="twitter:description" content={siteMetadata.description} />
-        <meta name="twitter:image" content={siteMetadata.image} />
+        <meta name="twitter:image" content={pageContext.featuredImage.file.url} />
         <title>{pageContext.title}</title>
       </Helmet>
       <div style={{margin: '5%'}}>
@@ -44,6 +47,8 @@ function Blog({ pageContext }) {
         />
         {blogBodyElements}
       </div>
+      <Thumb style={{ maxWidth: '200px', margin: 'auto' }} />
+      <Contact />
     </Layout>
   )
 }

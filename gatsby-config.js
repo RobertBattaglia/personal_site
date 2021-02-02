@@ -1,3 +1,5 @@
+const path = require('path')
+
 module.exports = {
   siteMetadata: {
     title: "Robert Battaglia | Engineer",
@@ -46,6 +48,12 @@ module.exports = {
       options: {
         spaceId: `3fe7xd8j9mna`,
         accessToken: process.env.CONTENTFUL_KEY,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-resolve-src',
+      options: {
+        srcPath: path.resolve(__dirname, 'src'),
       },
     },
   ],

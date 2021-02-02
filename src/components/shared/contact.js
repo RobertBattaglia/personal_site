@@ -1,6 +1,7 @@
 import React, { useEffect } from "react"
 import styled from "@emotion/styled"
-import { theme, mediaQueries } from "../constants"
+import { theme, mediaQueries } from "../../constants"
+
 import { Button } from "./header"
 
 const Wrapper = styled("section")`

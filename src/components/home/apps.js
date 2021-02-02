@@ -2,7 +2,7 @@ import React from "react"
 import styled from "@emotion/styled"
 
 import App from "./app"
-import AppData from "../data/applications.json"
+import AppData from "data/applications.json"
 
 const Wrapper = styled("section")`
   text-align: center;
