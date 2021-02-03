@@ -32,8 +32,9 @@ const growAndRotate = keyframes`
 const LogoWrapper = styled(Logo)`
   margin-left: 1.5rem;
   :hover {
+    cursor: pointer;
     -webkit-transition: all 0.2s ease-in-out;
-    transform: scale(1.33);
+    transform: scale(1.15);
     #N1,
     #N2,
     #N3,

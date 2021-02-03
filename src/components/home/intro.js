@@ -89,14 +89,14 @@ function Intro({ showingGlasses }) {
     transform: rotate(0deg);
   }
   100% {
-    top: ${imageBounding.top - 95}px;
+    top: ${imageBounding.top - 83}px;
     right: ${imageBounding.right - 140}px;
     transform: rotate(-725deg);
   }
 `
   const Glasses = styled(Img)`
     position: absolute !important;
-    top: ${imageBounding.top - 95}px;
+    top: ${imageBounding.top - 83}px;
     right: ${imageBounding.right - 140}px;
     transform: rotate(-5deg);
     animation-name: ${glassesAnimation};
