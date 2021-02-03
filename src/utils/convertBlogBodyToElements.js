@@ -27,14 +27,14 @@ const basicNodeTypeToElementMap = new Map([
 ])
 
 const convertBlogBodyToElements = (raw, assets, posts) => {
-  
+
   const parseNode = (node) => {
     const { nodeType, content, data, value, marks } = node
 
     let element = null
-    const mappedContent = () => content && content.map(parseNode) 
-    
-    if(basicNodeTypeToElementMap.has(nodeType)) {
+    const mappedContent = () => content && content.map(parseNode)
+
+    if (basicNodeTypeToElementMap.has(nodeType)) {
       element = React.createElement(
         basicNodeTypeToElementMap.get(nodeType),
         {},
@@ -60,22 +60,22 @@ const convertBlogBodyToElements = (raw, assets, posts) => {
           break
         }
       }
-      
+
       element = (
-        <img 
+        <img
           src={src}
           alt={description}
         />
       )
     }
-    
+
     else if (nodeType === 'entry-hyperlink') {
       const { target: { sys: { id } } } = data
       let postData
 
       for (let post of posts) {
         if (id === post.contentful_id) {
-          postData = {...post}
+          postData = { ...post }
           break
         }
       }
@@ -103,14 +103,33 @@ const convertBlogBodyToElements = (raw, assets, posts) => {
 
       marks.forEach(({ type }) => {
         if (type === 'code') {
+          const elementParts = element.split('\n')
+          const recognizedLanguages = new Set([
+            'javascript',
+            'graphql',
+            'python',
+            'sql',
+            'html',
+            'css',
+            'sass',
+            'jsx',
+            'json',
+            'go',
+            'typescript',
+            'bash'
+          ])
+
+          const isLanguage = recognizedLanguages.has(elementParts[0])
+          const language = isLanguage ? elementParts[0] : 'javascript'
+
           element = (
-            <SyntaxHighlighter 
-              language="javascript"
+            <SyntaxHighlighter
+              language={language}
               style={base16AteliersulphurpoolLight}
               showLineNumbers
               wrapLongLines
             >
-              {element}
+              {isLanguage ? elementParts.slice(1).join('\n') : element}
             </SyntaxHighlighter>
           )
         }
@@ -118,11 +137,11 @@ const convertBlogBodyToElements = (raw, assets, posts) => {
         else if (type === 'bold') {
           element = <strong>{element}</strong>
         }
-        
+
         else if (type === 'italic') {
           element = <em>{element}</em>
         }
-          
+
         else if (type === 'underline') {
           element = <u>{element}</u>
         }
