@@ -1,11 +1,16 @@
 const AWS = require('aws-sdk')
-const dynamoDB = new AWS.DynamoDB({region: 'us-east-1', apiVersion: '2012-08-10'})
+const dynamoDB = new AWS.DynamoDB({
+  region: 'us-east-1',
+  apiVersion: '2012-08-10',
+  accessKeyId: process.env.NETLIFY_AWS_ACCESS_KEY_ID,
+  secretAccessKey: process.env.NETLIFY_AWS_SECRET_ACCESS_KEY
+})
 
 exports.handler = (event, _, cb) => {
   const { slug } = JSON.parse(event.body)
 
   const params = {
-    TableName: process.env.LIKES_TABLE,
+    TableName: process.env.DYNAMO_LIKES_TABLE,
     Key: {
       slug: {
         S: slug
