@@ -100,6 +100,7 @@ function Header({ showingGlasses, setShowingGlasses }) {
     
     messageField.value = ""
     contact.scrollIntoView()
+    window.scrollBy(0, 120)
     enterText(messageField)
   }
 

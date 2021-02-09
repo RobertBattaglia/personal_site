@@ -7,7 +7,7 @@ import { mediaQueries } from "../../constants"
 import Emoji from "./emoji"
 
 const Wrapper = styled("div")`
-  width: 30%;
+  width: 90%;
   margin: 1rem 0 0;
   padding: 1rem;
   position: relative;
@@ -16,8 +16,8 @@ const Wrapper = styled("div")`
   border-radius: 1rem;
   text-align: center;
 
-  ${mediaQueries.small} {
-    width: 90%;
+  ${mediaQueries.tablet} {
+    width: 30%;
   }
 `
 

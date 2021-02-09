@@ -19,13 +19,13 @@ const H3 = styled("h3")`
 
 const P = styled("p")`
   margin: 0px auto 50px auto;
-  max-width: 700px;
+  max-width: 300px;
   color: ${theme.primaryFontColor};
   line-height: 1.5;
   text-align: center;
   text-justify: auto;
-  ${mediaQueries.small} {
-    max-width: 300px;
+  ${mediaQueries.tablet} {
+    max-width: 700px;
   }
 `
 

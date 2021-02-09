@@ -1,13 +1,19 @@
 import React from "react"
 import { Helmet } from "react-helmet"
+import styled from "@emotion/styled"
 
 import { siteMetadata } from "../../gatsby-config"
 
+import Likes from "components/blog/likes"
 import Layout from "components/shared/layout"
 import Contact from "components/shared/contact"
 import convertBlogBodyToElements from "utils/convertBlogBodyToElements"
 
-import Thumb from 'images/svgs/thumb.svg'
+const Container = styled('article')`
+  max-width: 900px;
+  padding: 0 30px;
+  margin: auto;
+`
 
 function Blog({ pageContext }) {
   const { 
@@ -37,7 +43,7 @@ function Blog({ pageContext }) {
         <meta name="twitter:image" content={pageContext.featuredImage.file.url} />
         <title>{pageContext.title}</title>
       </Helmet>
-      <div style={{margin: '5%'}}>
+      <Container>
         <h1 style={{ fontSize: '48px', textAlign: 'center'}}>
           {pageContext.title}
         </h1>
@@ -46,8 +52,8 @@ function Blog({ pageContext }) {
           alt={pageContext.featuredImage.description}
         />
         {blogBodyElements}
-      </div>
-      <Thumb style={{ maxWidth: '200px', margin: 'auto' }} />
+      </Container>
+      <Likes />
       <Contact />
     </Layout>
   )

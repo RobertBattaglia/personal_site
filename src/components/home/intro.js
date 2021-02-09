@@ -39,13 +39,13 @@ const Wrapper = styled("section")`
 `
 
 const Title = styled("h1")`
-  margin-bottom: 0.75rem;
-  letter-spacing: 8px;
+  margin-bottom: 0.25rem;
+  letter-spacing: 0px;
   animation-name: ${moveInLeft};
   animation-duration: 1200ms;
-  ${mediaQueries.small} {
-    margin-bottom: 0.25rem;
-    letter-spacing: 0px;
+  ${mediaQueries.tablet} {
+    margin-bottom: 0.75rem;
+    letter-spacing: 8px;
   }
 `
 

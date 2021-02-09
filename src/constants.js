@@ -5,6 +5,9 @@ module.exports = {
     secondaryColor: "#4078c0",
   },
   mediaQueries: {
-    small: "@media (max-width: 768px)",
+    tablet: "@media (min-width: 760px)",
+    smallDesktop: "@media (min-width: 1020px)",
+    mediumDesktop: "@media (min-width: 1180px)",
+    largeDesktop: "@media (min-width: 1340px)",
   },
 }

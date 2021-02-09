@@ -7,13 +7,13 @@ import { Button } from "./header"
 const Wrapper = styled("section")`
   min-height: 30vh;
   background: linear-gradient(${theme.secondaryColor}, ${theme.primaryColor});
-  padding-top: 2rem;
+  padding-top: 10rem;
 `
 
 const FormWrapper = styled("div")`
   margin: 0 auto;
   padding: 0 1rem 2rem;
-  width: 540px;
+  width: 80vw;
   text-align: center;
   border: solid 3px ${theme.primaryColor};
   border-radius: 3rem;
@@ -21,8 +21,8 @@ const FormWrapper = styled("div")`
   background-color: #fff;
   box-shadow: -0.5rem -0.5rem 0.7rem rgba(0, 0, 0, 0.6);
 
-  ${mediaQueries.small} {
-    width: 80vw;
+  ${mediaQueries.tablet} {
+    width: 540px;
   }
 `
 
@@ -61,36 +61,30 @@ const SubmitButton = styled(Button)`
   margin: 1rem 0 0 0;
 `
 
-const Contact = () => {
-  useEffect(() => {
-    const textArea = document.querySelector("#contact-message")
-    textArea.rows = window.innerWidth <= 768 ? 8 : 4
-  }, [])
-  return (
-    <Wrapper id="contact">
-      <FormWrapper>
-        <h2>Contact Me</h2>
-        <p>I'd love to hear from you!</p>
-        <Form
-          name="contact"
-          method="POST"
-          data-netlify="true"
-          data-netlify-honeypot="bot-field"
-        >
-          <input type="hidden" name="bot-field" />
-          <Label>
-            Email
-            <Input type="email" name="email" />
-          </Label>
-          <Label>
-            Message
-            <Textarea id="contact-message" name="message" rows={4} />
-          </Label>
-          <SubmitButton type="submit">Send Message</SubmitButton>
-        </Form>
-      </FormWrapper>
-    </Wrapper>
-  )
-}
+const Contact = () => (
+  <Wrapper id="contact">
+    <FormWrapper>
+      <h2>Contact Me</h2>
+      <p>I'd love to hear from you!</p>
+      <Form
+        name="contact"
+        method="POST"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+      >
+        <input type="hidden" name="bot-field" />
+        <Label>
+          Email
+          <Input type="email" name="email" />
+        </Label>
+        <Label>
+          Message
+          <Textarea id="contact-message" name="message" rows={4} />
+        </Label>
+        <SubmitButton type="submit">Send Message</SubmitButton>
+      </Form>
+    </FormWrapper>
+  </Wrapper>
+)
 
 export default Contact
