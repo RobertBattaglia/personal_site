@@ -26,8 +26,6 @@ const reducer = (state, action) => {
       return {...state, myLikes: action.payload};
     case 'setFill':
       return {...state, fill: action.payload};
-    case 'setScale':
-      return {...state, scale: action.payload};
     case 'increment':
       if (state.myLikes < 10) {
         return ({
@@ -35,7 +33,6 @@ const reducer = (state, action) => {
           myLikes: state.myLikes + 1,
           totalLikes: state.totalLikes + 1,
           fill: `#${Math.floor(Math.random()*16777215).toString(16)}`,
-          scale: state.scale + .05
         })
       }
       return {...state}
@@ -50,15 +47,14 @@ const Likes = () => {
       totalLikes: 0,
       myLikes: 0,
       fill: 'black',
-      scale: 1,
       slug: typeof window === 'undefined' ? '' : window.location.pathname
     }
   );
 
   const localStorageKey = useCallback((key) => ({
-      get: () => localStorage.getItem(`${state.slug}${key}`),
-      set: (value) => localStorage.setItem(`${state.slug}${key}`, value)
-    }), [state.slug])
+    get: () => localStorage.getItem(`${state.slug}${key}`),
+    set: (value) => localStorage.setItem(`${state.slug}${key}`, value)
+  }), [state.slug])
   
   useEffect(() => {
     fetch('/api/getLikes', {
@@ -91,13 +87,6 @@ const Likes = () => {
     }
     dispatch({type: 'setFill', payload: fill})
     
-    const persistentScale = localStorageKey('scale')
-    let scale = parseFloat(persistentScale.get())
-    if (isNaN(scale)) {
-      scale = 1
-      persistentScale.set(scale)
-    }
-    dispatch({type: 'setScale', payload: scale})
   }, [])
 
   useEffect(() => {
@@ -105,9 +94,7 @@ const Likes = () => {
     persistentMyLikes.set(state.myLikes)
     const persistentFill = localStorageKey('fill')
     persistentFill.set(state.fill)
-    const persistentScale = localStorageKey('scale')
-    persistentScale.set(state.scale)
-  }, [state.myLikes, state.fill, state.scale])
+  }, [state.myLikes, state.fill, state.slug, localStorageKey])
 
   useEffect(() => {
     if (state.totalLikes !== 0) {
@@ -120,7 +107,7 @@ const Likes = () => {
           slug: window.location.pathname,
           likes: state.totalLikes
         })
-      })
+      }).catch(err => console.error(err))
     }
   }, [state.totalLikes])
 

@@ -19,7 +19,6 @@ const FormWrapper = styled("div")`
   border-radius: 3rem;
   font-size: 2rem;
   background-color: #fff;
-  box-shadow: -0.5rem -0.5rem 0.7rem rgba(0, 0, 0, 0.6);
 
   ${mediaQueries.tablet} {
     width: 540px;

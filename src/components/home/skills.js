@@ -2,7 +2,7 @@ import React from "react"
 import styled from "@emotion/styled"
 
 import Skill from "./skill"
-import SkillData from "data/skills.json"
+import SkillData from "assets/data/skills.json"
 
 const Wrapper = styled("section")`
   display: flex;

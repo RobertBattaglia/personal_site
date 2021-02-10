@@ -38,7 +38,8 @@
     "svg-react-loader": "^0.4.6",
     "typography": "^0.16.19",
     "typography-theme-grand-view": "^0.16.19",
-    "url-loader": "^4.1.0"
+    "url-loader": "^4.1.0",
+    "use-sound": "^2.0.1"
   },
   "devDependencies": {
     "env-cmd": "^10.0.1",
