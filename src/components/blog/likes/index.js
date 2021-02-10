@@ -1,6 +1,6 @@
 import React, { useReducer, useEffect, useCallback } from 'react'
 import styled from '@emotion/styled'
-import { mediaQueries } from "../../../constants"
+import { mediaQueries } from '../../../constants'
 import Thumb from './thumb'
 
 const Container = styled('div')`
@@ -25,23 +25,23 @@ const Counter = styled('div')`
 const reducer = (state, action) => {
   switch (action.type) {
     case 'setTotalLikes':
-      return {...state, totalLikes: action.payload};
+      return { ...state, totalLikes: action.payload }
     case 'setMyLikes':
-      return {...state, myLikes: action.payload};
+      return { ...state, myLikes: action.payload }
     case 'setFill':
-      return {...state, fill: action.payload};
+      return { ...state, fill: action.payload }
     case 'increment':
       if (state.myLikes < 10) {
         return ({
           ...state,
           myLikes: state.myLikes + 1,
           totalLikes: state.totalLikes + 1,
-          fill: `#${Math.floor(Math.random()*16777215).toString(16)}`,
+          fill: `#${Math.floor(Math.random() * 16777215).toString(16)}`,
         })
       }
-      return {...state}
+      return { ...state }
     default:
-      throw new Error();
+      throw new Error()
   }
 }
 
@@ -51,27 +51,27 @@ const Likes = () => {
       totalLikes: 0,
       myLikes: 0,
       fill: 'black',
-      slug: typeof window === 'undefined' ? '' : window.location.pathname
-    }
-  );
+      slug: typeof window === 'undefined' ? '' : window.location.pathname,
+    },
+  )
 
   const localStorageKey = useCallback((key) => ({
     get: () => localStorage.getItem(`${state.slug}${key}`),
-    set: (value) => localStorage.setItem(`${state.slug}${key}`, value)
+    set: (value) => localStorage.setItem(`${state.slug}${key}`, value),
   }), [state.slug])
-  
+
   useEffect(() => {
     fetch('/api/getLikes', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ slug: state.slug })
+      body: JSON.stringify({ slug: state.slug }),
     }).then(
-      response => response.json()
+      (response) => response.json(),
     ).then(
-      totalLikes => dispatch({type: 'setTotalLikes', payload: totalLikes})
-    ).catch(err => {
+      (totalLikes) => dispatch({ type: 'setTotalLikes', payload: totalLikes }),
+    ).catch((err) => {
       console.error(err)
     })
 
@@ -81,7 +81,7 @@ const Likes = () => {
       myLikes = 0
       persistentMyLikes.set(myLikes)
     }
-    dispatch({type: 'setMyLikes', payload: myLikes})
+    dispatch({ type: 'setMyLikes', payload: myLikes })
 
     const persistentFill = localStorageKey('fill')
     let fill = persistentFill.get()
@@ -89,8 +89,7 @@ const Likes = () => {
       fill = 'black'
       persistentFill.set(fill)
     }
-    dispatch({type: 'setFill', payload: fill})
-    
+    dispatch({ type: 'setFill', payload: fill })
   }, [])
 
   useEffect(() => {
@@ -105,13 +104,13 @@ const Likes = () => {
       fetch('/api/postLike', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ 
+        body: JSON.stringify({
           slug: window.location.pathname,
-          likes: state.totalLikes
-        })
-      }).catch(err => console.error(err))
+          likes: state.totalLikes,
+        }),
+      }).catch((err) => console.error(err))
     }
   }, [state.totalLikes])
 
@@ -123,4 +122,4 @@ const Likes = () => {
   )
 }
 
-export default Likes;
+export default Likes

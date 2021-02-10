@@ -1,4 +1,4 @@
-const path = require("path")
+const path = require('path')
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
@@ -23,7 +23,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           contentful_id
         }
       }
-    }`
+    }`,
   )
 
   const assets = await graphql(
@@ -39,22 +39,22 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           }
         }
       }
-    }`
+    }`,
   )
 
   if (posts.errors || assets.errors) {
-    reporter.panicOnBuild("Error while running GraphQL query.")
+    reporter.panicOnBuild('Error while running GraphQL query.')
     return
   }
 
-  posts.data.allContentfulBlogPost.nodes.forEach(node => {
+  posts.data.allContentfulBlogPost.nodes.forEach((node) => {
     createPage({
       path: node.slug,
-      component: path.resolve(`src/templates/blog.js`),
+      component: path.resolve('src/templates/blog.js'),
       context: {
         ...node,
         posts: posts.data.allContentfulBlogPost.nodes,
-        assets: assets.data
+        assets: assets.data,
       },
     })
   })

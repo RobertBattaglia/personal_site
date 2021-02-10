@@ -1,17 +1,17 @@
-import React, { useState } from "react"
-import { Global, css } from "@emotion/core"
-import styled from "@emotion/styled"
+import React, { useState } from 'react'
+import { Global, css } from '@emotion/core'
+import styled from '@emotion/styled'
 
-import Header from "./header"
-import Footer from "./footer"
+import Header from './header'
+import Footer from './footer'
 
-const Container = styled("div")`
+const Container = styled('div')`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 `
 
-const Main = styled("main")`
+const Main = styled('main')`
   flex-grow: 1;
 `
 
@@ -28,18 +28,18 @@ const globalStyles = css`
 
 const Layout = ({ children }) => {
   const [showingGlasses, setShowingGlasses] = useState(false)
-  const childrenWithProps = React.Children.map(children, child => {
-    if(React.isValidElement(child)){
-        return React.cloneElement(child, { showingGlasses });
+  const childrenWithProps = React.Children.map(children, (child) => {
+    if (React.isValidElement(child)) {
+      return React.cloneElement(child, { showingGlasses })
     }
-    return child;
-});
+    return child
+  })
   return (
     <Container>
       <Global styles={globalStyles} />
-      <Header 
+      <Header
         showingGlasses={showingGlasses}
-        setShowingGlasses={setShowingGlasses} 
+        setShowingGlasses={setShowingGlasses}
       />
       <Main showingGlasses={showingGlasses}>{childrenWithProps}</Main>
       <Footer />

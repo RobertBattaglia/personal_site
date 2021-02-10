@@ -1,14 +1,14 @@
-import React from "react"
-import { Helmet } from "react-helmet"
+import React from 'react'
+import { Helmet } from 'react-helmet'
 
-import { siteMetadata } from "../../gatsby-config"
-import Layout from "components/shared/layout"
-import Intro from "components/home/intro"
-import About from "components/home/about"
-import Skills from "components/home/skills"
-import PostList from "components/home/postList"
-import Apps from "components/home/apps"
-import Contact from "components/shared/contact"
+import Layout from 'components/shared/layout'
+import Intro from 'components/home/intro'
+import About from 'components/home/about'
+import Skills from 'components/home/skills'
+import PostList from 'components/home/postList'
+import Apps from 'components/home/apps'
+import Contact from 'components/shared/contact'
+import { siteMetadata } from '../../gatsby-config'
 
 function Index() {
   return (

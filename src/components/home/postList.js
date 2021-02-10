@@ -1,13 +1,13 @@
-import React from "react"
-import { graphql, useStaticQuery } from "gatsby"
-import styled from "@emotion/styled"
+import React from 'react'
+import { graphql, useStaticQuery } from 'gatsby'
+import styled from '@emotion/styled'
 
-import Post from "components/shared/post"
+import Post from 'components/shared/post'
 
-const H2 = styled("h2")`
+const H2 = styled('h2')`
   text-align: center;
   font-size: 32px;
-`;
+`
 
 const PostList = () => {
   const data = useStaticQuery(graphql`
@@ -36,7 +36,9 @@ const PostList = () => {
       <H2>Posts</H2>
       {edges && (
         <>
-        {edges.reverse().map(({node: data}) => <Post data={data} />)}
+          {edges.reverse().map(({ node: data }, idx) => (
+            <Post key={idx} data={data} />
+          ))}
         </>
       )}
     </div>

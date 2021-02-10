@@ -1,13 +1,12 @@
-import React from "react"
-import { Helmet } from "react-helmet"
-import styled from "@emotion/styled"
+import React from 'react'
+import { Helmet } from 'react-helmet'
+import styled from '@emotion/styled'
 
-import { siteMetadata } from "../../gatsby-config"
-
-import Likes from "components/blog/likes"
-import Layout from "components/shared/layout"
-import Contact from "components/shared/contact"
-import convertBlogBodyToElements from "utils/convertBlogBodyToElements"
+import Likes from 'components/blog/likes'
+import Layout from 'components/shared/layout'
+import Contact from 'components/shared/contact'
+import convertBlogBodyToElements from 'utils/convertBlogBodyToElements'
+import { siteMetadata } from '../../gatsby-config'
 
 const Container = styled('article')`
   max-width: 900px;
@@ -16,14 +15,14 @@ const Container = styled('article')`
 `
 
 function Blog({ pageContext }) {
-  const { 
+  const {
     blogBody: { raw: blogBody },
     assets: { allContentfulAsset: { edges: assets } },
-    posts
+    posts,
   } = pageContext
 
   const blogBodyElements = convertBlogBodyToElements(blogBody, assets, posts)
-  
+
   return (
     <Layout>
       <Helmet>
@@ -44,7 +43,7 @@ function Blog({ pageContext }) {
         <title>{pageContext.title}</title>
       </Helmet>
       <Container>
-        <h1 style={{ fontSize: '48px', textAlign: 'center'}}>
+        <h1 style={{ fontSize: '48px', textAlign: 'center' }}>
           {pageContext.title}
         </h1>
         <img

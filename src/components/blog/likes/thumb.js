@@ -1,10 +1,10 @@
 import React from 'react'
-import useSound from 'use-sound';
+import useSound from 'use-sound'
 import svg from 'assets/images/svgs/thumb.svg'
 import soundIncrement from 'assets/sounds/increment.wav'
 import soundIncrementFinal from 'assets/sounds/incrementFinal.wav'
 import styled from '@emotion/styled'
-import { mediaQueries } from "../../../constants"
+import { mediaQueries } from '../../../constants'
 
 const SVG = styled(svg)`
   width: 100px;
@@ -21,7 +21,7 @@ const SVG = styled(svg)`
 const Thumb = ({ myLikes, fill, dispatch }) => {
   const [playIncrement] = useSound(soundIncrement)
   const [playIncrementFinal] = useSound(soundIncrementFinal)
-  
+
   const handleClick = () => {
     if (myLikes < 10) {
       if (myLikes < 9) {
@@ -29,32 +29,32 @@ const Thumb = ({ myLikes, fill, dispatch }) => {
       } else {
         playIncrementFinal()
       }
-      dispatch({type: 'increment'})
+      dispatch({ type: 'increment' })
     }
   }
-  
+
   const handleKeyDown = (e) => {
-    const ENTER = 13;
-    const SPACE = 32;
-    
+    const ENTER = 13
+    const SPACE = 32
+
     if (e.keyCode === ENTER || e.keyCode === SPACE) {
-      e.preventDefault();
+      e.preventDefault()
       if (myLikes < 10) {
         if (myLikes < 9) {
           playIncrement()
         } else {
           playIncrementFinal()
         }
-        dispatch({type: 'increment'})
+        dispatch({ type: 'increment' })
       }
     }
-  };
+  }
 
   return (
     <SVG
-      style={{ 
+      style={{
         fill,
-        transform: `scale(${1 + myLikes * .05}) rotate(${myLikes * -.5}deg)` 
+        transform: `scale(${1 + myLikes * 0.05}) rotate(${myLikes * -0.5}deg)`,
       }}
       tabIndex={0}
       onClick={handleClick}

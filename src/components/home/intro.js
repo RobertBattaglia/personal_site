@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react"
-import { graphql, useStaticQuery } from "gatsby"
-import Img from "gatsby-image"
-import styled from "@emotion/styled"
-import { keyframes } from "@emotion/core"
-import { mediaQueries } from "../../constants"
+import React, { useState, useEffect } from 'react'
+import { graphql, useStaticQuery } from 'gatsby'
+import Img from 'gatsby-image'
+import styled from '@emotion/styled'
+import { keyframes } from '@emotion/core'
+import { mediaQueries } from '../../constants'
 
 const moveInLeft = keyframes`
   0% {
@@ -32,13 +32,13 @@ const moveInRight = keyframes`
   }
 `
 
-const Wrapper = styled("section")`
+const Wrapper = styled('section')`
   position: relative;
   text-align: center;
   padding: 0 2rem;
 `
 
-const Title = styled("h1")`
+const Title = styled('h1')`
   margin-bottom: 0.25rem;
   letter-spacing: 0px;
   animation-name: ${moveInLeft};
@@ -49,7 +49,7 @@ const Title = styled("h1")`
   }
 `
 
-const SubTitle = styled("h3")`
+const SubTitle = styled('h3')`
   margin: 0 0 2rem 0;
   animation-name: ${moveInRight};
   animation-duration: 1200ms;
@@ -105,7 +105,7 @@ function Intro({ showingGlasses }) {
 
   useEffect(() => {
     setImageBounding(
-      document.querySelector(".intro-me").getBoundingClientRect()
+      document.querySelector('.intro-me').getBoundingClientRect(),
     )
   }, [showingGlasses])
 

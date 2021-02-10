@@ -1,16 +1,16 @@
-import React from "react"
-import styled from "@emotion/styled"
-import { theme, mediaQueries } from "../../constants"
+import React from 'react'
+import styled from '@emotion/styled'
+import { theme, mediaQueries } from '../../constants'
 
-import { Button } from "./header"
+import { Button } from './header'
 
-const Wrapper = styled("section")`
+const Wrapper = styled('section')`
   min-height: 30vh;
   background: linear-gradient(${theme.secondaryColor}, ${theme.primaryColor});
   padding-top: 10rem;
 `
 
-const FormWrapper = styled("div")`
+const FormWrapper = styled('div')`
   margin: 0 auto;
   padding: 0 1rem 2rem;
   width: 80vw;
@@ -25,18 +25,18 @@ const FormWrapper = styled("div")`
   }
 `
 
-const Form = styled("form")`
+const Form = styled('form')`
   display: flex;
   flex-direction: column;
   text-align: left;
 `
 
-const Label = styled("label")`
+const Label = styled('label')`
   padding: 0.5rem 0rem;
   font-size: 1.5rem;
 `
 
-const Input = styled("input")`
+const Input = styled('input')`
   display: block;
   width: 95%;
   margin: 0 auto;
@@ -46,7 +46,7 @@ const Input = styled("input")`
   font-size: 1.25rem;
 `
 
-const Textarea = styled("textarea")`
+const Textarea = styled('textarea')`
   display: block;
   width: 95%;
   margin: 0 auto;

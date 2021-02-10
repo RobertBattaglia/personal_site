@@ -1,11 +1,11 @@
-import React from "react"
-import styled from "@emotion/styled"
-import { keyframes } from "@emotion/core"
+import React from 'react'
+import styled from '@emotion/styled'
+import { keyframes } from '@emotion/core'
 
-import Logo from "assets/images/svgs/logo.svg"
-import { theme } from "../../constants"
+import Logo from 'assets/images/svgs/logo.svg'
+import { theme } from '../../constants'
 
-const HeaderStyled = styled("header")`
+const HeaderStyled = styled('header')`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -52,7 +52,7 @@ const LogoWrapper = styled(Logo)`
   }
 `
 
-export const Button = styled("button")`
+export const Button = styled('button')`
   margin-right: 3rem;
   padding: 0.5rem 1rem;
   border: 2px solid #4ccdd6;
@@ -69,17 +69,16 @@ export const Button = styled("button")`
 `
 
 function Header({ showingGlasses, setShowingGlasses }) {
-
-  const enterText = node => {
+  const enterText = (node) => {
     const messages = [
-      "Hello Rob, my name is... ~ and I wanted to contact you because...",
+      'Hello Rob, my name is... ~ and I wanted to contact you because...',
       "What's up Rob, ~ I gotta tell you something crazy...",
     ]
     const text = messages[Math.floor(Math.random() * messages.length)]
-    const enterChar = idx => {
+    const enterChar = (idx) => {
       const char = text.charAt(idx)
-      const timeout = char === "~" ? 500 : Math.random() * 150
-      if (char !== "~") node.value += char
+      const timeout = char === '~' ? 500 : Math.random() * 150
+      if (char !== '~') node.value += char
       if (idx < text.length) {
         setTimeout(() => {
           enterChar(idx + 1)
@@ -92,13 +91,13 @@ function Header({ showingGlasses, setShowingGlasses }) {
   }
 
   const handleClick = () => {
-    const contact = document.querySelector("#contact")
-    const messageField = document.querySelector("#contact-message")
+    const contact = document.querySelector('#contact')
+    const messageField = document.querySelector('#contact-message')
     if (!messageField) {
       return
     }
-    
-    messageField.value = ""
+
+    messageField.value = ''
     contact.scrollIntoView()
     window.scrollBy(0, 120)
     enterText(messageField)
