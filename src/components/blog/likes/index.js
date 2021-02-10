@@ -1,6 +1,5 @@
-import React, { useReducer, useEffect } from 'react'
+import React, { useReducer, useEffect, useCallback } from 'react'
 import styled from '@emotion/styled'
-import { getCookie, setCookie } from '../../../utils/cookies'
 import { mediaQueries } from "../../../constants"
 import Thumb from './thumb'
 
@@ -32,6 +31,7 @@ const reducer = (state, action) => {
     case 'increment':
       if (state.myLikes < 10) {
         return ({
+          ...state,
           myLikes: state.myLikes + 1,
           totalLikes: state.totalLikes + 1,
           fill: `#${Math.floor(Math.random()*16777215).toString(16)}`,
@@ -50,51 +50,64 @@ const Likes = () => {
       totalLikes: 0,
       myLikes: 0,
       fill: 'black',
-      scale: 1
-    });
+      scale: 1,
+      slug: typeof window === 'undefined' ? '' : window.location.pathname
+    }
+  );
+
+  const localStorageKey = useCallback((key) => ({
+      get: () => localStorage.getItem(`${state.slug}${key}`),
+      set: (value) => localStorage.setItem(`${state.slug}${key}`, value)
+    }), [state.slug])
   
   useEffect(() => {
-    const slug = window.location.pathname;
     fetch('/api/getLikes', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ slug })
+      body: JSON.stringify({ slug: state.slug })
     }).then(
       response => response.json()
     ).then(
       totalLikes => dispatch({type: 'setTotalLikes', payload: totalLikes})
-    )
+    ).catch(err => {
+      console.error(err)
+    })
 
-    let myLikes = parseInt(getCookie('myLikes'), 10)
+    const persistentMyLikes = localStorageKey('myLikes')
+    let myLikes = parseInt(persistentMyLikes.get(), 10)
     if (isNaN(myLikes)) {
       myLikes = 0
-      setCookie('myLikes', myLikes, slug)
+      persistentMyLikes.set(myLikes)
     }
     dispatch({type: 'setMyLikes', payload: myLikes})
 
-    let fill = getCookie('fill')
+    const persistentFill = localStorageKey('fill')
+    let fill = persistentFill.get()
     if (!fill) {
       fill = 'black'
-      setCookie('fill', fill, slug)
+      persistentFill.set(fill)
     }
     dispatch({type: 'setFill', payload: fill})
     
-    let scale = parseFloat(getCookie('scale'))
+    const persistentScale = localStorageKey('scale')
+    let scale = parseFloat(persistentScale.get())
     if (isNaN(scale)) {
       scale = 1
-      setCookie('scale', scale, slug)
+      persistentScale.set(scale)
     }
     dispatch({type: 'setScale', payload: scale})
   }, [])
 
   useEffect(() => {
-    const slug = window.location.pathname;
-    setCookie(`myLikes`, state.myLikes, slug)
-    setCookie(`fill`, state.fill, slug)
-    setCookie(`scale`, state.scale, slug)
-  }, [state])
+    const persistentMyLikes = localStorageKey('myLikes')
+    persistentMyLikes.set(state.myLikes)
+    const persistentFill = localStorageKey('fill')
+    persistentFill.set(state.fill)
+    const persistentScale = localStorageKey('scale')
+    persistentScale.set(state.scale)
+  }, [state.myLikes, state.fill, state.scale])
 
   useEffect(() => {
     if (state.totalLikes !== 0) {
@@ -114,9 +127,7 @@ const Likes = () => {
   return (
     <Container>
       <Thumb {...state} dispatch={dispatch} />
-      <Counter>
-        {state.totalLikes}
-      </Counter>
+      <Counter>{state.totalLikes}</Counter>
     </Container>
   )
 }
