@@ -7,6 +7,10 @@ const Container = styled('div')`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  padding: 30px 0px 15px;
+  ${mediaQueries.tablet} {
+    padding: 50px 0px 25px;
+  }
 `
 
 const Counter = styled('div')`

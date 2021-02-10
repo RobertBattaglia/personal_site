@@ -40,8 +40,8 @@ const About = () => {
       <H3>Hi, I'm Rob...</H3>
       <P>
         I fell in love with programming instantly after printing "Hello World!"
-        to the command prompt for the first time. My curiosity rapidly expanded,
-        as each new concept introduced brand new rabbit holes to explore.
+        to the terminal for the first time. My curiosity rapidly expanded,
+        as each new concept introduced new rabbit holes to explore.
       </P>
       <P>
         I graduated{" "}
