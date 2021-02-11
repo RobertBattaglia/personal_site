@@ -2,6 +2,7 @@ import React, { useReducer, useEffect, useCallback } from 'react'
 import styled from '@emotion/styled'
 import { mediaQueries } from '../../../constants'
 import Thumb from './thumb'
+import Counter from './counter'
 
 const Container = styled('div')`
   display: flex;
@@ -13,17 +14,10 @@ const Container = styled('div')`
   }
 `
 
-const Counter = styled('div')`
-  width: 100px;
-  text-align: center;
-  font-size: 18px;
-  ${mediaQueries.tablet} {
-    width: 200px;
-  }
-`
-
 const reducer = (state, action) => {
   switch (action.type) {
+    case 'initialize':
+      return { ...state, initialized: true}
     case 'setTotalLikes':
       return { ...state, totalLikes: action.payload }
     case 'setMyLikes':
@@ -48,6 +42,7 @@ const reducer = (state, action) => {
 const Likes = () => {
   const [state, dispatch] = useReducer(
     reducer, {
+      initialized: false,
       totalLikes: 0,
       myLikes: 0,
       fill: 'black',
@@ -70,7 +65,10 @@ const Likes = () => {
     }).then(
       (response) => response.json(),
     ).then(
-      (totalLikes) => dispatch({ type: 'setTotalLikes', payload: totalLikes }),
+      (totalLikes) => {
+        dispatch({ type: 'setTotalLikes', payload: totalLikes })
+        dispatch({ type: 'initialize' })
+      },
     ).catch((err) => {
       console.error(err)
     })
@@ -100,7 +98,7 @@ const Likes = () => {
   }, [state.myLikes, state.fill, state.slug, localStorageKey])
 
   useEffect(() => {
-    if (state.totalLikes !== 0) {
+    if (state.initialized) {
       fetch('/api/postLike', {
         method: 'POST',
         headers: {
@@ -117,7 +115,7 @@ const Likes = () => {
   return (
     <Container>
       <Thumb {...state} dispatch={dispatch} />
-      <Counter>{state.totalLikes}</Counter>
+      <Counter {...state} />
     </Container>
   )
 }
