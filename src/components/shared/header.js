@@ -34,6 +34,7 @@ const LogoWrapper = styled(Logo)`
   margin-left: 1.5rem;
   :hover {
     cursor: pointer;
+    transition: all 0.2s ease-in-out;
     -webkit-transition: all 0.2s ease-in-out;
     transform: scale(1.15);
     #N1,
@@ -61,6 +62,7 @@ export const Button = styled('button')`
   color: ${theme.secondaryColor};
   background-color: #fff;
   font-size: 1rem;
+  transition: all 0.2s ease-in-out;
   -webkit-transition: all 0.2s ease-in-out;
   cursor: pointer;
   :hover {

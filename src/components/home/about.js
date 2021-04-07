@@ -61,7 +61,7 @@ const About = () => (
     <P>
       My current role is on the Web Engagement team at
       {' '}
-      <a href="https://cnbc.com">CNBC</a>
+      <a href="https://www.cnbc.com">CNBC</a>
       .
     </P>
   </Wrapper>
