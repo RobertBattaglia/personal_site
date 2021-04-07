@@ -1,6 +1,7 @@
 import React, { useReducer, useEffect, useCallback } from 'react'
 import styled from '@emotion/styled'
 import { mediaQueries } from '../../../constants'
+import debounce from '../../../utils/debounce'
 import Thumb from './thumb'
 import Counter from './counter'
 
@@ -55,6 +56,22 @@ const Likes = () => {
     set: (value) => localStorage.setItem(`${state.slug}${key}`, value),
   }), [state.slug])
 
+  const postLike = useCallback(
+    debounce((likes) => {
+      fetch('/api/postLike', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          slug: window.location.pathname,
+          likes
+        }),
+      }).catch((err) => console.error(err))
+    }, 500),
+    []
+  )
+
   useEffect(() => {
     fetch('/api/getLikes', {
       method: 'POST',
@@ -99,18 +116,11 @@ const Likes = () => {
 
   useEffect(() => {
     if (state.initialized) {
-      fetch('/api/postLike', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          slug: window.location.pathname,
-          likes: state.totalLikes,
-        }),
-      }).catch((err) => console.error(err))
+      postLike(state.totalLikes)
     }
   }, [state.totalLikes])
+
+
 
   return (
     <Container>
