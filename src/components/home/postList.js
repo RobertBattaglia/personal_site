@@ -36,7 +36,7 @@ const PostList = () => {
       <H2>Posts</H2>
       {edges && (
         <>
-          {edges.reverse().map(({ node: data }, idx) => (
+          {edges.map(({ node: data }, idx) => (
             <Post key={idx} data={data} />
           ))}
         </>

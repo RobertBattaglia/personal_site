@@ -12,7 +12,7 @@ import { siteMetadata } from '../../gatsby-config'
 
 function Index() {
   return (
-    <Layout>
+    <Layout page="index">
       <Helmet>
         <html lang="en" />
         <meta charSet="utf-8" />

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 import { keyframes } from '@emotion/core'
 
@@ -68,7 +69,7 @@ export const Button = styled('button')`
   }
 `
 
-function Header({ showingGlasses, setShowingGlasses }) {
+function Header({ page, showingGlasses, setShowingGlasses }) {
   const enterText = (node) => {
     const messages = [
       'Hello Rob, my name is... ~ and I wanted to contact you because...',
@@ -105,11 +106,17 @@ function Header({ showingGlasses, setShowingGlasses }) {
 
   return (
     <HeaderStyled>
-      <LogoWrapper
-        onClick={() => {
-          setShowingGlasses(!showingGlasses)
-        }}
-      />
+      {page === 'index' ? (
+        <LogoWrapper
+          onClick={() => {
+            setShowingGlasses(!showingGlasses)
+          }}
+        />
+      ) : (
+        <Link to="/">
+          <LogoWrapper />
+        </Link>
+      )}
       <Button onClick={handleClick}>Contact</Button>
     </HeaderStyled>
   )

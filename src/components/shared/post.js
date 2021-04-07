@@ -1,9 +1,10 @@
 import React from 'react'
+import { Link } from 'gatsby'
 import styled from '@emotion/styled'
 
-const A = styled('a')`
+const A = styled(Link)`
   display: flex;
-  justify-content: space-evenly;
+  justify-content: start;
   align-items: center;
   height: 140px;
   border: 3px solid salmon;
@@ -13,17 +14,17 @@ const A = styled('a')`
 `
 
 const IMG = styled('img')`
-  max-width: 100px;
+  max-width: 150px;
   max-height: 100px;
-  margin: 0;
+  margin: 0 10px;
 `
 
 const P = styled('p')`
-  margin: 0;
+  margin: 0 auto;
 `
 
 const Post = ({ data }) => (
-  <A href={data.slug}>
+  <A to={data.slug}>
     <IMG
       src={data.featuredImage.file.url}
       alt={data.featuredImage.description}

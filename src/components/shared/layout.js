@@ -25,7 +25,7 @@ const globalStyles = css`
   }
 `
 
-const Layout = ({ children }) => {
+const Layout = ({ page, children }) => {
   const [showingGlasses, setShowingGlasses] = useState(false)
   const childrenWithProps = React.Children.map(children, (child) => {
     if (React.isValidElement(child)) {
@@ -37,6 +37,7 @@ const Layout = ({ children }) => {
     <Container>
       <Global styles={globalStyles} />
       <Header
+        page={page}
         showingGlasses={showingGlasses}
         setShowingGlasses={setShowingGlasses}
       />
