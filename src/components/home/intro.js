@@ -43,6 +43,7 @@ const Title = styled('h1')`
   letter-spacing: 0px;
   animation-name: ${moveInLeft};
   animation-duration: 1200ms;
+  font-size: calc(12px + 2vw);
   ${mediaQueries.tablet} {
     margin-bottom: 0.75rem;
     letter-spacing: 8px;

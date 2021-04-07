@@ -17,7 +17,7 @@ module.exports = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'Images',
-        path: `${__dirname}/src/assets/images/`,
+        path: path.join(__dirname, 'src', 'assets', 'images'),
       },
     },
     'gatsby-plugin-sharp',
@@ -26,7 +26,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-typography',
       options: {
-        pathToConfigModule: 'src/utils/typography',
+        pathToConfigModule: path.join(__dirname, 'src', 'utils', 'typography'),
       },
     },
     'gatsby-plugin-react-helmet',

@@ -17,7 +17,6 @@ const FormWrapper = styled('div')`
   text-align: center;
   border: solid 3px ${theme.primaryColor};
   border-radius: 3rem;
-  font-size: 2rem;
   background-color: #fff;
 
   ${mediaQueries.tablet} {

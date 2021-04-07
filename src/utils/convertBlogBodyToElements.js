@@ -9,7 +9,7 @@ const CodeLine = styled('span')`
   background-color: rgb(245, 247, 255);
   color: rgb(34, 162, 201);
   padding: 0 2px;
-  font-size: calc(10px + 1vw);
+  font-size: 18px;
 `
 
 const basicNodeTypeToElementMap = new Map([

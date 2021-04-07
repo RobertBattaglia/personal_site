@@ -6,14 +6,7 @@ grandviewTheme.overrideThemeStyles = () => ({
   'h1,h2,h3': {
     border: 'none',
   },
-  h1: {
-    fontSize: 'calc(12px + 2vw)',
-  },
-  p: {
-    fontSize: 'calc(8px + 1vw)',
-  },
   a: {
-    fontSize: 'calc(12px + 0.5vw)',
     color: `${theme.primaryColorFont}`,
   },
 })

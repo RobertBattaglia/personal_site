@@ -14,8 +14,8 @@ import { theme } from '../../constants'
 const Wrapper = styled('footer')`
   padding: 10rem 0 3rem 0;
   background-color: ${theme.primaryColor};
-  font-size: 1.5rem;
   color: ${theme.primaryFontColor};
+  font-size: max(16px, calc(8px + 1vw));
   text-align: center;
 `
 
