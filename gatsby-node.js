@@ -14,7 +14,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             file {
               url
             }
-            createdAt
           }
           slug
           title
@@ -28,8 +27,9 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
               }
             }
           }
-          createdAt(formatString: "YYYY-MM-DD HH:mm:SS")
-          updatedAt(formatString: "YYYY-MM-DD HH:mm:SS")
+          createdAt
+          updatedAt
+          updatedAtFormatted: updatedAt(formatString: "MMMM Do, YYYY, h:mm a")
           contentful_id
         }
       }
@@ -63,6 +63,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       component: path.resolve('src/templates/blog.js'),
       context: {
         ...node,
+        updated : node.updatedAt,// not being passed into context for some reason
+        updatedFormatted: node.updatedAtFormatted, // not being passed into context for some reason
         posts: posts.data.allContentfulBlogPost.nodes,
         assets: assets.data,
       },

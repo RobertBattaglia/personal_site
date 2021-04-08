@@ -12,7 +12,7 @@ import { siteMetadata } from '../../gatsby-config'
 const Container = styled('article')`
   max-width: 900px;
   padding: 0 30px;
-  margin: auto;
+  margin: -40px auto;
 `
 
 function Blog({ pageContext }) {
@@ -21,6 +21,8 @@ function Blog({ pageContext }) {
     author,
     assets: { allContentfulAsset: { edges: assets } },
     posts,
+    updated,
+    updatedFormatted
   } = pageContext
 
   const blogBodyElements = convertBlogBodyToElements(blogBody, assets, posts)
@@ -35,6 +37,8 @@ function Blog({ pageContext }) {
         <meta name="author" content={siteMetadata.author} />
         <meta name="keywords" content={siteMetadata.keywords} />
         <meta name="image" property="og:image" content={pageContext.featuredImage.file.url} />
+        <meta name="dateCreated" content={pageContext.createdAt} />
+        <meta name="dateModified" content={updated} />
 
         {/* Twitter Stuff */}
         <meta name="twitter:card" content="summary" />
@@ -50,21 +54,33 @@ function Blog({ pageContext }) {
         </h1>
         <div style={{
           display: 'flex',
+          flexWrap: 'wrap',
           justifyContent: 'center',
           alignContent: 'center',
           marginBottom: '20px'
         }}>
           <img
             style={{ maxHeight: '40px', borderRadius: '100%', margin: '0 10px' }}
-            src={author.image.file.url}
+            src={`${author.image.file.url}?h=80`}
             alt={author.image.description}
           />
           <Link
             to={author.url}
-            style={{ lineHeight: '40px' }}
+            style={{
+              lineHeight: '40px',
+              fontWeight: '600'
+            }}
           >
             {author.name}
           </Link>
+          <time style={{
+            lineHeight: '40px',
+            marginLeft: '10px',
+            fontSize: '13px'
+          }}
+          >
+            • Last Updated {updatedFormatted} EDT
+          </time>
         </div>
         <div style={{ textAlign: 'center' }}>
           <img
