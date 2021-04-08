@@ -23,8 +23,8 @@ const Thumb = ({ myLikes, fill, dispatch }) => {
   const [playIncrementFinal] = useSound(soundIncrementFinal)
 
   const handleClick = () => {
-    if (myLikes < 10) {
-      if (myLikes < 9) {
+    if (myLikes < 8) {
+      if (myLikes < 7) {
         playIncrement()
       } else {
         playIncrementFinal()
@@ -39,8 +39,8 @@ const Thumb = ({ myLikes, fill, dispatch }) => {
 
     if (e.keyCode === ENTER || e.keyCode === SPACE) {
       e.preventDefault()
-      if (myLikes < 10) {
-        if (myLikes < 9) {
+      if (myLikes < 8) {
+        if (myLikes < 7) {
           playIncrement()
         } else {
           playIncrementFinal()

@@ -20,7 +20,9 @@ const Counter = ({ initialized, totalLikes, myLikes }) => {
   return (
     <Container>
       {totalLikes}
-      {initialized && Array(myLikes).fill(null).map((_, idx) => <Coin key={idx} />)}
+      {initialized && Array(myLikes).fill(null).map((_, idx) => {
+        return myLikes === 8 ? <Coin red key={idx} /> : <Coin key={idx} />
+      })}
     </Container>
   )
 }

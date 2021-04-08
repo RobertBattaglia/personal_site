@@ -2,7 +2,8 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { keyframes } from '@emotion/core'
 
-import svg from 'assets/images/svgs/coin.svg'
+import coin from 'assets/images/svgs/coin.svg'
+import coinRed from 'assets/images/svgs/coinRed.svg'
 
 const spin3dAndGoUp = keyframes`
   0% {
@@ -26,7 +27,16 @@ const spin3dAndGoUp = keyframes`
     opacity: 0;
   }
 `
-const SVG = styled(svg)`
+const COIN = styled(coin)`
+  width: 25px;
+  animation-name: ${spin3dAndGoUp};
+  animation-duration: 1250ms;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -15px) rotateY(0deg);
+  opacity: 0;
+`
+const COINRED = styled(coinRed)`
   width: 25px;
   animation-name: ${spin3dAndGoUp};
   animation-duration: 1250ms;
@@ -36,6 +46,6 @@ const SVG = styled(svg)`
   opacity: 0;
 `
 
-const Coin = (props) => <SVG {...props} />
+const Coin = (props) => props.red ? <COINRED {...props} /> : <COIN {...props} />
 
 export default Coin
