@@ -122,7 +122,7 @@ function Header({ page, showingGlasses, setShowingGlasses }) {
           }}
         />
       ) : (
-        <Link to="/">
+        <Link to="/" aria-label="Homepage">
           <LogoWrapper />
         </Link>
       )}
