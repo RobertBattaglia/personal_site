@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import styled from '@emotion/styled'
 
@@ -17,6 +18,7 @@ const Container = styled('article')`
 function Blog({ pageContext }) {
   const {
     blogBody: { raw: blogBody },
+    author,
     assets: { allContentfulAsset: { edges: assets } },
     posts,
   } = pageContext
@@ -46,10 +48,31 @@ function Blog({ pageContext }) {
         <h1 style={{ fontSize: '48px', textAlign: 'center' }}>
           {pageContext.title}
         </h1>
-        <img
-          src={pageContext.featuredImage.file.url}
-          alt={pageContext.featuredImage.description}
-        />
+        <div style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignContent: 'center',
+          marginBottom: '20px'
+        }}>
+          <img
+            style={{ maxHeight: '40px', borderRadius: '100%', margin: '0 10px' }}
+            src={author.image.file.url}
+            alt={author.image.description}
+          />
+          <Link
+            to={author.url}
+            style={{ lineHeight: '40px' }}
+          >
+            {author.name}
+          </Link>
+        </div>
+        <div style={{ textAlign: 'center' }}>
+          <img
+            src={pageContext.featuredImage.file.url}
+            alt={pageContext.featuredImage.description}
+            style={{ maxHeight: '550px' }}
+          />
+        </div>
         {blogBodyElements}
       </Container>
       <Likes />

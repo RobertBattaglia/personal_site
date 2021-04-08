@@ -24,6 +24,7 @@ const P = styled('p')`
   line-height: 1.5;
   text-align: center;
   text-justify: auto;
+  font-size: max(16px, calc(8px + 1vw));
   ${mediaQueries.tablet} {
     max-width: 700px;
   }

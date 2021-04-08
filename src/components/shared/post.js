@@ -21,6 +21,8 @@ const IMG = styled('img')`
 
 const P = styled('p')`
   margin: 0 auto;
+  text-align: center;
+  font-size: max(16px, calc(6px + 1vw));
 `
 
 const Post = ({ data }) => (

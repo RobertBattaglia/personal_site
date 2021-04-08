@@ -18,12 +18,22 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           }
           slug
           title
+          author {
+            name
+            url
+            image {
+              description
+              file {
+                url
+              }
+            }
+          }
           createdAt(formatString: "YYYY-MM-DD HH:mm:SS")
           updatedAt(formatString: "YYYY-MM-DD HH:mm:SS")
           contentful_id
         }
       }
-    }`,
+    }`
   )
 
   const assets = await graphql(
@@ -39,7 +49,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           }
         }
       }
-    }`,
+    }`
   )
 
   if (posts.errors || assets.errors) {
