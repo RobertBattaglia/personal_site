@@ -76,10 +76,12 @@ function Blog({ pageContext }) {
           <time style={{
             lineHeight: '40px',
             marginLeft: '10px',
-            fontSize: '13px'
+            fontSize: '13px',
+            fontWeight: '500',
+            color: '#5b636e'
           }}
           >
-            • Last Updated {updatedFormatted} EDT
+            Last Updated {updatedFormatted} EDT
           </time>
         </div>
         <div style={{ textAlign: 'center' }}>

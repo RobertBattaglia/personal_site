@@ -29,7 +29,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           }
           createdAt
           updatedAt
-          updatedAtFormatted: updatedAt(formatString: "MMMM Do, YYYY, h:mm a")
+          updatedAtFormatted: updatedAt(formatString: "MMM Do, YYYY • h:mma")
           contentful_id
         }
       }
