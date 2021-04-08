@@ -4,7 +4,7 @@ module.exports = {
   siteMetadata: {
     title: 'Robert Battaglia | Software Engineer',
     description:
-      "Robert Battaglia's Personal Website, including skills, applications portfolio, contact form and social links",
+      "Robert Battaglia's Personal Website - Blog, Skills, Portfolio, Contact Form and Social Links",
     author: 'Robert Battaglia',
     keywords: 'Robert,Battaglia,Full,Stack,Engineer,Javascript,Python,Contact',
     image: 'https://com-robertbattaglia.s3.amazonaws.com/ogimage.jpeg',

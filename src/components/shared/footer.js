@@ -15,7 +15,7 @@ const Wrapper = styled('footer')`
   padding: 10rem 0 3rem 0;
   background-color: ${theme.primaryColor};
   color: ${theme.primaryFontColor};
-  font-size: max(16px, calc(8px + 1vw));
+  font-size: max(14px, calc(8px + 1vw));
   text-align: center;
 `
 
@@ -94,7 +94,7 @@ const Footer = () => {
         </A>
       </Icons>
       <P>
-        {`Created by ${
+        {`${
           data.site.siteMetadata.author
         } © ${new Date().getFullYear()}`}
         {' '}
