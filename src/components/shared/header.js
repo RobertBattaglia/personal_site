@@ -1,9 +1,12 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import useSound from 'use-sound'
 import styled from '@emotion/styled'
 import { keyframes } from '@emotion/core'
 
 import Logo from 'assets/images/svgs/logo.svg'
+import typing from 'assets/sounds/typing.m4a'
+
 import { theme } from '../../constants'
 
 const HeaderStyled = styled('header')`
@@ -72,9 +75,11 @@ export const Button = styled('button')`
 `
 
 function Header({ page, showingGlasses, setShowingGlasses }) {
+  const [playTyping, { stop }] = useSound(typing)
+
   const enterText = (node) => {
     const messages = [
-      'Hello Rob, my name is... ~ and I wanted to contact you because...',
+      'Hi Rob, I\'m... ~ and I wanted to contact you because...',
       "What's up Rob, ~ I gotta tell you something crazy...",
     ]
     const text = messages[Math.floor(Math.random() * messages.length)]
@@ -88,6 +93,7 @@ function Header({ page, showingGlasses, setShowingGlasses }) {
         }, timeout)
       } else {
         node.focus()
+        stop()
       }
     }
     enterChar(0)
@@ -102,6 +108,7 @@ function Header({ page, showingGlasses, setShowingGlasses }) {
 
     messageField.value = ''
     contact.scrollIntoView()
+    playTyping()
     window.scrollBy(0, window.innerWidth < 760 ? 60 : 120)
     enterText(messageField)
   }

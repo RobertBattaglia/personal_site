@@ -113,7 +113,7 @@ const Footer = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          source code
+          src
         </A>
       </P>
     </Wrapper>
