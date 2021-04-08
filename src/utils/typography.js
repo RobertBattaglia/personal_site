@@ -7,7 +7,13 @@ grandviewTheme.overrideThemeStyles = () => ({
     border: 'none',
   },
   a: {
-    color: `${theme.primaryColorFont}`,
+    color: `${theme.secondaryColor}`,
+  },
+  'a:visited': {
+    color: `${theme.secondaryColor}`,
+  },
+  'a:hover': {
+    color: `${theme.primaryFontColor}`,
   },
 })
 

@@ -29,9 +29,9 @@ const Icons = styled('div')`
 
 const A = styled('a')`
   margin: 0;
-  color: ${theme.primaryFontColor};
+  color: ${theme.primaryFontColor} !important;
   :hover {
-    color: ${theme.secondaryColor};
+    color: ${theme.secondaryColor} !important;
   }
 `
 
@@ -100,13 +100,21 @@ const Footer = () => {
         {' '}
         w/ ❤️ &
         {' '}
-        <a
+        <A
           href="https://www.gatsbyjs.org/"
           target="_blank"
           rel="noopener noreferrer"
         >
           Gatsby
-        </a>
+        </A>
+        {' | '}
+        <A
+          href="https://github.com/RobertBattaglia/portfolio"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          source code
+        </A>
       </P>
     </Wrapper>
   )
