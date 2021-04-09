@@ -1,20 +1,19 @@
-import Typography from "typography"
-import grandviewTheme from "typography-theme-grand-view"
-import { theme } from "../constants"
+import Typography from 'typography'
+import grandviewTheme from 'typography-theme-grand-view'
+import { theme } from '../constants'
 
 grandviewTheme.overrideThemeStyles = () => ({
-  "h1,h2,h3": {
-    border: "none",
-  },
-  h1: {
-    fontSize: "calc(12px + 2vw)",
-  },
-  p: {
-    fontSize: "calc(8px + 1vw)",
+  'h1,h2,h3': {
+    border: 'none',
   },
   a: {
-    fontSize: "calc(12px + 0.5vw)",
-    color: `${theme.primaryColorFont}`,
+    color: `${theme.secondaryColor}`,
+  },
+  'a:visited': {
+    color: `${theme.secondaryColor}`,
+  },
+  'a:hover': {
+    color: `${theme.primaryFontColor}`,
   },
 })
 

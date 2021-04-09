@@ -1,11 +1,15 @@
-import React from "react"
-import styled from "@emotion/styled"
-import { keyframes } from "@emotion/core"
+import React from 'react'
+import { Link } from 'gatsby'
+import useSound from 'use-sound'
+import styled from '@emotion/styled'
+import { keyframes } from '@emotion/core'
 
-import Logo from "../images/svgs/logo.svg"
-import { theme } from "../constants"
+import Logo from 'assets/images/svgs/logo.svg'
+import typing from 'assets/sounds/typing.m4a'
 
-const HeaderStyled = styled("header")`
+import { theme } from '../../constants'
+
+const HeaderStyled = styled('header')`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -32,8 +36,10 @@ const growAndRotate = keyframes`
 const LogoWrapper = styled(Logo)`
   margin-left: 1.5rem;
   :hover {
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
     -webkit-transition: all 0.2s ease-in-out;
-    transform: scale(1.33);
+    transform: scale(1.15);
     #N1,
     #N2,
     #N3,
@@ -51,7 +57,7 @@ const LogoWrapper = styled(Logo)`
   }
 `
 
-export const Button = styled("button")`
+export const Button = styled('button')`
   margin-right: 3rem;
   padding: 0.5rem 1rem;
   border: 2px solid #4ccdd6;
@@ -59,6 +65,7 @@ export const Button = styled("button")`
   color: ${theme.secondaryColor};
   background-color: #fff;
   font-size: 1rem;
+  transition: all 0.2s ease-in-out;
   -webkit-transition: all 0.2s ease-in-out;
   cursor: pointer;
   :hover {
@@ -67,44 +74,58 @@ export const Button = styled("button")`
   }
 `
 
-function Header({ showingGlasses, setShowingGlasses }) {
+function Header({ page, showingGlasses, setShowingGlasses }) {
+  const [playTyping, { stop }] = useSound(typing)
 
-  const enterText = node => {
+  const enterText = (node) => {
     const messages = [
-      "Hello Rob, my name is... ~ and I wanted to contact you because...",
+      'Hi Rob, I\'m... ~ and I wanted to contact you because...',
       "What's up Rob, ~ I gotta tell you something crazy...",
     ]
     const text = messages[Math.floor(Math.random() * messages.length)]
-    const enterChar = idx => {
+    const enterChar = (idx) => {
       const char = text.charAt(idx)
-      const timeout = char === "~" ? 500 : Math.random() * 150
-      if (char !== "~") node.value += char
+      const timeout = char === '~' ? 500 : Math.random() * 150
+      if (char !== '~') node.value += char
       if (idx < text.length) {
         setTimeout(() => {
           enterChar(idx + 1)
         }, timeout)
       } else {
         node.focus()
+        stop()
       }
     }
     enterChar(0)
   }
 
   const handleClick = () => {
-    const contact = document.querySelector("#contact")
-    const messageField = document.querySelector("#contact-message")
-    messageField.value = ""
+    const contact = document.querySelector('#contact')
+    const messageField = document.querySelector('#contact-message')
+    if (!messageField) {
+      return
+    }
+
+    messageField.value = ''
     contact.scrollIntoView()
+    playTyping()
+    window.scrollBy(0, window.innerWidth < 760 ? 60 : 120)
     enterText(messageField)
   }
 
   return (
     <HeaderStyled>
-      <LogoWrapper
-        onClick={() => {
-          setShowingGlasses(!showingGlasses)
-        }}
-      />
+      {page === 'index' ? (
+        <LogoWrapper
+          onClick={() => {
+            setShowingGlasses(!showingGlasses)
+          }}
+        />
+      ) : (
+        <Link to="/" aria-label="Homepage">
+          <LogoWrapper />
+        </Link>
+      )}
       <Button onClick={handleClick}>Contact</Button>
     </HeaderStyled>
   )
