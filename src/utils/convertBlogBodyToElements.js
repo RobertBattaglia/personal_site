@@ -29,27 +29,24 @@ const basicNodeTypeToElementMap = new Map([
 
 const convertBlogBodyToElements = (raw, assets, posts) => {
   const parseNode = (node) => {
-    const {
-      nodeType, content, data, value, marks,
-    } = node
+    const { nodeType, content, data, value, marks } = node
+
+    const mappedContent = content && content.map(parseNode)
 
     let element = null
-    const mappedContent = () => content && content.map(parseNode)
-
     if (basicNodeTypeToElementMap.has(nodeType)) {
       element = React.createElement(
         basicNodeTypeToElementMap.get(nodeType),
         {},
-        mappedContent(),
+        mappedContent,
       )
     } else if (nodeType === 'hr') {
       element = <hr />
     } else if (nodeType === 'hyperlink') {
-      element = <a href={data.uri}>{mappedContent()}</a>
+      element = <a href={data.uri}>{mappedContent}</a>
     } else if (nodeType === 'embedded-asset-block') {
       const { target: { sys: { id } } } = data
-      let src; let
-        description
+      let src; let description
       for (const asset of assets) {
         if (id === asset.node.contentful_id) {
           src = asset.node.file.url
@@ -138,9 +135,7 @@ const convertBlogBodyToElements = (raw, assets, posts) => {
     return element
   }
 
-  console.log(JSON.parse(raw))
   const result = parseNode(JSON.parse(raw))
-  console.log(result)
   return result
 }
 

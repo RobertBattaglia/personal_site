@@ -49,14 +49,12 @@ function Blog({ pageContext }) {
         <title>{pageContext.title}</title>
       </Helmet>
       <Container>
-        <h1 style={{ fontSize: '48px', textAlign: 'center' }}>
+        <h1 style={{ fontSize: '48px' }}>
           {pageContext.title}
         </h1>
         <div style={{
           display: 'flex',
           flexWrap: 'wrap',
-          justifyContent: 'center',
-          alignContent: 'center',
           marginBottom: '20px'
         }}>
           <img
@@ -81,7 +79,7 @@ function Blog({ pageContext }) {
             color: '#5b636e'
           }}
           >
-            Last Updated {updatedFormatted} EDT
+            Last Updated {updatedFormatted} UTC
           </time>
         </div>
         <div style={{ textAlign: 'center' }}>
