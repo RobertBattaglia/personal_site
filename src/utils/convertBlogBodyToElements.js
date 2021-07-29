@@ -94,34 +94,43 @@ const convertBlogBodyToElements = (raw, assets, posts) => {
       marks.forEach(({ type }) => {
         if (type === 'code') {
           const elementParts = element.split('\n')
-          const recognizedLanguages = new Set([
-            'javascript',
-            'graphql',
-            'python',
-            'sql',
-            'html',
-            'css',
-            'sass',
-            'jsx',
-            'json',
-            'go',
-            'typescript',
-            'bash',
-          ])
+          const elementMetaPart = elementParts[0]
+          const elementRealParts = elementParts.slice(1).join('\n')
 
-          const isLanguage = recognizedLanguages.has(elementParts[0])
-          const language = isLanguage ? elementParts[0] : 'javascript'
+          if (elementMetaPart === 'dangerouslysetinnerhtml') {
+            element = (
+              <span dangerouslySetInnerHTML={{__html: elementRealParts}} />
+            )
+          } else {
+              const recognizedLanguages = new Set([
+                'javascript',
+                'graphql',
+                'python',
+                'sql',
+                'html',
+                'css',
+                'sass',
+                'jsx',
+                'json',
+                'go',
+                'typescript',
+                'bash',
+              ])
 
-          element = (
-            <SyntaxHighlighter
-              language={language}
-              style={base16AteliersulphurpoolLight}
-              showLineNumbers
-              wrapLongLines
-            >
-              {isLanguage ? elementParts.slice(1).join('\n') : element}
-            </SyntaxHighlighter>
-          )
+              const isLanguage = recognizedLanguages.has(elementMetaPart)
+              const language = isLanguage ? elementMetaPart : 'javascript'
+
+              element = (
+                <SyntaxHighlighter
+                  language={language}
+                  style={base16AteliersulphurpoolLight}
+                  showLineNumbers
+                  wrapLongLines
+                >
+                  {isLanguage ? elementRealParts : element}
+                </SyntaxHighlighter>
+              )
+          }
         } else if (type === 'bold') {
           element = <strong>{element}</strong>
         } else if (type === 'italic') {

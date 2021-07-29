@@ -39,6 +39,7 @@ const Wrapper = styled('section')`
 `
 
 const Title = styled('h1')`
+  margin-top: 3.375rem;
   margin-bottom: 0.25rem;
   letter-spacing: 0px;
   animation-name: ${moveInLeft};

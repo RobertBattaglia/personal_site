@@ -5,6 +5,7 @@ import { theme } from '../constants'
 grandviewTheme.overrideThemeStyles = () => ({
   'h1,h2,h3': {
     border: 'none',
+    marginTop: '0'
   },
   a: {
     color: `${theme.secondaryColor}`,

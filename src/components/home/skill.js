@@ -21,6 +21,10 @@ const Wrapper = styled('div')`
   }
 `
 
+const Title = styled('h3')`
+  margin-top: 3.375rem;
+`
+
 const Ul = styled('ul')`
   margin: 0;
 `
@@ -50,7 +54,7 @@ const Skill = ({ title, skills }) => (
       label={emojis[title].label}
       symbol={emojis[title].symbol}
     />
-    <h3>{title}</h3>
+    <Title>{title}</Title>
     <Ul>
       {skills.map((skill) => (
         <Li key={skill}>

@@ -49,7 +49,7 @@ function Blog({ pageContext }) {
         <title>{pageContext.title}</title>
       </Helmet>
       <Container>
-        <h1 style={{ fontSize: '48px' }}>
+        <h1 style={{ fontSize: '48px', marginTop: '3.375rem' }}>
           {pageContext.title}
         </h1>
         <div style={{

@@ -24,6 +24,10 @@ const FormWrapper = styled('div')`
   }
 `
 
+const Title = styled('h3')`
+  margin-top: 3.375rem;
+`
+
 const Form = styled('form')`
   display: flex;
   flex-direction: column;
@@ -62,7 +66,7 @@ const SubmitButton = styled(Button)`
 const Contact = () => (
   <Wrapper id="contact">
     <FormWrapper>
-      <h2>Contact Me</h2>
+      <Title>Contact Me</Title>
       <p>I'd love to hear from you!</p>
       <Form
         name="contact"
