@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 
-import CNBC_LOGO from 'assets/images/svgs/cnbc-logo.svg'
+import INDEED_LOGO from 'assets/images/svgs/indeed-logo.svg'
 import { theme, mediaQueries } from '../../constants'
 
 const Wrapper = styled('section')`
@@ -32,7 +32,7 @@ const P = styled('p')`
 
 const Logo = styled('div')`
   margin: 0 auto 18px auto;
-  max-width: 200px;
+  transform: scale(2.5);
 `
 
 const About = () => (
@@ -57,14 +57,11 @@ const About = () => (
       with a B.S. in Computer Information Systems.
     </P>
     <Logo>
-      <CNBC_LOGO />
+      <INDEED_LOGO />
     </Logo>
-    <P>
-      My current role is on the Web Engagement team at
-      {' '}
-      <a href="https://www.cnbc.com">CNBC</a>
-      .
-    </P>
+      <P>
+        I am currently a software engineer on the Job Search Growth team at <a href="https://www.indeed.com">Indeed</a>.
+      </P>
   </Wrapper>
 )
 
