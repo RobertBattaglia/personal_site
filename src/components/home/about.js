@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
-
-import INDEED_LOGO from 'assets/images/svgs/indeed-logo.svg'
+import Logo from 'assets/images/svgs/indeed-logo.svg'
 import { theme, mediaQueries } from '../../constants'
 
 const Wrapper = styled('section')`
@@ -30,7 +29,7 @@ const P = styled('p')`
   }
 `
 
-const Logo = styled('div')`
+const IndeedLogo = styled(Logo)`
   margin: 0 auto 18px auto;
   transform: scale(2.5);
 `
@@ -56,12 +55,10 @@ const About = () => (
       {' '}
       with a B.S. in Computer Information Systems.
     </P>
-    <Logo>
-      <INDEED_LOGO />
-    </Logo>
-      <P>
-        I am currently a software engineer on the Job Search Growth team at <a href="https://www.indeed.com">Indeed</a>.
-      </P>
+    <IndeedLogo />
+    <P>
+      I am currently a software engineer on the Job Search Growth team at <a href="https://www.indeed.com">Indeed</a>.
+    </P>
   </Wrapper>
 )
 
