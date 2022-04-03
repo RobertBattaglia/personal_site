@@ -118,6 +118,11 @@ function Header({ page, showingGlasses, setShowingGlasses }) {
       {page === 'index' ? (
         <LogoWrapper
           onClick={() => {
+            if (gtag) {
+              gtag('event', 'click', {
+                'event_category': 'logo',
+              })
+            }
             setShowingGlasses(!showingGlasses)
           }}
         />

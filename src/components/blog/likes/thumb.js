@@ -29,6 +29,12 @@ const Thumb = ({ myLikes, fill, dispatch }) => {
       } else {
         playIncrementFinal()
       }
+      if (gtag) {
+        gtag('event', 'click', {
+          'event_category': 'post_like',
+          'event_label': window.location.pathname,
+        })
+      }
       dispatch({ type: 'increment' })
     }
   }
@@ -44,6 +50,12 @@ const Thumb = ({ myLikes, fill, dispatch }) => {
           playIncrement()
         } else {
           playIncrementFinal()
+        }
+        if (gtag) {
+          gtag('event', 'keydown', {
+            'event_category': 'post_like',
+            'event_label': window.location.pathname,
+          })
         }
         dispatch({ type: 'increment' })
       }
