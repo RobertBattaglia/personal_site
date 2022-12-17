@@ -45,7 +45,7 @@ const About = () => (
     <P>
       I graduated
       {' '}
-      <a href="https://com-robertbattaglia.s3.amazonaws.com/Transcript.pdf">
+      <a href="https://com-robertbattaglia-20221219011754440600000001.s3.amazonaws.com/Transcript.pdf">
         magna cum laude
       </a>
       {' '}

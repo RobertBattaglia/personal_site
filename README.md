@@ -1,5 +1,26 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/1323094c-ef6c-430a-82fa-c8cee3f0552d/deploy-status)](https://app.netlify.com/sites/sharp-wing-56f6f2/deploys)
 
-My Personal Portfolio Site
+[My Personal Site](https://robertbattaglia.com)
 
-Using Technologies including: React, Gatsby, AWS (S3, DynamoDB), Netlify, Google Analytics, Contentful
+Created using Gatsby. This means all of the content is generated at build time, and there is no active runtime. There are a few serverless functions to enable users to like each blog post.
+
+Website hosted on [Netlify](https://netlify.com).
+
+Content hosted on [Contentful](https://contentful.com)
+
+| Service     | Description |
+| ----------- | ----------- |
+| Netlify     | Website     |
+| Contentful  | CMS         |
+| AWS         | Static Assets & Blog Likes |
+
+bare minimum env variables during dev:
+`CONTENTFUL_KEY`
+
+for Google Analytics:
+`GA_TRACKING_ID`
+
+for Netlify:
+`DYNAMO_LIKES_TABLE`,
+`NETLIFY_AWS_ACCESS_KEY_ID` &
+`NETLIFY_AWS_SECRET_ACCESS_KEY`
