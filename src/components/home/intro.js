@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { graphql, useStaticQuery } from "gatsby";
-import { GatsbyImage } from "gatsby-plugin-image";
+import { StaticImage } from "gatsby-plugin-image";
 import styled from "@emotion/styled";
+import { css } from "@emotion/css";
 import { keyframes } from "@emotion/react";
 import { mediaQueries } from "../../constants";
 
@@ -61,26 +61,9 @@ const SubTitle = styled("h3")`
   font-size: calc(9px + 1vw);
 `;
 
-const ImgWrapper = styled(GatsbyImage)`
-  border-radius: 50%;
-`;
+const meImageCss = css``;
 
 function Intro({ showingGlasses }) {
-  const data = useStaticQuery(graphql`
-    {
-      me: file(relativePath: { eq: "me.jpeg" }) {
-        childImageSharp {
-          gatsbyImageData(width: 250, layout: FIXED)
-        }
-      }
-      glasses: file(relativePath: { eq: "thug-life-glasses.png" }) {
-        childImageSharp {
-          gatsbyImageData(width: 50, layout: FIXED)
-        }
-      }
-    }
-  `);
-
   const [imageBounding, setImageBounding] = useState({});
 
   const glassesAnimation = keyframes`
@@ -95,7 +78,7 @@ function Intro({ showingGlasses }) {
     transform: rotate(-725deg);
   }
 `;
-  const Glasses = styled(GatsbyImage)`
+  const glassesCss = css`
     position: absolute !important;
     top: ${imageBounding.top - 29}px;
     right: ${imageBounding.right - 140}px;
@@ -105,26 +88,38 @@ function Intro({ showingGlasses }) {
   `;
 
   useEffect(() => {
-    setImageBounding(
-      document.querySelector(".intro-me").getBoundingClientRect()
-    );
+    const position =
+      document.querySelector("#intro-me")?.getBoundingClientRect() || {};
+    setImageBounding(position);
   }, [showingGlasses]);
 
   return (
     <Wrapper id="intro">
-      <Title>Full Stack Software Engineer</Title>
+      <Title>Software Engineer</Title>
       <SubTitle>I solve problems with code</SubTitle>
-      <ImgWrapper
-        className="intro-me"
-        image={data.me.childImageSharp.gatsbyImageData}
+      <StaticImage
+        id="intro-me"
+        src="../../assets/images/me.jpeg"
         alt="Rob Wearing a Sweater in a backyard, with a fence in the background"
+        loading="eager"
+        layout="fixed"
+        width={250}
+        placeholder="blurred"
+        style={{
+          "border-radius": "50%",
+        }}
       />
-      {showingGlasses && (
-        <Glasses
-          image={data.glasses.childImageSharp.gatsbyImageData}
+      {showingGlasses ? (
+        <StaticImage
+          src="../../assets/images/thug-life-glasses.png"
           alt="thug life sunglasses"
+          loading="lazy"
+          layout="fixed"
+          width={50}
+          placeholder="blurred"
+          className={glassesCss}
         />
-      )}
+      ) : null}
     </Wrapper>
   );
 }

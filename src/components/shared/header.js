@@ -81,6 +81,7 @@ function Header({ page, showingGlasses, setShowingGlasses }) {
     const messages = [
       "Hi Rob, I'm... ~ and I wanted to contact you because...",
       "What's up Rob, ~ I gotta tell you something crazy...",
+      "My name is... ~ I'm going to make you a job offer you cannot refuse...",
     ];
     const text = messages[Math.floor(Math.random() * messages.length)];
     const enterChar = (idx) => {

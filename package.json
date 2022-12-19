@@ -12,6 +12,7 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \""
   },
   "dependencies": {
+    "@emotion/css": "^11.10.5",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@gatsbyjs/reach-router": "^2.0.0",
@@ -30,14 +31,12 @@
     "gatsby-react-router-scroll": "^6.3.0",
     "gatsby-script": "^2.3.0",
     "gatsby-source-contentful": "^8.3.1",
-    "gatsby-source-filesystem": "^5.3.1",
     "gatsby-transformer-sharp": "^5.3.1",
     "path-browserify": "^1.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
     "react-icons": "^4.7.1",
-    "react-lazy-load": "^4.0.1",
     "react-syntax-highlighter": "^15.4.3",
     "react-typography": "^0.16.19",
     "typography": "^0.16.19",

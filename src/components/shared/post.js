@@ -30,6 +30,7 @@ const Post = ({ data }) => (
     <IMG
       src={data.featuredImage.file.url}
       alt={data.featuredImage.description}
+      loading="lazy"
     />
     <P>{data.title}</P>
   </A>

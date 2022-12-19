@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import styled from "@emotion/styled";
-import { FaGithub, FaTwitter, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaTwitter, FaLinkedin, FaKeybase } from "react-icons/fa";
 
 import { theme } from "../../constants";
 
@@ -69,6 +69,14 @@ const Footer = () => {
           aria-label="Rob's Linkedin"
         >
           <FaLinkedin size={30} />
+        </A>
+        <A
+          href="https://keybase.io/robertbattaglia/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Rob's Keybase"
+        >
+          <FaKeybase size={30} />
         </A>
       </Icons>
       <P>

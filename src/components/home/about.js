@@ -6,7 +6,6 @@ import { theme, mediaQueries } from "../../constants";
 const Wrapper = styled("section")`
   background-color: ${theme.primaryColor};
   text-align: center;
-  padding-bottom: 10rem;
 `;
 
 const H3 = styled("h3")`
@@ -24,6 +23,7 @@ const P = styled("p")`
   text-align: center;
   text-justify: auto;
   font-size: max(16px, calc(8px + 1vw));
+  padding-bottom: 1rem;
   ${mediaQueries.tablet} {
     max-width: 700px;
   }
@@ -52,7 +52,7 @@ const About = () => (
     </P>
     <IndeedLogo />
     <P>
-      I am currently a software engineer on the Job Search Growth team at{" "}
+      I am currently a software engineer on the Job Seeker Growth team at{" "}
       <a href="https://www.indeed.com">Indeed</a>.
     </P>
   </Wrapper>

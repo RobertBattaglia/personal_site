@@ -5,19 +5,12 @@ module.exports = {
     title: "Robert Battaglia | Software Engineer",
     description: "Robert Battaglia's Personal Website",
     author: "Robert Battaglia",
-    keywords: "Robert,Battaglia,Full,Stack,Engineer,Javascript,Python,Contact",
+    keywords: "Robert,Battaglia,Software Engineer",
     image: "https://com-robertbattaglia.s3.amazonaws.com/ogimage.jpeg",
     twitterUsername: "@r0bertoB",
     domain: "robertbattaglia.com",
   },
   plugins: [
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "Images",
-        path: path.join(__dirname, "src", "assets", "images"),
-      },
-    },
     "gatsby-plugin-sharp",
     "gatsby-plugin-image",
     "gatsby-transformer-sharp",
