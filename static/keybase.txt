@@ -1,0 +1,75 @@
+==================================================================
+https://keybase.io/robertbattaglia
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://robertbattaglia.com
+  * I am robertbattaglia (https://keybase.io/robertbattaglia) on keybase.
+  * I have a public key with fingerprint 613B ED3B 035F B1AD 0CB1  A106 3C50 DE76 86FB 9E60
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120aff3d672135b511212124bb3b8630ea83983f687450c7247d4fc62a5717516b00a",
+      "fingerprint": "613bed3b035fb1ad0cb1a1063c50de7686fb9e60",
+      "host": "keybase.io",
+      "key_id": "3c50de7686fb9e60",
+      "kid": "01010af0472b7660d04de97c81d553e671411b04a1c00c834c093360e4df8ebce8260a",
+      "uid": "2244c493f06ebdd813ef215c746c6819",
+      "username": "robertbattaglia"
+    },
+    "service": {
+      "hostname": "robertbattaglia.com",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1671479833,
+  "expire_in": 157680000,
+  "prev": "68dfaf5eaf6a7c37f63724d40cc19c14df80f3959afd0b354e25307a5a7550f9",
+  "seqno": 20,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.1.13
+Comment: https://keybase.io/crypto
+
+yMNsAnicbVJtUFRVGF4Ca1glHCiLHW3o1g8oWM+9537tjiiV+EnGTNKELm3349zl
+sste2r2swGJGa45oMyiMoINjyDDrsDnFhJOmoy1kbgwTOUCOhi6kUebCVBAtSWb3
+MvnPc2bOmXPO8z7ned73vZiSaDAmrCqK+vbMH3s7YaA3WGUQ2vsy/BiviDWY1Y85
+0cKGXCLyqnanLGJWDOAE4CQJijRD4JDiKRwn9EnyPORZGgLEsdDCQolmGZICAkOQ
+jEhKAk1wFIMzFE7zAHBYDibJbgfyVHpkt6rR0jjkkQh5ACmJxzkRCNqKAxoKFBAR
+Q7O0xFsQDbTAMsWrR2jieM6LzLKi3WkH+4K8h+Af6NYmJwGSIXiGpoEISBFZGIHF
+RYqCiGZwEsd5QHK4AIDAQlIAFghpgEhRYhEvIJagF3RXLdARBEkKpAVKgEa8KLI4
+RBKBUwJD0gLN4hYd6EUeN1eBNLRH4ZFH5TlV5RwumcN25mDao08WkJ5f3dDDgWZB
+qdCYKj2KqgiKSwOUqWql16oTqDWVesQOxNv/57LzslvUsqpF+JDHKytuzIprSEGV
+dXJc98hopYE5GKqulD3ILusISssW0Ib+D/LptWBFiZMoxEk0xwiQkWioVVEkgSDg
+FgHXEwIkaKEsnCQCHlIkIigIGI7iGIoCku7di95xK5iV0Eg1JxqnV3a4ObXKg7Cd
+fb22JEOC0fDookf0djMYk5c+aMIPmlLve4OGksLHHcPTX7saplZW+7P2/eaM9QaC
+9UvPvlfD515k8n++Jzpa6P61U0fh5I9ZwQsHmCuFSS9luD4cH/7ddvzebsfkpfEQ
+/2f9oeoWLP48m36iMHDT3mnawWKNaX13smMUrKsqDYWMU8Pt7YHRz5rnxp+wR7bG
+Zg/Vpv7tTDWtObwkfh6Xrj/5jWKSR0abfvi0rFacaQzeWrF3rfVERC5ZM7S+d90v
+jUXFvqsN6TPt/oNs0ZYjQytaam15Q2/81f1xWqhtZmR9PLHNu390cPSfugE34WwI
+FV2LmF0vni3OOAI7vb+Wf5eyIV3unve/+0X0S2OkiamrjZw8GY60BqKtPZ3mzYud
+AfzmMbN6f9Ix6991Za75TPTO4LlNrx1s3F7g+On9z7OvJzXOjA0k7toXCyd3G0sn
+pt4kY5nLmrnDtmdqJ1y2f2/0nJ5QlQtM6IxrMrDq7o3d5k/mXpXmTSXb2t5axjuW
+x4qAL+zee7dY/Kglq3VbV6atPm9jPJqbfe24ur2i43Z3R/zS61uMpm+HbabVec+V
+SkPkhk7Dy12Xv+qfHSMmlnes84QXLRb6C1avJKIZ3z87bc574ZXkaGdu/Lzdb9oU
+qwuePnDK/HSAvMwOpo2ful0wbdxYPtWzNd+zBz4WGLs1EnZ352dWhTazXeUpxnNX
+w0tMfxydfAqV/gfpIdCa
+=1DYm
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/robertbattaglia
+
+==================================================================
