@@ -1,13 +1,7 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import styled from '@emotion/styled'
-import {
-  FaGithub,
-  FaTwitter,
-  FaAngellist,
-  FaInstagram,
-  FaLinkedin,
-} from 'react-icons/fa'
+import { FaGithub, FaTwitter, FaLinkedin } from 'react-icons/fa'
 
 import { theme } from '../../constants'
 
@@ -61,28 +55,12 @@ const Footer = () => {
           <FaTwitter size={30} />
         </A>
         <A
-          href="https://angel.co/robert-battaglia-1"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Rob's Angelist"
-        >
-          <FaAngellist size={30} />
-        </A>
-        <A
           href="https://github.com/RobertBattaglia"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Rob's Github"
         >
           <FaGithub size={30} />
-        </A>
-        <A
-          href="https://www.instagram.com/r0bertob/"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Rob's Instagram"
-        >
-          <FaInstagram size={30} />
         </A>
         <A
           href="https://www.linkedin.com/in/robertbattaglia1/"
@@ -109,7 +87,7 @@ const Footer = () => {
         </A>
         {' | '}
         <A
-          href="https://github.com/RobertBattaglia/portfolio"
+          href="https://github.com/RobertBattaglia/personal_site"
           target="_blank"
           rel="noopener noreferrer"
         >
