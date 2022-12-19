@@ -1,12 +1,12 @@
-import React from 'react'
-import styled from '@emotion/styled'
-import { FaCheckCircle } from 'react-icons/fa'
+import React from "react";
+import styled from "@emotion/styled";
+import { FaCheckCircle } from "react-icons/fa";
 
-import { mediaQueries } from '../../constants'
+import { mediaQueries } from "../../constants";
 
-import Emoji from './emoji'
+import Emoji from "./emoji";
 
-const Wrapper = styled('div')`
+const Wrapper = styled("div")`
   width: 90%;
   margin: 1rem 0 0;
   padding: 1rem;
@@ -19,33 +19,33 @@ const Wrapper = styled('div')`
   ${mediaQueries.tablet} {
     width: 30%;
   }
-`
+`;
 
-const Title = styled('h3')`
+const Title = styled("h3")`
   margin-top: 3.375rem;
-`
+`;
 
-const Ul = styled('ul')`
+const Ul = styled("ul")`
   margin: 0;
-`
+`;
 
-const Li = styled('li')`
+const Li = styled("li")`
   list-style: none;
   font-size: 1.25rem;
   vertical-align: baseline;
-`
+`;
 
 const emojis = {
-  Proficient: { label: 'coding', symbol: '💻' },
-  Experienced: { label: 'lifting', symbol: '🏋' },
-  Learning: { label: 'guitar', symbol: '🎸' },
+  Proficient: { label: "coding", symbol: "💻" },
+  Experienced: { label: "lifting", symbol: "🏋" },
+  Learning: { label: "guitar", symbol: "🎸" },
   styles: {
-    fontSize: '3rem',
-    position: 'absolute',
-    top: '0%',
-    transform: 'translateX(-50%)',
+    fontSize: "3rem",
+    position: "absolute",
+    top: "0%",
+    transform: "translateX(-50%)",
   },
-}
+};
 
 const Skill = ({ title, skills }) => (
   <Wrapper>
@@ -58,13 +58,12 @@ const Skill = ({ title, skills }) => (
     <Ul>
       {skills.map((skill) => (
         <Li key={skill}>
-          <FaCheckCircle size={16} style={{ verticalAlign: 'center' }} />
-          {' '}
+          <FaCheckCircle size={16} style={{ verticalAlign: "center" }} />{" "}
           {skill}
         </Li>
       ))}
     </Ul>
   </Wrapper>
-)
+);
 
-export default Skill
+export default Skill;

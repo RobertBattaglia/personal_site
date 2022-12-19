@@ -1,9 +1,9 @@
-import React from 'react'
-import styled from '@emotion/styled'
-import { keyframes } from '@emotion/core'
+import React from "react";
+import styled from "@emotion/styled";
+import { keyframes } from "@emotion/react";
 
-import coin from 'assets/images/svgs/coin.svg'
-import coinRed from 'assets/images/svgs/coinRed.svg'
+import coin from "assets/images/svgs/coin.svg";
+import coinRed from "assets/images/svgs/coinRed.svg";
 
 const spin3dAndGoUp = keyframes`
   0% {
@@ -26,7 +26,7 @@ const spin3dAndGoUp = keyframes`
     transform: translate(-50%, -75px) rotateY(360deg);
     opacity: 0;
   }
-`
+`;
 const COIN = styled(coin)`
   width: 25px;
   animation-name: ${spin3dAndGoUp};
@@ -35,7 +35,7 @@ const COIN = styled(coin)`
   left: 50%;
   transform: translate(-50%, -15px) rotateY(0deg);
   opacity: 0;
-`
+`;
 const COINRED = styled(coinRed)`
   width: 25px;
   animation-name: ${spin3dAndGoUp};
@@ -44,8 +44,9 @@ const COINRED = styled(coinRed)`
   left: 50%;
   transform: translate(-50%, -15px) rotateY(0deg);
   opacity: 0;
-`
+`;
 
-const Coin = (props) => props.red ? <COINRED {...props} /> : <COIN {...props} />
+const Coin = (props) =>
+  props.red ? <COINRED {...props} /> : <COIN {...props} />;
 
-export default Coin
+export default Coin;

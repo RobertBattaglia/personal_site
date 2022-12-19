@@ -1,37 +1,37 @@
-import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
-import styled from '@emotion/styled'
-import { FaGithub, FaTwitter, FaLinkedin } from 'react-icons/fa'
+import React from "react";
+import { graphql, useStaticQuery } from "gatsby";
+import styled from "@emotion/styled";
+import { FaGithub, FaTwitter, FaLinkedin } from "react-icons/fa";
 
-import { theme } from '../../constants'
+import { theme } from "../../constants";
 
-const Wrapper = styled('footer')`
+const Wrapper = styled("footer")`
   padding: 10rem 0 3rem 0;
   background-color: ${theme.primaryColor};
   color: ${theme.primaryFontColor};
   font-size: max(14px, calc(8px + 1vw));
   text-align: center;
-`
+`;
 
-const Icons = styled('div')`
+const Icons = styled("div")`
   display: flex;
   justify-content: space-evenly;
   width: 320px;
   height: 30px;
   margin: 1rem auto;
-`
+`;
 
-const A = styled('a')`
+const A = styled("a")`
   margin: 0;
   color: ${theme.primaryFontColor} !important;
   :hover {
     color: ${theme.secondaryColor} !important;
   }
-`
+`;
 
-const P = styled('p')`
+const P = styled("p")`
   margin: 0;
-`
+`;
 
 const Footer = () => {
   const data = useStaticQuery(graphql`
@@ -42,7 +42,7 @@ const Footer = () => {
         }
       }
     }
-  `)
+  `);
   return (
     <Wrapper>
       <Icons>
@@ -72,12 +72,8 @@ const Footer = () => {
         </A>
       </Icons>
       <P>
-        {`${
-          data.site.siteMetadata.author
-        } © ${new Date().getFullYear()}`}
-        {' '}
-        w/ ❤️ &
-        {' '}
+        {`${data.site.siteMetadata.author} © ${new Date().getFullYear()}`} w/ ❤️
+        &{" "}
         <A
           href="https://www.gatsbyjs.org/"
           target="_blank"
@@ -85,7 +81,7 @@ const Footer = () => {
         >
           Gatsby
         </A>
-        {' | '}
+        {" | "}
         <A
           href="https://github.com/RobertBattaglia/personal_site"
           target="_blank"
@@ -95,7 +91,7 @@ const Footer = () => {
         </A>
       </P>
     </Wrapper>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

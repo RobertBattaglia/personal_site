@@ -8,11 +8,11 @@ Website hosted on [Netlify](https://netlify.com).
 
 Content hosted on [Contentful](https://contentful.com)
 
-| Service     | Description |
-| ----------- | ----------- |
-| Netlify     | Website     |
-| Contentful  | CMS         |
-| AWS         | Static Assets & Blog Likes |
+| Service    | Description                |
+| ---------- | -------------------------- |
+| Netlify    | Website                    |
+| Contentful | CMS                        |
+| AWS        | Static Assets & Blog Likes |
 
 bare minimum env variables during dev:
 `CONTENTFUL_KEY`

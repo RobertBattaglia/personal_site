@@ -1,6 +1,6 @@
-import React from 'react'
-import { Link } from 'gatsby'
-import styled from '@emotion/styled'
+import React from "react";
+import { Link } from "gatsby";
+import styled from "@emotion/styled";
 
 const A = styled(Link)`
   display: flex;
@@ -11,19 +11,19 @@ const A = styled(Link)`
   padding: 10px;
   margin: 5% 10%;
   list-style: none;
-`
+`;
 
-const IMG = styled('img')`
+const IMG = styled("img")`
   max-width: 150px;
   max-height: 100px;
   margin: 0 10px;
-`
+`;
 
-const P = styled('p')`
+const P = styled("p")`
   margin: 0 auto;
   text-align: center;
   font-size: max(16px, calc(6px + 1vw));
-`
+`;
 
 const Post = ({ data }) => (
   <A to={data.slug}>
@@ -33,6 +33,6 @@ const Post = ({ data }) => (
     />
     <P>{data.title}</P>
   </A>
-)
+);
 
-export default Post
+export default Post;

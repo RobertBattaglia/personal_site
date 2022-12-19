@@ -1,10 +1,10 @@
-import React from 'react'
-import useSound from 'use-sound'
-import svg from 'assets/images/svgs/thumb.svg'
-import soundIncrement from 'assets/sounds/increment.wav'
-import soundIncrementFinal from 'assets/sounds/incrementFinal.wav'
-import styled from '@emotion/styled'
-import { mediaQueries } from '../../../constants'
+import React from "react";
+import useSound from "use-sound";
+import svg from "assets/images/svgs/thumb.svg";
+import soundIncrement from "assets/sounds/increment.wav";
+import soundIncrementFinal from "assets/sounds/incrementFinal.wav";
+import styled from "@emotion/styled";
+import { mediaQueries } from "../../../constants";
 
 const SVG = styled(svg)`
   width: 100px;
@@ -16,51 +16,51 @@ const SVG = styled(svg)`
   ${mediaQueries.tablet} {
     width: 200px;
   }
-`
+`;
 
 const Thumb = ({ myLikes, fill, dispatch }) => {
-  const [playIncrement] = useSound(soundIncrement)
-  const [playIncrementFinal] = useSound(soundIncrementFinal)
+  const [playIncrement] = useSound(soundIncrement);
+  const [playIncrementFinal] = useSound(soundIncrementFinal);
 
   const handleClick = () => {
     if (myLikes < 8) {
       if (myLikes < 7) {
-        playIncrement()
+        playIncrement();
       } else {
-        playIncrementFinal()
+        playIncrementFinal();
       }
-      if (gtag) {
-        gtag('event', 'click', {
-          'event_category': 'post_like',
-          'event_label': window.location.pathname,
-        })
+      if (window.gtag) {
+        window.gtag("event", "click", {
+          event_category: "post_like",
+          event_label: window.location.pathname,
+        });
       }
-      dispatch({ type: 'increment' })
+      dispatch({ type: "increment" });
     }
-  }
+  };
 
   const handleKeyDown = (e) => {
-    const ENTER = 13
-    const SPACE = 32
+    const ENTER = 13;
+    const SPACE = 32;
 
     if (e.keyCode === ENTER || e.keyCode === SPACE) {
-      e.preventDefault()
+      e.preventDefault();
       if (myLikes < 8) {
         if (myLikes < 7) {
-          playIncrement()
+          playIncrement();
         } else {
-          playIncrementFinal()
+          playIncrementFinal();
         }
-        if (gtag) {
-          gtag('event', 'keydown', {
-            'event_category': 'post_like',
-            'event_label': window.location.pathname,
-          })
+        if (window.gtag) {
+          window.gtag("event", "keydown", {
+            event_category: "post_like",
+            event_label: window.location.pathname,
+          });
         }
-        dispatch({ type: 'increment' })
+        dispatch({ type: "increment" });
       }
     }
-  }
+  };
 
   return (
     <SVG
@@ -72,7 +72,7 @@ const Thumb = ({ myLikes, fill, dispatch }) => {
       onClick={handleClick}
       onKeyDown={handleKeyDown}
     />
-  )
-}
+  );
+};
 
-export default Thumb
+export default Thumb;

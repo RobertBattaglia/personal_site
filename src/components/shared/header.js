@@ -1,20 +1,20 @@
-import React from 'react'
-import { Link } from 'gatsby'
-import useSound from 'use-sound'
-import styled from '@emotion/styled'
-import { keyframes } from '@emotion/core'
+import React from "react";
+import { Link } from "gatsby";
+import useSound from "use-sound";
+import styled from "@emotion/styled";
+import { keyframes } from "@emotion/react";
 
-import Logo from 'assets/images/svgs/logo.svg'
-import typing from 'assets/sounds/typing.m4a'
+import Logo from "assets/images/svgs/logo.svg";
+import typing from "assets/sounds/typing.m4a";
 
-import { theme } from '../../constants'
+import { theme } from "../../constants";
 
-const HeaderStyled = styled('header')`
+const HeaderStyled = styled("header")`
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: #fff;
-`
+`;
 
 const growAndRotate = keyframes`
   0% {
@@ -31,7 +31,7 @@ const growAndRotate = keyframes`
   100% {
     transform-origin: 50% 50%;
   }
-`
+`;
 
 const LogoWrapper = styled(Logo)`
   margin-left: 1.5rem;
@@ -55,9 +55,9 @@ const LogoWrapper = styled(Logo)`
       animation: ${growAndRotate} 800ms;
     }
   }
-`
+`;
 
-export const Button = styled('button')`
+export const Button = styled("button")`
   margin-right: 3rem;
   padding: 0.5rem 1rem;
   border: 2px solid #4ccdd6;
@@ -72,58 +72,58 @@ export const Button = styled('button')`
     background-color: ${theme.secondaryColor};
     color: #fff;
   }
-`
+`;
 
 function Header({ page, showingGlasses, setShowingGlasses }) {
-  const [playTyping, { stop }] = useSound(typing)
+  const [playTyping, { stop }] = useSound(typing);
 
   const enterText = (node) => {
     const messages = [
-      'Hi Rob, I\'m... ~ and I wanted to contact you because...',
+      "Hi Rob, I'm... ~ and I wanted to contact you because...",
       "What's up Rob, ~ I gotta tell you something crazy...",
-    ]
-    const text = messages[Math.floor(Math.random() * messages.length)]
+    ];
+    const text = messages[Math.floor(Math.random() * messages.length)];
     const enterChar = (idx) => {
-      const char = text.charAt(idx)
-      const timeout = char === '~' ? 500 : Math.random() * 150
-      if (char !== '~') node.value += char
+      const char = text.charAt(idx);
+      const timeout = char === "~" ? 500 : Math.random() * 150;
+      if (char !== "~") node.value += char;
       if (idx < text.length) {
         setTimeout(() => {
-          enterChar(idx + 1)
-        }, timeout)
+          enterChar(idx + 1);
+        }, timeout);
       } else {
-        node.focus()
-        stop()
+        node.focus();
+        stop();
       }
-    }
-    enterChar(0)
-  }
+    };
+    enterChar(0);
+  };
 
   const handleClick = () => {
-    const contact = document.querySelector('#contact')
-    const messageField = document.querySelector('#contact-message')
+    const contact = document.querySelector("#contact");
+    const messageField = document.querySelector("#contact-message");
     if (!messageField) {
-      return
+      return;
     }
 
-    messageField.value = ''
-    contact.scrollIntoView()
-    playTyping()
-    window.scrollBy(0, window.innerWidth < 760 ? 60 : 120)
-    enterText(messageField)
-  }
+    messageField.value = "";
+    contact.scrollIntoView();
+    playTyping();
+    window.scrollBy(0, window.innerWidth < 760 ? 60 : 120);
+    enterText(messageField);
+  };
 
   return (
     <HeaderStyled>
-      {page === 'index' ? (
+      {page === "index" ? (
         <LogoWrapper
           onClick={() => {
-            if (gtag) {
-              gtag('event', 'click', {
-                'event_category': 'logo',
-              })
+            if (window.gtag) {
+              window.gtag("event", "click", {
+                event_category: "logo",
+              });
             }
-            setShowingGlasses(!showingGlasses)
+            setShowingGlasses(!showingGlasses);
           }}
         />
       ) : (
@@ -133,7 +133,7 @@ function Header({ page, showingGlasses, setShowingGlasses }) {
       )}
       <Button onClick={handleClick}>Contact</Button>
     </HeaderStyled>
-  )
+  );
 }
 
-export default Header
+export default Header;

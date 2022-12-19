@@ -1,151 +1,153 @@
-import React from 'react'
-import { PrismAsyncLight as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { base16AteliersulphurpoolLight } from 'react-syntax-highlighter/dist/esm/styles/prism'
-import styled from '@emotion/styled'
+import React from "react";
+import { PrismAsyncLight as SyntaxHighlighter } from "react-syntax-highlighter";
+import { base16AteliersulphurpoolLight } from "react-syntax-highlighter/dist/esm/styles/prism";
+import styled from "@emotion/styled";
 
-import Post from 'components/shared/post'
+import Post from "components/shared/post";
 
-const CodeLine = styled('span')`
+const CodeLine = styled("span")`
   background-color: rgb(245, 247, 255);
   color: rgb(34, 162, 201);
   padding: 0 2px;
   font-size: 18px;
-`
+`;
 
 const basicNodeTypeToElementMap = new Map([
-  ['document', React.Fragment],
-  ['paragraph', 'p'],
-  ['heading-1', 'h1'],
-  ['heading-2', 'h2'],
-  ['heading-3', 'h3'],
-  ['heading-4', 'h4'],
-  ['heading-5', 'h5'],
-  ['heading-6', 'h6'],
-  ['unordered-list', 'ul'],
-  ['ordered-list', 'ol'],
-  ['list-item', 'li'],
-  ['blockquote', 'blockquote'],
-])
+  ["document", React.Fragment],
+  ["paragraph", "p"],
+  ["heading-1", "h1"],
+  ["heading-2", "h2"],
+  ["heading-3", "h3"],
+  ["heading-4", "h4"],
+  ["heading-5", "h5"],
+  ["heading-6", "h6"],
+  ["unordered-list", "ul"],
+  ["ordered-list", "ol"],
+  ["list-item", "li"],
+  ["blockquote", "blockquote"],
+]);
 
 const convertBlogBodyToElements = (raw, assets, posts) => {
   const parseNode = (node) => {
-    const { nodeType, content, data, value, marks } = node
+    const { nodeType, content, data, value, marks } = node;
 
-    const mappedContent = content && content.map(parseNode)
+    const mappedContent = content && content.map(parseNode);
 
-    let element = null
+    let element = null;
     if (basicNodeTypeToElementMap.has(nodeType)) {
       element = React.createElement(
         basicNodeTypeToElementMap.get(nodeType),
         {},
-        mappedContent,
-      )
-    } else if (nodeType === 'hr') {
-      element = <hr />
-    } else if (nodeType === 'hyperlink') {
-      element = <a href={data.uri}>{mappedContent}</a>
-    } else if (nodeType === 'embedded-asset-block') {
-      const { target: { sys: { id } } } = data
-      let src; let description
+        mappedContent
+      );
+    } else if (nodeType === "hr") {
+      element = <hr />;
+    } else if (nodeType === "hyperlink") {
+      element = <a href={data.uri}>{mappedContent}</a>;
+    } else if (nodeType === "embedded-asset-block") {
+      const {
+        target: {
+          sys: { id },
+        },
+      } = data;
+      let src;
+      let description;
       for (const asset of assets) {
         if (id === asset.node.contentful_id) {
-          src = asset.node.file.url
-          description = asset.node.description
-          break
+          src = asset.node.file.url;
+          description = asset.node.description;
+          break;
         }
       }
 
-      element = (
-        <img
-          src={src}
-          alt={description}
-        />
-      )
-    } else if (nodeType === 'entry-hyperlink') {
-      const { target: { sys: { id } } } = data
-      let postData
+      element = <img src={src} alt={description} />;
+    } else if (nodeType === "entry-hyperlink") {
+      const {
+        target: {
+          sys: { id },
+        },
+      } = data;
+      let postData;
 
       for (const post of posts) {
         if (id === post.contentful_id) {
-          postData = { ...post }
-          break
+          postData = { ...post };
+          break;
         }
       }
 
-      element = (
-        <Post data={postData} />
-      )
-    } else if (nodeType === 'text') {
-      const parts = value.split('`')
+      element = <Post data={postData} />;
+    } else if (nodeType === "text") {
+      const parts = value.split("`");
       if (parts.length < 3) {
-        element = value
+        element = value;
       } else {
-        const children = []
+        const children = [];
         for (let i = 0; i < parts.length; i++) {
           if (i % 2 === 0) {
-            children.push(parts[i])
+            children.push(parts[i]);
           } else {
-            children.push(<CodeLine>{parts[i]}</CodeLine>)
+            children.push(<CodeLine>{parts[i]}</CodeLine>);
           }
         }
-        element = <>{children}</>
+        element = <>{children}</>;
       }
 
       marks.forEach(({ type }) => {
-        if (type === 'code') {
-          const elementParts = element.split('\n')
-          const elementMetaPart = elementParts[0]
-          const elementRealParts = elementParts.slice(1).join('\n')
+        if (type === "code") {
+          const elementParts = element.split("\n");
+          const elementMetaPart = elementParts[0];
+          const elementRealParts = elementParts.slice(1).join("\n");
 
-          if (elementMetaPart === 'dangerouslysetinnerhtml') {
+          if (elementMetaPart === "dangerouslysetinnerhtml") {
             element = (
-              <span dangerouslySetInnerHTML={{__html: elementRealParts}} />
-            )
+              <span dangerouslySetInnerHTML={{ __html: elementRealParts }} />
+            );
           } else {
-              const recognizedLanguages = new Set([
-                'javascript',
-                'graphql',
-                'python',
-                'sql',
-                'html',
-                'css',
-                'sass',
-                'jsx',
-                'json',
-                'go',
-                'typescript',
-                'bash',
-              ])
+            const recognizedLanguages = new Set([
+              "javascript",
+              "graphql",
+              "python",
+              "sql",
+              "html",
+              "css",
+              "sass",
+              "jsx",
+              "json",
+              "go",
+              "typescript",
+              "bash",
+            ]);
 
-              const isLanguage = recognizedLanguages.has(elementMetaPart)
-              const language = isLanguage ? elementMetaPart : 'javascript'
+            const isLanguage = recognizedLanguages.has(elementMetaPart);
+            const language = isLanguage ? elementMetaPart : "javascript";
 
-              element = (
-                <SyntaxHighlighter
-                  language={language}
-                  style={base16AteliersulphurpoolLight}
-                  showLineNumbers
-                  wrapLongLines
-                >
-                  {isLanguage ? elementRealParts : element}
-                </SyntaxHighlighter>
-              )
+            element = (
+              <SyntaxHighlighter
+                language={language}
+                style={base16AteliersulphurpoolLight}
+                showLineNumbers
+                wrapLongLines
+              >
+                {isLanguage ? elementRealParts : element}
+              </SyntaxHighlighter>
+            );
           }
-        } else if (type === 'bold') {
-          element = <strong>{element}</strong>
-        } else if (type === 'italic') {
-          element = <em>{element}</em>
-        } else if (type === 'underline') {
-          element = <u>{element}</u>
+        } else if (type === "bold") {
+          element = <strong>{element}</strong>;
+        } else if (type === "italic") {
+          element = <em>{element}</em>;
+        } else if (type === "underline") {
+          element = <u>{element}</u>;
         }
-      })
+      });
     }
 
-    return element
-  }
+    return element;
+  };
 
-  const result = parseNode(JSON.parse(raw))
-  return result
-}
+  const result = parseNode(JSON.parse(raw));
+  return result;
+};
 
-export default convertBlogBodyToElements
+export default convertBlogBodyToElements;
