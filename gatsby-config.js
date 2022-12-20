@@ -21,7 +21,6 @@ module.exports = {
         pathToConfigModule: path.join(__dirname, "src", "utils", "typography"),
       },
     },
-    "gatsby-plugin-react-helmet",
     `gatsby-plugin-twitter`,
     {
       resolve: "gatsby-plugin-google-gtag",
@@ -33,7 +32,7 @@ module.exports = {
         },
         pluginConfig: {
           head: false,
-          respesctDNT: true,
+          respectDNT: true,
         },
       },
     },

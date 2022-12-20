@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "gatsby";
-import { Helmet } from "react-helmet";
 import styled from "@emotion/styled";
 
 import Likes from "components/blog/likes";
@@ -15,6 +14,32 @@ const Container = styled("article")`
   margin: -40px auto;
 `;
 
+export const Head = ({ pageContext }) => (
+  <>
+    <html lang="en" />
+    <meta charSet="utf-8" />
+    <meta name="title" content={pageContext.title} />
+    <meta name="description" content={siteMetadata.description} />
+    <meta name="author" content={siteMetadata.author} />
+    <meta name="keywords" content={siteMetadata.keywords} />
+    <meta
+      name="image"
+      property="og:image"
+      content={pageContext.featuredImage.file.url}
+    />
+    <meta name="dateCreated" content={pageContext.createdAt} />
+    <meta name="dateModified" content={pageContext.updated} />
+
+    {/* Twitter Stuff */}
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content={siteMetadata.twitterUsername} />
+    <meta name="twitter:title" content={pageContext.title} />
+    <meta name="twitter:description" content={siteMetadata.description} />
+    <meta name="twitter:image" content={pageContext.featuredImage.file.url} />
+    <title>{pageContext.title}</title>
+    </>
+);
+
 function Blog({ pageContext }) {
   const {
     blogBody: { raw: blogBody },
@@ -23,7 +48,6 @@ function Blog({ pageContext }) {
       allContentfulAsset: { edges: assets },
     },
     posts,
-    updated,
     updatedFormatted,
   } = pageContext;
 
@@ -31,32 +55,6 @@ function Blog({ pageContext }) {
 
   return (
     <Layout>
-      <Helmet>
-        <html lang="en" />
-        <meta charSet="utf-8" />
-        <meta name="title" content={pageContext.title} />
-        <meta name="description" content={siteMetadata.description} />
-        <meta name="author" content={siteMetadata.author} />
-        <meta name="keywords" content={siteMetadata.keywords} />
-        <meta
-          name="image"
-          property="og:image"
-          content={pageContext.featuredImage.file.url}
-        />
-        <meta name="dateCreated" content={pageContext.createdAt} />
-        <meta name="dateModified" content={updated} />
-
-        {/* Twitter Stuff */}
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:site" content={siteMetadata.twitterUsername} />
-        <meta name="twitter:title" content={pageContext.title} />
-        <meta name="twitter:description" content={siteMetadata.description} />
-        <meta
-          name="twitter:image"
-          content={pageContext.featuredImage.file.url}
-        />
-        <title>{pageContext.title}</title>
-      </Helmet>
       <Container>
         <h1 style={{ fontSize: "48px", marginTop: "3.375rem" }}>
           {pageContext.title}

@@ -61,8 +61,6 @@ const SubTitle = styled("h3")`
   font-size: calc(9px + 1vw);
 `;
 
-const meImageCss = css``;
-
 function Intro({ showingGlasses }) {
   const [imageBounding, setImageBounding] = useState({});
 
@@ -106,7 +104,7 @@ function Intro({ showingGlasses }) {
         width={250}
         placeholder="blurred"
         style={{
-          "border-radius": "50%",
+          "borderRadius": "50%",
         }}
       />
       {showingGlasses ? (

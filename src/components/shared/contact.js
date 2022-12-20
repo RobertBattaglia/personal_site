@@ -74,16 +74,18 @@ const Contact = () => (
         data-netlify="true"
         data-netlify-honeypot="bot-field"
       >
+        {/* this input is to prevent Hydration errors after Netlify parses this form in deploy step */}
+        <input type='hidden' name='form-name' value='contact' />
         <input type="hidden" name="bot-field" />
         <Label>
           Email
-          <Input type="email" name="email" />
+          <Input type="email" name="email" required />
         </Label>
         <Label>
           Message
-          <Textarea id="contact-message" name="message" rows={4} />
+          <Textarea id="contact-message" name="message" rows={4} required />
         </Label>
-        <SubmitButton type="submit">Send Message</SubmitButton>
+        <SubmitButton type="submit">Send</SubmitButton>
       </Form>
     </FormWrapper>
   </Wrapper>
