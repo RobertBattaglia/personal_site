@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import { PrismAsyncLight as SyntaxHighlighter } from "react-syntax-highlighter";
 import { base16AteliersulphurpoolLight } from "react-syntax-highlighter/dist/esm/styles/prism";
 
@@ -6,7 +6,7 @@ const CodeBlock = ({ lang, content }) => {
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    setIsMounted(true)
+    setIsMounted(true);
   }, []);
 
   if (!isMounted) {
@@ -15,7 +15,7 @@ const CodeBlock = ({ lang, content }) => {
 
   if (lang === "dangerouslysetinnerhtml") {
     return <span dangerouslySetInnerHTML={{ __html: content }} />;
-  } 
+  }
 
   const recognizedLanguages = new Set([
     "javascript",

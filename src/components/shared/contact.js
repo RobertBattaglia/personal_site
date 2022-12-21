@@ -75,7 +75,7 @@ const Contact = () => (
         data-netlify-honeypot="bot-field"
       >
         {/* this input is to prevent Hydration errors after Netlify parses this form in deploy step */}
-        <input type='hidden' name='form-name' value='contact' />
+        <input type="hidden" name="form-name" value="contact" />
         <input type="hidden" name="bot-field" />
         <Label>
           Email

@@ -2,8 +2,8 @@ import React from "react";
 import styled from "@emotion/styled";
 
 import Post from "components/shared/post";
-import CodeBlock from "components/blog/codeBlock"
-import TweetEmbed from "components/blog/tweetEmbed"
+import CodeBlock from "components/blog/codeBlock";
+import TweetEmbed from "components/blog/tweetEmbed";
 
 const CodeLine = styled("span")`
   background-color: rgb(245, 247, 255);
@@ -46,7 +46,11 @@ const convertBlogBodyToElements = (raw, assets, posts) => {
     } else if (nodeType === "hr") {
       element = <hr key={index} />;
     } else if (nodeType === "hyperlink") {
-      element = <a key={index} href={data.uri}>{mappedContent}</a>;
+      element = (
+        <a key={index} href={data.uri}>
+          {mappedContent}
+        </a>
+      );
     } else if (nodeType === "embedded-asset-block") {
       const {
         target: {
@@ -91,7 +95,7 @@ const convertBlogBodyToElements = (raw, assets, posts) => {
           if (i % 2 === 0) {
             children.push(parts[i]);
           } else {
-            children.push(<CodeLine key={index} >{parts[i]}</CodeLine>);
+            children.push(<CodeLine key={index}>{parts[i]}</CodeLine>);
           }
         }
         element = React.createElement(React.Fragment, { key: index }, children);
@@ -100,12 +104,14 @@ const convertBlogBodyToElements = (raw, assets, posts) => {
       marks.forEach(({ type }) => {
         if (type === "code") {
           const parts = element.split("\n");
-          const metaData = parts[0]
+          const metaData = parts[0];
           const content = parts.slice(1).join("\n");
-          if (metaData === "dangerouslysetinnerhtml") {
-            element = <TweetEmbed key={index} content={content} />
+          if (metaData === "Tweet") {
+            element = <TweetEmbed key={index} content={content} />;
           } else {
-            element = <CodeBlock key={index} lang={metaData} content={content} />
+            element = (
+              <CodeBlock key={index} lang={metaData} content={content} />
+            );
           }
         } else if (type === "bold") {
           element = <strong key={index}>{element}</strong>;

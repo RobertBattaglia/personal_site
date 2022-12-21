@@ -1,7 +1,7 @@
 const path = require("path-browserify");
-const constants = require("./src/constants.js")
+const constants = require("./src/constants.js");
 
-const domain = "robertbattaglia.com"
+const domain = "robertbattaglia.com";
 
 module.exports = {
   siteMetadata: {
@@ -11,7 +11,7 @@ module.exports = {
     keywords: "Robert,Battaglia,Software Engineer",
     image: `https://${domain}/ogimage.jpeg`,
     twitterUsername: "@r0bertoB",
-    domain
+    domain,
   },
   plugins: [
     {
@@ -23,8 +23,8 @@ module.exports = {
           quality: 100,
           breakpoints: constants.breakpoints,
           backgroundColor: `transparent`,
-        }
-      }
+        },
+      },
     },
     "gatsby-plugin-image",
     "gatsby-transformer-sharp",

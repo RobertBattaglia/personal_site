@@ -43,12 +43,9 @@ const About = () => (
       new concept introduced new rabbit holes to explore.
     </P>
     <P>
-      I graduated{" "}
-      <a href="/Transcript.pdf">
-        magna cum laude
-      </a>{" "}
-      from <a href="http://qu.edu">Quinnipiac University</a> with a B.S. in
-      Computer Information Systems.
+      I graduated <a href="/Transcript.pdf">magna cum laude</a> from{" "}
+      <a href="http://qu.edu">Quinnipiac University</a> with a B.S. in Computer
+      Information Systems.
     </P>
     <IndeedLogo />
     <P>

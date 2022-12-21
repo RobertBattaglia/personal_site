@@ -1,7 +1,7 @@
 const breakpoints = [760, 1020, 1180, 1340];
 
 module.exports = {
-  breakpoints, 
+  breakpoints,
   theme: {
     primaryFontColor: "#033752",
     primaryColor: "#4ccdd6",

@@ -16,7 +16,7 @@ const Container = styled("article")`
 
 export const pageQuery = graphql`
   query {
-    s3Object(Key: {eq: "blog:meCropped.jpeg"}) {
+    s3Object(Key: { eq: "blog:meCropped.jpeg" }) {
       localFile {
         childImageSharp {
           gatsbyImageData(layout: FIXED, height: 40)
@@ -24,7 +24,7 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
 
 export const Head = ({ pageContext }) => (
   <>
@@ -48,7 +48,7 @@ export const Head = ({ pageContext }) => (
     <meta name="twitter:description" content={siteMetadata.description} />
     <meta name="twitter:image" content={pageContext.featuredImage.file.url} />
     <title>{pageContext.title}</title>
-    </>
+  </>
 );
 
 function Blog({ pageContext, data }) {
@@ -82,7 +82,7 @@ function Blog({ pageContext, data }) {
             loading="eager"
             style={{
               borderRadius: "100%",
-              margin: "0 10px"
+              margin: "0 10px",
             }}
             alt="Rob the Author"
           />

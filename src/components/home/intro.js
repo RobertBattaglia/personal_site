@@ -103,7 +103,7 @@ function Intro({ showingGlasses }) {
         layout="fixed"
         width={250}
         style={{
-          "borderRadius": "50%",
+          borderRadius: "50%",
         }}
       />
       {showingGlasses ? (

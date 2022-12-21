@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 
 import Header from "./header";
 import Footer from "./footer";
-import Contact from "./contact"
+import Contact from "./contact";
 
 const Container = styled("div")`
   display: flex;
