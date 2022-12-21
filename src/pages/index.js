@@ -4,12 +4,10 @@ import Layout from "components/shared/layout";
 import Intro from "components/home/intro";
 import About from "components/home/about";
 import PostList from "components/home/postList";
-import Contact from "components/shared/contact";
 import { siteMetadata } from "../../gatsby-config";
 
 export const Head = () => (
   <>
-    <html lang="en" />
     <meta charSet="utf-8" />
     <meta name="title" content={siteMetadata.title} />
     <meta name="description" content={siteMetadata.description} />
@@ -33,7 +31,6 @@ function Index() {
       <Intro />
       <About />
       <PostList />
-      <Contact />
     </Layout>
   );
 }

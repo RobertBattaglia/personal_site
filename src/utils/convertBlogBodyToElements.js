@@ -1,9 +1,9 @@
 import React from "react";
-import { PrismAsyncLight as SyntaxHighlighter } from "react-syntax-highlighter";
-import { base16AteliersulphurpoolLight } from "react-syntax-highlighter/dist/esm/styles/prism";
 import styled from "@emotion/styled";
 
 import Post from "components/shared/post";
+import CodeBlock from "components/blog/codeBlock"
+import TweetEmbed from "components/blog/tweetEmbed"
 
 const CodeLine = styled("span")`
   background-color: rgb(245, 247, 255);
@@ -28,22 +28,25 @@ const basicNodeTypeToElementMap = new Map([
 ]);
 
 const convertBlogBodyToElements = (raw, assets, posts) => {
+  let index = -1; // outer count used for unique key of react component
   const parseNode = (node) => {
     const { nodeType, content, data, value, marks } = node;
 
     const mappedContent = content && content.map(parseNode);
 
+    index++;
+
     let element = null;
     if (basicNodeTypeToElementMap.has(nodeType)) {
       element = React.createElement(
         basicNodeTypeToElementMap.get(nodeType),
-        {},
+        { key: index },
         mappedContent
       );
     } else if (nodeType === "hr") {
-      element = <hr />;
+      element = <hr key={index} />;
     } else if (nodeType === "hyperlink") {
-      element = <a href={data.uri}>{mappedContent}</a>;
+      element = <a key={index} href={data.uri}>{mappedContent}</a>;
     } else if (nodeType === "embedded-asset-block") {
       const {
         target: {
@@ -53,14 +56,14 @@ const convertBlogBodyToElements = (raw, assets, posts) => {
       let src;
       let description;
       for (const asset of assets) {
-        if (id === asset.node.contentful_id) {
+        if (id === asset.index) {
           src = asset.node.file.url;
           description = asset.node.description;
           break;
         }
       }
 
-      element = <img src={src} alt={description} />;
+      element = <img key={index} src={src} alt={description} />;
     } else if (nodeType === "entry-hyperlink") {
       const {
         target: {
@@ -76,7 +79,7 @@ const convertBlogBodyToElements = (raw, assets, posts) => {
         }
       }
 
-      element = <Post data={postData} />;
+      element = <Post key={index} data={postData} />;
     } else if (nodeType === "text") {
       const parts = value.split("`");
       if (parts.length < 3) {
@@ -84,61 +87,32 @@ const convertBlogBodyToElements = (raw, assets, posts) => {
       } else {
         const children = [];
         for (let i = 0; i < parts.length; i++) {
+          index++;
           if (i % 2 === 0) {
             children.push(parts[i]);
           } else {
-            children.push(<CodeLine>{parts[i]}</CodeLine>);
+            children.push(<CodeLine key={index} >{parts[i]}</CodeLine>);
           }
         }
-        element = <>{children}</>;
+        element = React.createElement(React.Fragment, { key: index }, children);
       }
 
       marks.forEach(({ type }) => {
         if (type === "code") {
-          const elementParts = element.split("\n");
-          const elementMetaPart = elementParts[0];
-          const elementRealParts = elementParts.slice(1).join("\n");
-
-          if (elementMetaPart === "dangerouslysetinnerhtml") {
-            element = (
-              <span dangerouslySetInnerHTML={{ __html: elementRealParts }} />
-            );
+          const parts = element.split("\n");
+          const metaData = parts[0]
+          const content = parts.slice(1).join("\n");
+          if (metaData === "dangerouslysetinnerhtml") {
+            element = <TweetEmbed key={index} content={content} />
           } else {
-            const recognizedLanguages = new Set([
-              "javascript",
-              "graphql",
-              "python",
-              "sql",
-              "html",
-              "css",
-              "sass",
-              "jsx",
-              "json",
-              "go",
-              "typescript",
-              "bash",
-            ]);
-
-            const isLanguage = recognizedLanguages.has(elementMetaPart);
-            const language = isLanguage ? elementMetaPart : "javascript";
-
-            element = (
-              <SyntaxHighlighter
-                language={language}
-                style={base16AteliersulphurpoolLight}
-                showLineNumbers
-                wrapLongLines
-              >
-                {isLanguage ? elementRealParts : element}
-              </SyntaxHighlighter>
-            );
+            element = <CodeBlock key={index} lang={metaData} content={content} />
           }
         } else if (type === "bold") {
-          element = <strong>{element}</strong>;
+          element = <strong key={index}>{element}</strong>;
         } else if (type === "italic") {
-          element = <em>{element}</em>;
+          element = <em key={index}>{element}</em>;
         } else if (type === "underline") {
-          element = <u>{element}</u>;
+          element = <u key={index}>{element}</u>;
         }
       });
     }

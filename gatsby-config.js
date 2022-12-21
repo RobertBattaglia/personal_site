@@ -35,7 +35,6 @@ module.exports = {
         pathToConfigModule: path.join(__dirname, "src", "config", "typography"),
       },
     },
-    `gatsby-plugin-twitter`,
     {
       resolve: "gatsby-plugin-google-gtag",
       options: {

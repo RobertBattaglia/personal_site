@@ -4,6 +4,7 @@ import styled from "@emotion/styled";
 
 import Header from "./header";
 import Footer from "./footer";
+import Contact from "./contact"
 
 const Container = styled("div")`
   display: flex;
@@ -42,6 +43,7 @@ const Layout = ({ page, children }) => {
         setShowingGlasses={setShowingGlasses}
       />
       <Main showingGlasses={showingGlasses}>{childrenWithProps}</Main>
+      <Contact />
       <Footer />
     </Container>
   );

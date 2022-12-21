@@ -5,7 +5,6 @@ import styled from "@emotion/styled";
 
 import Likes from "components/blog/likes";
 import Layout from "components/shared/layout";
-import Contact from "components/shared/contact";
 import convertBlogBodyToElements from "utils/convertBlogBodyToElements";
 import { siteMetadata } from "../../gatsby-config";
 
@@ -29,7 +28,6 @@ export const pageQuery = graphql`
 
 export const Head = ({ pageContext }) => (
   <>
-    <html lang="en" />
     <meta charSet="utf-8" />
     <meta name="title" content={pageContext.title} />
     <meta name="description" content={siteMetadata.description} />
@@ -117,9 +115,8 @@ function Blog({ pageContext, data }) {
           />
         </div>
         {blogBodyElements}
+        <Likes />
       </Container>
-      <Likes />
-      <Contact />
     </Layout>
   );
 }
