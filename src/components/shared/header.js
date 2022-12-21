@@ -4,7 +4,7 @@ import useSound from "use-sound";
 import styled from "@emotion/styled";
 import { keyframes } from "@emotion/react";
 
-import Logo from "assets/images/svgs/logo.svg";
+import Logo from "assets/svgs/logo.svg";
 import typing from "assets/sounds/typing.m4a";
 
 import { theme } from "../../constants";

@@ -2,8 +2,8 @@ import React from "react";
 import styled from "@emotion/styled";
 import { keyframes } from "@emotion/react";
 
-import coin from "assets/images/svgs/coin.svg";
-import coinRed from "assets/images/svgs/coinRed.svg";
+import coin from "assets/svgs/coin.svg";
+import coinRed from "assets/svgs/coinRed.svg";
 
 const spin3dAndGoUp = keyframes`
   0% {

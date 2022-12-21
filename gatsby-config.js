@@ -6,7 +6,7 @@ module.exports = {
     description: "Robert Battaglia's Personal Website",
     author: "Robert Battaglia",
     keywords: "Robert,Battaglia,Software Engineer",
-    image: "https://com-robertbattaglia.s3.amazonaws.com/ogimage.jpeg",
+    image: "/ogimage.jpeg",
     twitterUsername: "@r0bertoB",
     domain: "robertbattaglia.com",
   },
@@ -18,7 +18,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-typography",
       options: {
-        pathToConfigModule: path.join(__dirname, "src", "utils", "typography"),
+        pathToConfigModule: path.join(__dirname, "src", "config", "typography"),
       },
     },
     `gatsby-plugin-twitter`,

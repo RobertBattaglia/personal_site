@@ -1,6 +1,6 @@
 import React from "react";
 import useSound from "use-sound";
-import svg from "assets/images/svgs/thumb.svg";
+import svg from "assets/svgs/thumb.svg";
 import soundIncrement from "assets/sounds/increment.wav";
 import soundIncrementFinal from "assets/sounds/incrementFinal.wav";
 import styled from "@emotion/styled";

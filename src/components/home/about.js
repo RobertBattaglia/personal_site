@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
-import Logo from "assets/images/svgs/indeed-logo.svg";
+import Logo from "assets/svgs/indeed-logo.svg";
 import { theme, mediaQueries } from "../../constants";
 
 const Wrapper = styled("section")`
@@ -44,7 +44,7 @@ const About = () => (
     </P>
     <P>
       I graduated{" "}
-      <a href="https://com-robertbattaglia-20221219011754440600000001.s3.amazonaws.com/Transcript.pdf">
+      <a href="/Transcript.pdf">
         magna cum laude
       </a>{" "}
       from <a href="http://qu.edu">Quinnipiac University</a> with a B.S. in
