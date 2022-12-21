@@ -1,5 +1,6 @@
 import React from "react";
-import { Link } from "gatsby";
+import { Link, graphql } from "gatsby";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import styled from "@emotion/styled";
 
 import Likes from "components/blog/likes";
@@ -13,6 +14,18 @@ const Container = styled("article")`
   padding: 0 30px;
   margin: -40px auto;
 `;
+
+export const pageQuery = graphql`
+  query {
+    s3Object(Key: {eq: "blog:meCropped.jpeg"}) {
+      localFile {
+        childImageSharp {
+          gatsbyImageData(layout: FIXED, height: 40)
+        }
+      }
+    }
+  }
+`
 
 export const Head = ({ pageContext }) => (
   <>
@@ -40,7 +53,7 @@ export const Head = ({ pageContext }) => (
     </>
 );
 
-function Blog({ pageContext }) {
+function Blog({ pageContext, data }) {
   const {
     blogBody: { raw: blogBody },
     author,
@@ -66,14 +79,14 @@ function Blog({ pageContext }) {
             marginBottom: "20px",
           }}
         >
-          <img
+          <GatsbyImage
+            image={getImage(data.s3Object.localFile)}
+            loading="eager"
             style={{
-              maxHeight: "40px",
               borderRadius: "100%",
-              margin: "0 10px",
+              margin: "0 10px"
             }}
-            src={`${author.image.file.url}?h=80`}
-            alt={author.image.description}
+            alt="Rob the Author"
           />
           <Link
             to={author.url}

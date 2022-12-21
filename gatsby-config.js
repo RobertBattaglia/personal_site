@@ -1,4 +1,7 @@
 const path = require("path-browserify");
+const constants = require("./src/constants.js")
+
+const domain = "robertbattaglia.com"
 
 module.exports = {
   siteMetadata: {
@@ -6,12 +9,23 @@ module.exports = {
     description: "Robert Battaglia's Personal Website",
     author: "Robert Battaglia",
     keywords: "Robert,Battaglia,Software Engineer",
-    image: "/ogimage.jpeg",
+    image: `https://${domain}/ogimage.jpeg`,
     twitterUsername: "@r0bertoB",
-    domain: "robertbattaglia.com",
+    domain
   },
   plugins: [
-    "gatsby-plugin-sharp",
+    {
+      resolve: "gatsby-plugin-sharp",
+      options: {
+        defaults: {
+          formats: [`auto`, `webp`],
+          placeholder: `blurred`,
+          quality: 100,
+          breakpoints: constants.breakpoints,
+          backgroundColor: `transparent`,
+        }
+      }
+    },
     "gatsby-plugin-image",
     "gatsby-transformer-sharp",
     "gatsby-plugin-emotion",
@@ -49,6 +63,18 @@ module.exports = {
       options: {
         spaceId: "3fe7xd8j9mna",
         accessToken: process.env.CONTENTFUL_KEY,
+      },
+    },
+    {
+      resolve: `gatsby-source-s3`,
+      options: {
+        aws: {
+          accessKeyId: process.env.NETLIFY_AWS_ACCESS_KEY_ID,
+          secretAccessKey: process.env.NETLIFY_AWS_SECRET_ACCESS_KEY,
+          region: process.env.REGION,
+        },
+        buckets: [process.env.S3_BUCKET],
+        expiration: 120,
       },
     },
     {

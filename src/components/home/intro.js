@@ -102,7 +102,6 @@ function Intro({ showingGlasses }) {
         loading="eager"
         layout="fixed"
         width={250}
-        placeholder="blurred"
         style={{
           "borderRadius": "50%",
         }}
