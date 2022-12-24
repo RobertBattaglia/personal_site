@@ -1,10 +1,10 @@
 import React from "react";
-import { Link, graphql } from "gatsby";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+
 import styled from "@emotion/styled";
 
+import Layout from "components/layout";
+import ByLineAuthor from "components/blog/ByLineAuthor";
 import Likes from "components/blog/likes";
-import Layout from "components/shared/layout";
 import convertBlogBodyToElements from "utils/convertBlogBodyToElements";
 import { siteMetadata } from "../../gatsby-config";
 
@@ -12,18 +12,6 @@ const Container = styled("article")`
   max-width: 900px;
   padding: 0 30px;
   margin: -40px auto;
-`;
-
-export const pageQuery = graphql`
-  query {
-    s3Object(Key: { eq: "blog:meCropped.jpeg" }) {
-      localFile {
-        childImageSharp {
-          gatsbyImageData(layout: FIXED, height: 40)
-        }
-      }
-    }
-  }
 `;
 
 export const Head = ({ pageContext }) => (
@@ -51,10 +39,9 @@ export const Head = ({ pageContext }) => (
   </>
 );
 
-function Blog({ pageContext, data }) {
+function Blog({ pageContext }) {
   const {
     blogBody: { raw: blogBody },
-    author,
     assets: {
       allContentfulAsset: { edges: assets },
     },
@@ -77,24 +64,7 @@ function Blog({ pageContext, data }) {
             marginBottom: "20px",
           }}
         >
-          <GatsbyImage
-            image={getImage(data.s3Object.localFile)}
-            loading="eager"
-            style={{
-              borderRadius: "100%",
-              margin: "0 10px",
-            }}
-            alt="Rob the Author"
-          />
-          <Link
-            to={author.url}
-            style={{
-              lineHeight: "40px",
-              fontWeight: "600",
-            }}
-          >
-            {author.name}
-          </Link>
+          <ByLineAuthor authorName={"Rob"} />
           <time
             style={{
               lineHeight: "40px",

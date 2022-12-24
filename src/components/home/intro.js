@@ -102,7 +102,7 @@ function Intro({ showingGlasses }) {
         loading="eager"
         layout="fixed"
         width={250}
-        style={{
+        imgStyle={{
           borderRadius: "50%",
         }}
       />

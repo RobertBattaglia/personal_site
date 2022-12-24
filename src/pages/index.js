@@ -1,6 +1,6 @@
 import React from "react";
 
-import Layout from "components/shared/layout";
+import Layout from "components/layout";
 import Intro from "components/home/intro";
 import About from "components/home/about";
 import PostList from "components/home/postList";

@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { Global, css } from "@emotion/react";
 import styled from "@emotion/styled";
 
-import Header from "./header";
-import Footer from "./footer";
-import Contact from "./contact";
+import Header from "./shared/header";
+import Footer from "./shared/footer";
+import Contact from "./shared/contact";
 
 const Container = styled("div")`
   display: flex;
