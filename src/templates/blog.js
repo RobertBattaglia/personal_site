@@ -5,6 +5,7 @@ import styled from "@emotion/styled";
 import Layout from "components/layout";
 import ByLineAuthor from "components/blog/ByLineAuthor";
 import Likes from "components/blog/likes";
+import FontFaces from "components/shared/fontFaces";
 import convertBlogBodyToElements from "utils/convertBlogBodyToElements";
 import { siteMetadata } from "../../gatsby-config";
 
@@ -36,6 +37,7 @@ export const Head = ({ pageContext }) => (
     <meta name="twitter:description" content={siteMetadata.description} />
     <meta name="twitter:image" content={pageContext.featuredImage.file.url} />
     <title>{pageContext.title}</title>
+    <FontFaces />
   </>
 );
 

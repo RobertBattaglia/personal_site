@@ -12,10 +12,6 @@ const Container = styled("div")`
   min-height: 100vh;
 `;
 
-const Main = styled("main")`
-  flex-grow: 1;
-`;
-
 const globalStyles = css`
   *,
   *::after,
@@ -24,6 +20,10 @@ const globalStyles = css`
     padding: 0;
     box-sizing: border-box;
   }
+`;
+
+const Main = styled("main")`
+  flex-grow: 1;
 `;
 
 const Layout = ({ page, children }) => {
