@@ -19,9 +19,11 @@ const PostList = () => {
             slug
             featuredImage {
               description
-              file {
-                url
-              }
+              gatsbyImageData(
+                layout: CONSTRAINED
+                placeholder: BLURRED
+                height: 100
+              )
             }
           }
         }

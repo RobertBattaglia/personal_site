@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import styled from "@emotion/styled";
 
 const A = styled(Link)`
@@ -13,12 +14,6 @@ const A = styled(Link)`
   list-style: none;
 `;
 
-const IMG = styled("img")`
-  max-width: 150px;
-  max-height: 100px;
-  margin: 0 10px;
-`;
-
 const P = styled("p")`
   margin: 0 auto;
   text-align: center;
@@ -27,8 +22,9 @@ const P = styled("p")`
 
 const Post = ({ data }) => (
   <A to={data.slug}>
-    <IMG
-      src={data.featuredImage.file.url}
+    <GatsbyImage
+      image={getImage(data.featuredImage.gatsbyImageData)}
+      imgStyle={{ margin: "0 10px" }}
       alt={data.featuredImage.description}
       loading="lazy"
     />
