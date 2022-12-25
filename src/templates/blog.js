@@ -25,14 +25,22 @@ export const query = graphql`
         name
         displayName
         image {
-          gatsbyImageData(height: 40, layout: FIXED)
+          localFile {
+            childImageSharp {
+              gatsbyImageData(height: 40, layout: FIXED)
+            }
+          }
         }
         url
         jobTitle
       }
       featuredImage {
         url
-        gatsbyImageData(placeholder: BLURRED, height: 550)
+        localFile {
+          childImageSharp {
+            gatsbyImageData(placeholder: BLURRED, height: 550)
+          }
+        }
       }
       blogBody {
         raw
@@ -44,7 +52,11 @@ export const query = graphql`
     allContentfulAsset {
       edges {
         node {
-          gatsbyImageData(placeholder: BLURRED)
+          localFile {
+            childImageSharp {
+              gatsbyImageData(placeholder: BLURRED)
+            }
+          }
           contentful_id
           description
         }
@@ -136,7 +148,9 @@ function Blog({ pageContext, data }) {
         </div>
         <div style={{ textAlign: "center" }}>
           <GatsbyImage
-            image={getImage(featuredImage.gatsbyImageData)}
+            image={getImage(
+              featuredImage.localFile.childImageSharp.gatsbyImageData
+            )}
             alt={featuredImage.description}
             style={{ marginBottom: "20px" }}
             loading="eager"

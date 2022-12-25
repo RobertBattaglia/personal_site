@@ -19,11 +19,15 @@ const PostList = () => {
             slug
             featuredImage {
               description
-              gatsbyImageData(
-                layout: CONSTRAINED
-                placeholder: BLURRED
-                height: 100
-              )
+              localFile {
+                childImageSharp {
+                  gatsbyImageData(
+                    layout: CONSTRAINED
+                    placeholder: BLURRED
+                    height: 100
+                  )
+                }
+              }
             }
           }
         }

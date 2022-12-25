@@ -62,7 +62,8 @@ const convertBlogBodyToElements = (raw, assets, posts) => {
       let description;
       for (const asset of assets) {
         if (id === asset.node.contentful_id) {
-          gatsbyImageData = asset.node.gatsbyImageData;
+          gatsbyImageData =
+            asset.node.localFile.childImageSharp.gatsbyImageData;
           description = asset.node.description;
           break;
         }

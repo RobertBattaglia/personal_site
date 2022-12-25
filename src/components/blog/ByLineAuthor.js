@@ -24,7 +24,7 @@ const BylineAuthor = ({ author }) => {
   return (
     <>
       <GatsbyImage
-        image={getImage(author.image.gatsbyImageData)}
+        image={getImage(author.image.localFile.childImageSharp.gatsbyImageData)}
         loading="eager"
         style={{
           margin: "0 10px",
