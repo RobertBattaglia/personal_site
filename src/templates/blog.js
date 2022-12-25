@@ -1,4 +1,6 @@
 import React from "react";
+import { graphql } from "gatsby";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 import styled from "@emotion/styled";
 
@@ -15,50 +17,90 @@ const Container = styled("article")`
   margin: -40px auto;
 `;
 
-export const Head = ({ pageContext }) => (
+export const query = graphql`
+  query ($slug: String) {
+    contentfulBlogPost(slug: { eq: $slug }) {
+      title
+      author {
+        name
+        url
+        image {
+          gatsbyImageData(height: 40, layout: FIXED)
+        }
+      }
+      featuredImage {
+        url
+        gatsbyImageData(placeholder: BLURRED, height: 550)
+      }
+      blogBody {
+        raw
+      }
+      createdAt
+      updatedAt
+      updatedAtFormatted: updatedAt(formatString: "MMM Do, YYYY • h:mma")
+    }
+    allContentfulAsset {
+      edges {
+        node {
+          gatsbyImageData(placeholder: BLURRED)
+          contentful_id
+          description
+        }
+      }
+    }
+  }
+`;
+
+export const Head = ({ data: { contentfulBlogPost } }) => (
   <>
     <meta charSet="utf-8" />
-    <meta name="title" content={pageContext.title} />
+    <meta name="title" content={contentfulBlogPost.title} />
     <meta name="description" content={siteMetadata.description} />
     <meta name="author" content={siteMetadata.author} />
     <meta name="keywords" content={siteMetadata.keywords} />
     <meta
       name="image"
       property="og:image"
-      content={pageContext.featuredImage.file.url}
+      content={contentfulBlogPost.featuredImage.url}
     />
-    <meta name="dateCreated" content={pageContext.createdAt} />
-    <meta name="dateModified" content={pageContext.updated} />
+    <meta name="dateCreated" content={contentfulBlogPost.createdAt} />
+    <meta name="dateModified" content={contentfulBlogPost.updatedAt} />
 
     {/* Twitter Stuff */}
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content={siteMetadata.twitterUsername} />
-    <meta name="twitter:title" content={pageContext.title} />
+    <meta name="twitter:title" content={contentfulBlogPost.title} />
     <meta name="twitter:description" content={siteMetadata.description} />
-    <meta name="twitter:image" content={pageContext.featuredImage.file.url} />
-    <title>{pageContext.title}</title>
+    <meta name="twitter:image" content={contentfulBlogPost.featuredImage.url} />
+    <title>{contentfulBlogPost.title}</title>
     <FontFaces />
   </>
 );
 
-function Blog({ pageContext }) {
-  const {
-    blogBody: { raw: blogBody },
-    assets: {
-      allContentfulAsset: { edges: assets },
-    },
-    posts,
-    updatedFormatted,
-  } = pageContext;
+function Blog({ pageContext, data }) {
+  const { posts } = pageContext;
 
-  const blogBodyElements = convertBlogBodyToElements(blogBody, assets, posts);
+  const {
+    contentfulBlogPost: {
+      title,
+      author,
+      featuredImage,
+      blogBody,
+      updatedAtFormatted,
+    },
+    allContentfulAsset,
+  } = data;
+
+  const blogBodyElements = convertBlogBodyToElements(
+    blogBody.raw,
+    allContentfulAsset.edges,
+    posts
+  );
 
   return (
     <Layout>
       <Container>
-        <h1 style={{ fontSize: "48px", marginTop: "3.375rem" }}>
-          {pageContext.title}
-        </h1>
+        <h1 style={{ fontSize: "48px", marginTop: "3.375rem" }}>{title}</h1>
         <div
           style={{
             display: "flex",
@@ -66,7 +108,7 @@ function Blog({ pageContext }) {
             marginBottom: "20px",
           }}
         >
-          <ByLineAuthor authorName={"Rob"} />
+          <ByLineAuthor author={author} />
           <time
             style={{
               lineHeight: "40px",
@@ -76,14 +118,15 @@ function Blog({ pageContext }) {
               color: "#5b636e",
             }}
           >
-            Last Updated {updatedFormatted} UTC
+            Last Updated {updatedAtFormatted} UTC
           </time>
         </div>
         <div style={{ textAlign: "center" }}>
-          <img
-            src={pageContext.featuredImage.file.url}
-            alt={pageContext.featuredImage.description}
-            style={{ maxHeight: "550px" }}
+          <GatsbyImage
+            image={getImage(featuredImage.gatsbyImageData)}
+            alt={featuredImage.description}
+            style={{ marginBottom: "20px" }}
+            loading="eager"
           />
         </div>
         {blogBodyElements}

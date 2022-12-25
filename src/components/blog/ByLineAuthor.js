@@ -1,24 +1,30 @@
 import React from "react";
-import { Link, useStaticQuery, graphql } from "gatsby";
+import { Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
-const BylineAuthor = ({ authorName }) => {
-  const data = useStaticQuery(graphql`
-    query AuthorImage {
-      s3Object(Key: { eq: "blog:meCropped.jpeg" }) {
-        localFile {
-          childImageSharp {
-            gatsbyImageData(layout: FIXED, height: 40)
-          }
-        }
-      }
+const BylineAuthor = ({ author }) => {
+  const renderLink = (url) => {
+    const style = { lineHeight: "40px", fontWeight: "600" };
+
+    if (url === "https://robertbattaglia.com") {
+      return (
+        <Link to="/" style={style}>
+          {author.name}
+        </Link>
+      );
     }
-  `);
+
+    return (
+      <a href={author.url} style={style}>
+        {author.name}
+      </a>
+    );
+  };
 
   return (
     <>
       <GatsbyImage
-        image={getImage(data.s3Object.localFile)}
+        image={getImage(author.image.gatsbyImageData)}
         loading="eager"
         style={{
           margin: "0 10px",
@@ -26,17 +32,9 @@ const BylineAuthor = ({ authorName }) => {
         imgStyle={{
           borderRadius: "100%",
         }}
-        alt={`${authorName} the Author`}
+        alt={`${author.name} the Author`}
       />
-      <Link
-        to="/"
-        style={{
-          lineHeight: "40px",
-          fontWeight: "600",
-        }}
-      >
-        {authorName}
-      </Link>
+      {renderLink(author.url)}
     </>
   );
 };

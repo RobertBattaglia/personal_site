@@ -1,4 +1,5 @@
 import React from "react";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import styled from "@emotion/styled";
 
 import Post from "components/shared/post";
@@ -57,17 +58,23 @@ const convertBlogBodyToElements = (raw, assets, posts) => {
           sys: { id },
         },
       } = data;
-      let src;
+      let gatsbyImageData;
       let description;
       for (const asset of assets) {
-        if (id === asset.index) {
-          src = asset.node.file.url;
+        if (id === asset.node.contentful_id) {
+          gatsbyImageData = asset.node.gatsbyImageData;
           description = asset.node.description;
           break;
         }
       }
-
-      element = <img key={index} src={src} alt={description} />;
+      element = (
+        <GatsbyImage
+          key={index}
+          image={getImage(gatsbyImageData)}
+          alt={description}
+          loading="lazy"
+        />
+      );
     } else if (nodeType === "entry-hyperlink") {
       const {
         target: {

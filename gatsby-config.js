@@ -18,11 +18,11 @@ module.exports = {
       resolve: "gatsby-plugin-sharp",
       options: {
         defaults: {
-          formats: [`auto`, `webp`],
-          placeholder: `none`,
+          formats: ["auto", "webp"],
+          placeholder: "none",
           quality: 100,
           breakpoints: constants.breakpoints,
-          backgroundColor: `transparent`,
+          backgroundColor: "transparent",
         },
       },
     },
@@ -66,7 +66,7 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-s3`,
+      resolve: "gatsby-source-s3",
       options: {
         aws: {
           accessKeyId: process.env.NETLIFY_AWS_ACCESS_KEY_ID,
