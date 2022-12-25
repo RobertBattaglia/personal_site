@@ -9,14 +9,14 @@ const BylineAuthor = ({ author }) => {
     if (url === "https://robertbattaglia.com") {
       return (
         <Link to="/" style={style}>
-          {author.name}
+          {author.displayName}
         </Link>
       );
     }
 
     return (
       <a href={author.url} style={style}>
-        {author.name}
+        {author.displayName}
       </a>
     );
   };

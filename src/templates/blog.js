@@ -5,9 +5,9 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import styled from "@emotion/styled";
 
 import Layout from "components/layout";
+import BlogPostRichSnippet from "components/blog/BlogPostRichSnippet";
 import ByLineAuthor from "components/blog/ByLineAuthor";
 import Likes from "components/blog/likes";
-import FontFaces from "components/shared/fontFaces";
 import convertBlogBodyToElements from "utils/convertBlogBodyToElements";
 import { siteMetadata } from "../../gatsby-config";
 
@@ -23,10 +23,12 @@ export const query = graphql`
       title
       author {
         name
-        url
+        displayName
         image {
           gatsbyImageData(height: 40, layout: FIXED)
         }
+        url
+        jobTitle
       }
       featuredImage {
         url
@@ -51,7 +53,7 @@ export const query = graphql`
   }
 `;
 
-export const Head = ({ data: { contentfulBlogPost } }) => (
+export const Head = ({ pageContext, data: { contentfulBlogPost } }) => (
   <>
     <meta charSet="utf-8" />
     <meta name="title" content={contentfulBlogPost.title} />
@@ -72,8 +74,19 @@ export const Head = ({ data: { contentfulBlogPost } }) => (
     <meta name="twitter:title" content={contentfulBlogPost.title} />
     <meta name="twitter:description" content={siteMetadata.description} />
     <meta name="twitter:image" content={contentfulBlogPost.featuredImage.url} />
+
     <title>{contentfulBlogPost.title}</title>
-    <FontFaces />
+    <BlogPostRichSnippet
+      author={contentfulBlogPost.author}
+      dateModified={contentfulBlogPost.updatedAt}
+      datePublished={contentfulBlogPost.createdAt}
+      headline={contentfulBlogPost.title}
+      image={contentfulBlogPost.featuredImage.url}
+    />
+    <link
+      rel="canonical"
+      href={`https://${siteMetadata.domain}${pageContext.slug}`}
+    />
   </>
 );
 

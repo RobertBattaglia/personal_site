@@ -4,7 +4,6 @@ import Layout from "components/layout";
 import Intro from "components/home/intro";
 import About from "components/home/about";
 import PostList from "components/home/postList";
-import FontFaces from "components/shared/fontFaces";
 import { siteMetadata } from "../../gatsby-config";
 
 export const Head = () => (
@@ -23,7 +22,7 @@ export const Head = () => (
     <meta name="twitter:description" content={siteMetadata.description} />
     <meta name="twitter:image" content={siteMetadata.image} />
     <title>{siteMetadata.title}</title>
-    <FontFaces />
+    <link rel="canonical" href={`https://${siteMetadata.domain}`} />
   </>
 );
 
