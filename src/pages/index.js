@@ -22,7 +22,7 @@ export const Head = () => (
     <meta name="twitter:description" content={siteMetadata.description} />
     <meta name="twitter:image" content={siteMetadata.image} />
     <title>{siteMetadata.title}</title>
-    <link rel="canonical" href={`https://${siteMetadata.domain}`} />
+    <link rel="canonical" href={siteMetadata.siteUrl} />
   </>
 );
 

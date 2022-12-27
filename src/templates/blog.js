@@ -95,10 +95,7 @@ export const Head = ({ pageContext, data: { contentfulBlogPost } }) => (
       headline={contentfulBlogPost.title}
       image={contentfulBlogPost.featuredImage.url}
     />
-    <link
-      rel="canonical"
-      href={`https://${siteMetadata.domain}${pageContext.slug}`}
-    />
+    <link rel="canonical" href={`${siteMetadata.siteUrl}${pageContext.slug}`} />
   </>
 );
 

@@ -2,16 +2,18 @@ const path = require("path-browserify");
 const constants = require("./src/constants.js");
 
 const domain = "robertbattaglia.com";
+const siteUrl = `https://${domain}`;
 
 module.exports = {
+  trailingSlash: "ignore",
   siteMetadata: {
     title: "Robert Battaglia | Software Engineer",
     description: "Robert Battaglia's Personal Website",
     author: "Robert Battaglia",
     keywords: "Robert,Battaglia,Software Engineer",
-    image: `https://${domain}/ogimage.jpeg`,
+    image: `${siteUrl}/ogimage.jpeg`,
+    siteUrl,
     twitterUsername: "@r0bertoB",
-    domain,
   },
   plugins: [
     {
@@ -82,6 +84,40 @@ module.exports = {
       resolve: "gatsby-plugin-resolve-src",
       options: {
         srcPath: path.resolve(__dirname, "src"),
+      },
+    },
+    {
+      resolve: "gatsby-plugin-sitemap",
+      options: {
+        query: `
+          {
+            allContentfulBlogPost {
+              nodes {
+                slug
+                updatedAt
+              }
+            }
+          }
+        `,
+        resolveSiteUrl: () => siteUrl,
+        resolvePages: (data) => {
+          const {
+            allContentfulBlogPost: { nodes: blogPages },
+          } = data;
+
+          const allPages = [];
+          blogPages.forEach(({ slug, updatedAt }) => {
+            allPages.push({
+              path: `${siteUrl}${slug}`,
+              lastmod: updatedAt,
+            });
+          });
+          return allPages;
+        },
+        serialize: ({ path, lastmod }) => ({
+          url: path,
+          lastmod,
+        }),
       },
     },
   ],
