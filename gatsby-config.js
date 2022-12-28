@@ -10,7 +10,6 @@ module.exports = {
     title: "Robert Battaglia | Software Engineer",
     description: "Robert Battaglia's Personal Website",
     author: "Robert Battaglia",
-    keywords: "Robert,Battaglia,Software Engineer",
     image: `${siteUrl}/ogimage.jpeg`,
     siteUrl,
     twitterUsername: "@r0bertoB",

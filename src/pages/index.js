@@ -12,7 +12,6 @@ export const Head = () => (
     <meta name="title" content={siteMetadata.title} />
     <meta name="description" content={siteMetadata.description} />
     <meta name="author" content={siteMetadata.author} />
-    <meta name="keywords" content={siteMetadata.keywords} />
     <meta name="image" property="og:image" content={siteMetadata.image} />
 
     {/* Twitter Stuff */}

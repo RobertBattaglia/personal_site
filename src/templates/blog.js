@@ -42,6 +42,9 @@ export const query = graphql`
           }
         }
       }
+      descrip {
+        descrip
+      }
       blogBody {
         raw
       }
@@ -69,9 +72,8 @@ export const Head = ({ pageContext, data: { contentfulBlogPost } }) => (
   <>
     <meta charSet="utf-8" />
     <meta name="title" content={contentfulBlogPost.title} />
-    <meta name="description" content={siteMetadata.description} />
-    <meta name="author" content={siteMetadata.author} />
-    <meta name="keywords" content={siteMetadata.keywords} />
+    <meta name="description" content={contentfulBlogPost.descrip.descrip} />
+    <meta name="author" content={contentfulBlogPost.author.name} />
     <meta
       name="image"
       property="og:image"
@@ -84,7 +86,7 @@ export const Head = ({ pageContext, data: { contentfulBlogPost } }) => (
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content={siteMetadata.twitterUsername} />
     <meta name="twitter:title" content={contentfulBlogPost.title} />
-    <meta name="twitter:description" content={siteMetadata.description} />
+    <meta name="twitter:description" content={contentfulBlogPost.descrip.descrip} />
     <meta name="twitter:image" content={contentfulBlogPost.featuredImage.url} />
 
     <title>{contentfulBlogPost.title}</title>
