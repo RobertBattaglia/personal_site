@@ -49,7 +49,7 @@ const About = () => (
     </P>
     <IndeedLogo />
     <P>
-      I am currently a software engineer on the Job Seeker Growth team at{" "}
+      I am currently a software engineer on the Match Experience team at{" "}
       <a href="https://www.indeed.com">Indeed</a>.
     </P>
   </Wrapper>
