@@ -14,7 +14,8 @@ export const Head = () => (
     <meta name="author" content={siteMetadata.author} />
     <meta name="image" property="og:image" content={siteMetadata.image} />
 
-    {/* Twitter Stuff */}
+    {/* X Stuff */}
+    {/* It looks like it still uses "twitter" not "X" for meta data */}
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content={siteMetadata.twitterUsername} />
     <meta name="twitter:title" content={siteMetadata.title} />

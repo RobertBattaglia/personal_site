@@ -1,7 +1,8 @@
 import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import styled from "@emotion/styled";
-import { FaGithub, FaTwitter, FaLinkedin, FaKeybase } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaKeybase } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
 import { theme } from "../../constants";
 
@@ -47,12 +48,12 @@ const Footer = () => {
     <Wrapper>
       <Icons>
         <A
-          href="https://twitter.com/r0bertoB"
+          href="https://x.com/r0bertoB"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Rob's Twitter"
         >
-          <FaTwitter size={30} />
+          <FaXTwitter size={30} />
         </A>
         <A
           href="https://github.com/RobertBattaglia"
