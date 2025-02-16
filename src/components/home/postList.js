@@ -41,7 +41,7 @@ const PostList = () => {
 
   return (
     <div>
-      <H2>Posts</H2>
+      <H2>Blog Posts</H2>
       {edges && (
         <>
           {edges.map(({ node: data }, idx) => (

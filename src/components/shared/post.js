@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import styled from "@emotion/styled";
+import { mediaQueries } from "../../constants";
 
 import { theme } from "../../constants";
 
@@ -13,9 +14,13 @@ const A = styled(Link)`
   border: 3px solid ${theme.secondaryColor};
   background-color: lightgrey;
   padding: 15px;
-  margin: 5% 10%;
+  margin: 1rem;
   list-style: none;
   gap: 10px;
+
+  ${mediaQueries.tablet} {
+    margin: 1rem 10rem;
+  }
 
   :hover {
     border: 3px solid ${theme.primaryColor};
