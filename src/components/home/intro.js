@@ -85,10 +85,18 @@ function Intro({ showingGlasses }) {
     animation-duration: 2000ms;
   `;
 
-  useEffect(() => {
+  const updateImageBounding = () => {
     const position =
       document.querySelector("#intro-me")?.getBoundingClientRect() || {};
     setImageBounding(position);
+  };
+
+  useEffect(() => {
+    updateImageBounding();
+    window.addEventListener("resize", updateImageBounding);
+    return () => {
+      window.removeEventListener("resize", updateImageBounding);
+    };
   }, [showingGlasses]);
 
   return (
