@@ -56,7 +56,17 @@ typings/
 
 # gatsby files
 .cache/
-public
+
+# next.js
+.next/
+out/
+build
+.vercel
+
+# Keep public directory for Next.js static assets
+# but ignore gatsby-generated files
+public/page-data
+public/static
 
 # Mac files
 .DS_Store

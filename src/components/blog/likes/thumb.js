@@ -1,8 +1,6 @@
 import React from "react";
 import useSound from "use-sound";
 import svg from "assets/svgs/thumb.svg";
-import soundIncrement from "assets/sounds/increment.wav";
-import soundIncrementFinal from "assets/sounds/incrementFinal.wav";
 import styled from "@emotion/styled";
 import { mediaQueries } from "../../../constants";
 
@@ -19,8 +17,8 @@ const SVG = styled(svg)`
 `;
 
 const Thumb = ({ myLikes, fill, dispatch }) => {
-  const [playIncrement] = useSound(soundIncrement);
-  const [playIncrementFinal] = useSound(soundIncrementFinal);
+  const [playIncrement] = useSound('/increment.wav');
+  const [playIncrementFinal] = useSound('/incrementFinal.wav');
 
   const handleClick = () => {
     if (myLikes < 8) {

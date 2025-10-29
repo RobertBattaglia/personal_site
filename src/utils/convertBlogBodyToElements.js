@@ -1,5 +1,5 @@
 import React from "react";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import Image from "next/image";
 import styled from "@emotion/styled";
 
 import Post from "components/shared/post";
@@ -58,24 +58,31 @@ const convertBlogBodyToElements = (raw, assets, posts) => {
           sys: { id },
         },
       } = data;
-      let gatsbyImageData;
+      let assetUrl;
       let description;
+      let width = 900;
+      let height = 500;
       for (const asset of assets) {
-        if (id === asset.node.contentful_id) {
-          gatsbyImageData =
-            asset.node.localFile.childImageSharp.gatsbyImageData;
-          description = asset.node.description;
+        if (id === asset.contentful_id) {
+          assetUrl = asset.url;
+          description = asset.description;
+          width = asset.width || 900;
+          height = asset.height || 500;
           break;
         }
       }
-      element = (
-        <GatsbyImage
-          key={index}
-          image={getImage(gatsbyImageData)}
-          alt={description}
-          loading="lazy"
-        />
-      );
+      element = assetUrl ? (
+        <div key={index} style={{ display: 'flex', justifyContent: 'center', margin: '20px 0' }}>
+          <Image
+            src={assetUrl}
+            alt={description || ''}
+            width={width}
+            height={height}
+            loading="lazy"
+            style={{ maxWidth: '100%', height: 'auto' }}
+          />
+        </div>
+      ) : null;
     } else if (nodeType === "entry-hyperlink") {
       const {
         target: {
@@ -84,14 +91,23 @@ const convertBlogBodyToElements = (raw, assets, posts) => {
       } = data;
       let postData;
 
+      console.log('Looking for embedded post with ID:', id);
+      console.log('Available posts:', posts.map(p => ({ id: p.contentful_id, title: p.title, hasSlug: !!p.slug, hasFeaturedImage: !!p.featuredImage })));
+
       for (const post of posts) {
         if (id === post.contentful_id) {
           postData = { ...post };
+          console.log('Found matching post:', { title: postData.title, slug: postData.slug, hasImage: !!postData.featuredImage });
           break;
         }
       }
 
-      element = <Post key={index} data={postData} />;
+      if (!postData) {
+        console.log('No matching post found for ID:', id);
+      }
+
+      // Only render if postData was found
+      element = postData ? <Post key={index} data={postData} /> : null;
     } else if (nodeType === "text") {
       const parts = value.split("`");
       if (parts.length < 3) {

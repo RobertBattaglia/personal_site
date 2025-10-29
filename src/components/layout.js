@@ -6,8 +6,6 @@ import Header from "./shared/header";
 import Footer from "./shared/footer";
 import Contact from "./shared/contact";
 
-import "../assets/css/font-faces.css";
-
 const Container = styled("div")`
   display: flex;
   flex-direction: column;

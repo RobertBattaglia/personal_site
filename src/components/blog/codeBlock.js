@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { PrismAsyncLight as SyntaxHighlighter } from "react-syntax-highlighter";
-import { base16AteliersulphurpoolLight } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { base16AteliersulphurpoolLight } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import styled from "@emotion/styled";
 
 const YoutubeContainer = styled("div")`

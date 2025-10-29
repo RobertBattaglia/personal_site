@@ -1,10 +1,10 @@
 import React from "react";
-import { graphql, useStaticQuery } from "gatsby";
 import styled from "@emotion/styled";
 import { FaGithub, FaLinkedin, FaKeybase } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
 import { theme } from "../../constants";
+import { siteMetadata } from "../../../lib/config";
 
 const Wrapper = styled("footer")`
   padding: 10rem 0 3rem 0;
@@ -35,15 +35,6 @@ const P = styled("p")`
 `;
 
 const Footer = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          author
-        }
-      }
-    }
-  `);
   return (
     <Wrapper>
       <Icons>
@@ -81,14 +72,14 @@ const Footer = () => {
         </A>
       </Icons>
       <P>
-        {`${data.site.siteMetadata.author} © ${new Date().getFullYear()}`} w/ ❤️
+        {`${siteMetadata.author} © ${new Date().getFullYear()}`} w/ ❤️
         &{" "}
         <A
-          href="https://www.gatsbyjs.org/"
+          href="https://nextjs.org/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Gatsby
+          Next.js
         </A>
         {" | "}
         <A

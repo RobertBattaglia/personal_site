@@ -1,11 +1,10 @@
 import React from "react";
-import { Link } from "gatsby";
+import Link from "next/link";
 import useSound from "use-sound";
 import styled from "@emotion/styled";
 import { keyframes } from "@emotion/react";
 
 import Logo from "assets/svgs/logo.svg";
-import typing from "assets/sounds/typing.m4a";
 
 import { theme } from "../../constants";
 
@@ -75,7 +74,7 @@ export const Button = styled("button")`
 `;
 
 function Header({ page, showingGlasses, setShowingGlasses }) {
-  const [playTyping, { stop }] = useSound(typing);
+  const [playTyping, { stop }] = useSound('/typing.m4a');
 
   const enterText = (node) => {
     const messages = [

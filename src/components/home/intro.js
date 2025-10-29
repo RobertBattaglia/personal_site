@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { StaticImage } from "gatsby-plugin-image";
+import Image from "next/image";
 import styled from "@emotion/styled";
 import { css } from "@emotion/css";
 import { keyframes } from "@emotion/react";
@@ -39,6 +39,11 @@ const Wrapper = styled("section")`
   position: relative;
   text-align: center;
   padding: 0 2rem;
+
+  /* Container for absolute positioning of glasses */
+  & > div {
+    position: relative;
+  }
 `;
 
 const Title = styled("h1")`
@@ -78,11 +83,12 @@ function Intro({ showingGlasses }) {
 `;
   const glassesCss = css`
     position: absolute !important;
-    top: ${imageBounding.top - 29}px;
-    right: ${imageBounding.right - 140}px;
-    transform: rotate(-5deg);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-5deg);
     animation-name: ${glassesAnimation};
     animation-duration: 2000ms;
+    pointer-events: none;
   `;
 
   const updateImageBounding = () => {
@@ -103,28 +109,29 @@ function Intro({ showingGlasses }) {
     <Wrapper id="intro">
       <Title>Software Engineer</Title>
       <SubTitle>I solve problems with code</SubTitle>
-      <StaticImage
-        id="intro-me"
-        src="../../assets/images/me.jpeg"
-        alt="Rob Wearing a Sweater in a backyard, with a fence in the background"
-        loading="eager"
-        layout="fixed"
-        width={250}
-        imgStyle={{
-          borderRadius: "50%",
-        }}
-      />
-      {showingGlasses ? (
-        <StaticImage
-          src="../../assets/images/thug-life-glasses.png"
-          alt="thug life sunglasses"
-          loading="lazy"
-          layout="fixed"
-          width={50}
-          placeholder="blurred"
-          className={glassesCss}
+      <div style={{ position: "relative", display: "inline-block" }}>
+        <Image
+          id="intro-me"
+          src="/me.jpeg"
+          alt="Rob Wearing a Sweater in a backyard, with a fence in the background"
+          priority
+          width={250}
+          height={250}
+          style={{
+            borderRadius: "50%",
+            objectFit: "cover",
+          }}
         />
-      ) : null}
+        {showingGlasses ? (
+          <Image
+            src="/thug-life-glasses.png"
+            alt="thug life sunglasses"
+            width={80}
+            height={80}
+            className={glassesCss}
+          />
+        ) : null}
+      </div>
     </Wrapper>
   );
 }

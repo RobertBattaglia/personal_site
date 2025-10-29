@@ -1,6 +1,6 @@
 import React from "react";
-import { Link } from "gatsby";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import Link from "next/link";
+import Image from "next/image";
 
 const BylineAuthor = ({ author }) => {
   const renderLink = (url) => {
@@ -8,7 +8,7 @@ const BylineAuthor = ({ author }) => {
 
     if (url === "https://robertbattaglia.com") {
       return (
-        <Link to="/" style={style}>
+        <Link href="/" style={style}>
           {author.displayName}
         </Link>
       );
@@ -23,17 +23,19 @@ const BylineAuthor = ({ author }) => {
 
   return (
     <>
-      <GatsbyImage
-        image={getImage(author.image.localFile.childImageSharp.gatsbyImageData)}
-        loading="eager"
-        style={{
-          margin: "0 10px",
-        }}
-        imgStyle={{
-          borderRadius: "100%",
-        }}
-        alt={`${author.name} the Author`}
-      />
+      {author.image && (
+        <Image
+          src={author.image.url}
+          alt={`${author.name} the Author`}
+          width={40}
+          height={40}
+          priority
+          style={{
+            margin: "0 10px",
+            borderRadius: "100%",
+          }}
+        />
+      )}
       {renderLink(author.url)}
     </>
   );
