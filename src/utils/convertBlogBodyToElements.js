@@ -47,8 +47,10 @@ const convertBlogBodyToElements = (raw, assets, posts) => {
     } else if (nodeType === "hr") {
       element = <hr key={index} />;
     } else if (nodeType === "hyperlink") {
+      // Defensive check: ensure data and data.uri exist
+      const href = data?.uri || '#';
       element = (
-        <a key={index} href={data.uri}>
+        <a key={index} href={href}>
           {mappedContent}
         </a>
       );
