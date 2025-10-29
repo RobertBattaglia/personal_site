@@ -55,6 +55,10 @@ const convertBlogBodyToElements = (raw, assets, posts) => {
         </a>
       );
     } else if (nodeType === "embedded-asset-block") {
+      // Defensive check: ensure data structure exists
+      if (!data?.target?.sys?.id) {
+        return null;
+      }
       const {
         target: {
           sys: { id },
@@ -86,6 +90,10 @@ const convertBlogBodyToElements = (raw, assets, posts) => {
         </div>
       ) : null;
     } else if (nodeType === "entry-hyperlink") {
+      // Defensive check: ensure data structure exists
+      if (!data?.target?.sys?.id) {
+        return null;
+      }
       const {
         target: {
           sys: { id },
