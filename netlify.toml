@@ -2,3 +2,7 @@
   from="/api/*"
   to="/.netlify/functions/:splat"
   status=200
+[[redirects]]
+  from="/guest"
+  to="/wifi-guest-qrcode.jpg"
+  status=200
